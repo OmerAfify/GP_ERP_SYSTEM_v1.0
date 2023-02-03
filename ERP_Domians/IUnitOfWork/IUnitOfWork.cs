@@ -13,6 +13,8 @@ namespace Domains.Interfaces.IUnitOfWork
         IGenericRepository<TbProduct> Product { get; }
         IGenericRepository<TbCategory> Category { get; }
         IGenericRepository<TbRawMaterial> RawMaterial { get; }
+        IGenericRepository<TbSupplier> Supplier { get; }
+        IGenericRepository<TbSupplyingMaterialDetail> SupplingMaterialDetails { get; }
         
 
         public Task Save();

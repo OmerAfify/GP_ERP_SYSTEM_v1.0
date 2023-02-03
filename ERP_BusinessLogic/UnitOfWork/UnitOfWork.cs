@@ -15,6 +15,8 @@ namespace BusinessLogic.UnitOfWork
         public IGenericRepository<TbProduct> Product { get; private set; }
         public IGenericRepository<TbCategory> Category { get; private set; }
         public IGenericRepository<TbRawMaterial> RawMaterial { get; private set; }
+        public IGenericRepository<TbSupplier> Supplier { get; private set; }
+        public IGenericRepository<TbSupplyingMaterialDetail> SupplingMaterialDetails { get; private set; }
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -23,6 +25,9 @@ namespace BusinessLogic.UnitOfWork
             Product = new GenericRepository<TbProduct>(_context);
             Category = new GenericRepository<TbCategory>(_context);
             RawMaterial= new GenericRepository<TbRawMaterial>(_context);
+            Supplier= new GenericRepository<TbSupplier>(_context);
+            SupplingMaterialDetails = new GenericRepository<TbSupplyingMaterialDetail>(_context);
+
         }
 
         public void Dispose()

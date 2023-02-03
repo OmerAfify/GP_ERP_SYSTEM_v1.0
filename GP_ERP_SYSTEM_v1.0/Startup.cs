@@ -31,7 +31,9 @@ namespace GP_ERP_SYSTEM_v1._0
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            //Controllers + Self referencing loop handling
+            services.AddControllers().AddNewtonsoftJson(opt=>
+            opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
            
             //swagger settings
             services.AddSwaggerGen(c =>
