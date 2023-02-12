@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Domains.Interfaces.IUnitOfWork;
-using ERP_BusinessLogic.Models;
+using ERP_Domians.Models;
 using GP_ERP_SYSTEM_v1._0.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
