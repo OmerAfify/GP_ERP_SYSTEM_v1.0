@@ -134,25 +134,21 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         }
 
 
-        [HttpPost]
-        public async Task<IActionResult> AddSupplingMaterialToSupplier(int supplierId, [FromBody] List<SupplyingMaterialDetailsDTO> supplingMaterialDetailsDTO)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
+        [HttpGet("{supplierId}")]
+        public async Task<IActionResult> GetSuppliersMaterials(int supplierId)
+        {
             try
             {
-                var supplyingMaterials = _mapper.Map<List<TbSupplyingMaterialDetail>>(supplingMaterialDetailsDTO);
+                var supplier = await _unitOfWork.Supplier.GetByIdAsync(supplierId);
 
-                supplyingMaterials.ForEach(s => s.SupplierId = supplierId);
+                if (supplier == null)
+                    return BadRequest("supplier Id is not found");
 
-               _unitOfWork.SupplingMaterialDetails.InsertRangeAsync(supplyingMaterials);
-               
-                await _unitOfWork.Save();
+                var supplyingMaterials = await _unitOfWork.SupplingMaterialDetails.FindRangeAsync(m => m.SupplierId == supplierId);
+                return Ok(_mapper.Map<List<SupplyingMaterialDetailDTO>>(supplyingMaterials));
 
-                return NoContent();
+
             }
             catch (Exception ex)
             {
@@ -162,29 +158,54 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         }
 
 
-        [HttpGet("{supplierId}")]  
-            public async Task<IActionResult> GetSuppliersMaterials(int supplierId)
+        [HttpPost]
+          public async Task<IActionResult> AddSupplyingMaterialToSupplier(int supplierId,[FromBody] List<SupplyingMaterialDetailDTO> supplyingMaterialDetailsDTO)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.Select(x => x.Value.Errors).Where(y => y.Count > 0).ToList());
+          
             try
             {
                 var supplier = await _unitOfWork.Supplier.GetByIdAsync(supplierId);
 
-                if (supplier==null)
-                    return BadRequest("supplier Id is not found");
+                if (supplier == null)
+                    return BadRequest("Supplier Id is not found");
 
-                var supplyingMaterials = await _unitOfWork.SupplingMaterialDetails.FindRangeAsync(m => m.SupplierId == supplierId);
-                return Ok(_mapper.Map<List<SupplyingMaterialDetailsDTO>>(supplyingMaterials) );
+                var SendedRawMaterialsIdsList = supplyingMaterialDetailsDTO.Select(rm => rm.MaterialId).ToList();
+
+                var StoredRawMaterialsIdsList = (await _unitOfWork.RawMaterial.GetAllAsync()).Select(i => i.MaterialId).ToList();
+
+                var InvalidRawMaterialsIdsList = SendedRawMaterialsIdsList.
+                          Where(sended => !StoredRawMaterialsIdsList.Any(stored => stored==sended )).ToList();
+
+                if (InvalidRawMaterialsIdsList.Count > 0)
+                {
+                    return BadRequest("The following Materials ids are invalid: " + String.Join(", ", InvalidRawMaterialsIdsList)+" ." );
+    
+                }
 
 
-            }
-            catch (Exception ex)
+                var supplyingMaterialsDetails = _mapper.Map< List<TbSupplyingMaterialDetail> >(supplyingMaterialDetailsDTO);
+
+                supplyingMaterialsDetails.ForEach(s => s.SupplierId = supplierId);
+
+                 _unitOfWork.SupplingMaterialDetails.InsertRangeAsync(supplyingMaterialsDetails);
+
+                await _unitOfWork.Save();
+
+                return NoContent();
+
+            }catch(Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+                return Problem("An error occured while processing the request. " + ex.Message);
             }
 
-         }
 
-        // AddSupplingMaterialToSupplier(supplierId, List<supplingMaterialDetaisl>) 
+        } 
+      
+        
+        
+        
         // UpdateSupplingMaterialToSupplier(supplierId, List<supplingMaterialDetaisl>)
         // DeleteSupplingMaterialToSupplier(supplierId, List<supplingMaterialDetaisl>)
 

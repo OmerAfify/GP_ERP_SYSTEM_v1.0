@@ -27,7 +27,7 @@ namespace GP_ERP_SYSTEM_v1._0.Helpers.AutomapperProfile
             CreateMap<TbSupplier, AddSupplierDTO>().ReverseMap();
             CreateMap<TbSupplier, SupplierDTO>().ReverseMap();
 
-            CreateMap<TbSupplyingMaterialDetail, SupplyingMaterialDetailsDTO>().ReverseMap();
+            CreateMap<TbSupplyingMaterialDetail, SupplyingMaterialDetailDTO>().ReverseMap();
             
 
         }
