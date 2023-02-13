@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "GP_ERP_SYSTEM_v1.0_DbProjectCompare", "GP_ERP_SYSTEM_v1.0_DbProjectCompare.sqlproj", "{B730ECC7-77AF-4F0D-86B0-77301B0F75D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B730ECC7-77AF-4F0D-86B0-77301B0F75D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B730ECC7-77AF-4F0D-86B0-77301B0F75D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B730ECC7-77AF-4F0D-86B0-77301B0F75D6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B730ECC7-77AF-4F0D-86B0-77301B0F75D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B730ECC7-77AF-4F0D-86B0-77301B0F75D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B730ECC7-77AF-4F0D-86B0-77301B0F75D6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E1495276-5F95-4371-BB41-158965832C61}
+	EndGlobalSection
+EndGlobal

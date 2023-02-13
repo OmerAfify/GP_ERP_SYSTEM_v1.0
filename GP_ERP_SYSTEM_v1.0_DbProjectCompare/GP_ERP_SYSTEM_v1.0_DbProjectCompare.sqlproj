@@ -56,5 +56,48 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Functions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\TB_VisualReport.sql" />
+    <Build Include="dbo\Tables\TB_ToDoList.sql" />
+    <Build Include="dbo\Tables\TB_Task.sql" />
+    <Build Include="dbo\Tables\TB_Survey.sql" />
+    <Build Include="dbo\Tables\TB_SupplyOrderDetails.sql" />
+    <Build Include="dbo\Tables\TB_SupplyOrder.sql" />
+    <Build Include="dbo\Tables\TB_SupplyingMaterialDetails.sql" />
+    <Build Include="dbo\Tables\TB_Supplier.sql" />
+    <Build Include="dbo\Tables\TB_Reporter.sql" />
+    <Build Include="dbo\Tables\TB_Recuirement.sql" />
+    <Build Include="dbo\Tables\TB_RawMaterialsInventory.sql" />
+    <Build Include="dbo\Tables\TB_RawMaterial.sql" />
+    <Build Include="dbo\Tables\TB_Question.sql" />
+    <Build Include="dbo\Tables\TB_Product.sql" />
+    <Build Include="dbo\Tables\TB_ManufacturingOrderDetails.sql" />
+    <Build Include="dbo\Tables\TB_ManufacturingOrder.sql" />
+    <Build Include="dbo\Tables\TB_InterviewDetails.sql" />
+    <Build Include="dbo\Tables\TB_HRManagerDetails.sql" />
+    <Build Include="dbo\Tables\TB_FMS_TemplateAccounts.sql" />
+    <Build Include="dbo\Tables\TB_FMS_StatementTemplate.sql" />
+    <Build Include="dbo\Tables\TB_FMS_StatementAccounts.sql" />
+    <Build Include="dbo\Tables\TB_FMS_Statement.sql" />
+    <Build Include="dbo\Tables\TB_FMS_JournalEntry.sql" />
+    <Build Include="dbo\Tables\TB_FMS_Category.sql" />
+    <Build Include="dbo\Tables\TB_FMS_Account.sql" />
+    <Build Include="dbo\Tables\TB_FMS_AccCat.sql" />
+    <Build Include="dbo\Tables\TB_FinishedProductsInventory.sql" />
+    <Build Include="dbo\Tables\TB_EmployeeTrainning.sql" />
+    <Build Include="dbo\Tables\TB_EmployeeTaskDetails.sql" />
+    <Build Include="dbo\Tables\TB_EmployeeDetails.sql" />
+    <Build Include="dbo\Tables\TB_Distributor.sql" />
+    <Build Include="dbo\Tables\TB_DistributionOrderDetails.sql" />
+    <Build Include="dbo\Tables\TB_DistributionOrder.sql" />
+    <Build Include="dbo\Tables\TB_Customer.sql" />
+    <Build Include="dbo\Tables\TB_Category.sql" />
+    <Build Include="dbo\Tables\TB_Adminstrator.sql" />
+    <Build Include="dbo\Tables\__EFMigrationsHistory.sql" />
+    <Build Include="dbo\Functions\accountTotal.sql" />
   </ItemGroup>
 </Project>
