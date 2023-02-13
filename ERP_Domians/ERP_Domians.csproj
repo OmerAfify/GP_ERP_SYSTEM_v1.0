@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="IBusinessRepository\" />
     <Folder Include="Models\" />
   </ItemGroup>
 

@@ -4,17 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domains.Interfaces.IGenericRepository;
+using ERP_Domians.IBusinessRepository;
 using ERP_Domians.Models;
 
 namespace Domains.Interfaces.IUnitOfWork
 {
     public interface IUnitOfWork : IDisposable
     {
+        //SCM
         IGenericRepository<TbProduct> Product { get; }
         IGenericRepository<TbCategory> Category { get; }
         IGenericRepository<TbRawMaterial> RawMaterial { get; }
         IGenericRepository<TbSupplier> Supplier { get; }
         IGenericRepository<TbSupplyingMaterialDetail> SupplingMaterialDetails { get; }
+        IProductsInventoryRepository ProductsInventory { get; }
+      
+        
+        //FMS
         IGenericRepository<TbFmsCategory> FmsCategory { get; }
         IGenericRepository<TbFmsAccount> FmsAccount { get; }
         IGenericRepository<TbFmsStatement> FmsStatement { get; }

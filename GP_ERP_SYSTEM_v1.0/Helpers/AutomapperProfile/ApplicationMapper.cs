@@ -12,6 +12,8 @@ namespace GP_ERP_SYSTEM_v1._0.Helpers.AutomapperProfile
     {
         public ApplicationMapper()
         {
+
+            //SCM DTOs
             CreateMap<TbProduct, AddProductDTO>().ReverseMap();
 
             CreateMap<TbProduct, ProductDTO>()
@@ -28,8 +30,21 @@ namespace GP_ERP_SYSTEM_v1._0.Helpers.AutomapperProfile
             CreateMap<TbSupplier, SupplierDTO>().ReverseMap();
 
 
+
+            CreateMap<TbFinishedProductsInventory, AddProductInventoryDTO>().ReverseMap();
+          
+            CreateMap<TbFinishedProductsInventory, ProductInventoryDTO>()
+            .ForMember(d => d.ProductName, opt => opt.MapFrom(s => s.Product.ProductName))
+            .ForMember(d=>d.CategoryId, opt=>opt.MapFrom(s=>s.Product.Category.CategoryId))
+            .ForMember(d=>d.CategoryName, opt=>opt.MapFrom(s=>s.Product.Category.CategoryName)).ReverseMap();
+
+
+
+
+
             CreateMap<TbSupplyingMaterialDetail, SupplyingMaterialDetailDTO>().ReverseMap();
 
+            //FMS DTOs
         
             CreateMap<TbFmsAccount, AddFmsAccountDTO>().ReverseMap();
             CreateMap<TbFmsAccount, FmsAccountDTO>().ReverseMap();
