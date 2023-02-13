@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domains.Interfaces.IGenericRepository;
-using ERP_BusinessLogic.Models;
+using ERP_Domians.Models;
 
 namespace Domains.Interfaces.IUnitOfWork
 {
@@ -15,7 +15,14 @@ namespace Domains.Interfaces.IUnitOfWork
         IGenericRepository<TbRawMaterial> RawMaterial { get; }
         IGenericRepository<TbSupplier> Supplier { get; }
         IGenericRepository<TbSupplyingMaterialDetail> SupplingMaterialDetails { get; }
-        
+        IGenericRepository<TbFmsCategory> FmsCategory { get; }
+        IGenericRepository<TbFmsAccount> FmsAccount { get; }
+        IGenericRepository<TbFmsStatement> FmsStatement { get; }
+        IGenericRepository<TbFmsStatementTemplate> FmsStatementTemplate { get; }
+        IGenericRepository<TbFmsStatementAccount> FmsStatementAccount { get; }
+        IGenericRepository<TbFmsTemplateAccount> FmsTemplateAccount { get; }
+        IGenericRepository<TbFmsJournalEntry> FmsJournalEntry { get; }
+        IGenericRepository<TbFmsAccCat> FmsAccCat { get; }
 
         public Task Save();
     }

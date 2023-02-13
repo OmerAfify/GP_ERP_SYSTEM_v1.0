@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace ERP_BusinessLogic.Models
+namespace ERP_Domians.Models
 {
     public partial class TbManufacturingOrderDetail
     {
