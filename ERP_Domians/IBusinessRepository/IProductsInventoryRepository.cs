@@ -11,6 +11,7 @@ namespace ERP_Domians.IBusinessRepository
     public interface IProductsInventoryRepository : IGenericRepository<TbFinishedProductsInventory>
     {
         public Task<IEnumerable<TbFinishedProductsInventory>> GetAllProductsInventoryWithProductAndCategoryDetails();
+        public Task<TbFinishedProductsInventory> GetProductInventoryWithProductAndCategoryDetails(int id);
        
     }
 }

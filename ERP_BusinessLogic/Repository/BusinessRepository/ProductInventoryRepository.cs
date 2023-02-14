@@ -25,5 +25,11 @@ namespace ERP_BusinessLogic.Repository.BusinessRepository
             
           return  await _context.Set<TbFinishedProductsInventory>().Include(p => p.Product).ThenInclude(c => c.Category).ToListAsync();
         }
+        
+        public  async Task<TbFinishedProductsInventory> GetProductInventoryWithProductAndCategoryDetails(int id)
+        {
+            
+          return  await _context.Set<TbFinishedProductsInventory>().Where(p=>p.ProductId==id).Include(p => p.Product).ThenInclude(c => c.Category).FirstOrDefaultAsync();
+        }
     }
 }

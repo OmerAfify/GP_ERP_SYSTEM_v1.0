@@ -144,56 +144,6 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
 
 
-        [HttpGet]
-        public async Task<IActionResult> GetAllProductsInInventory()
-        {
-            try
-            {
-                var productsInventory = await _unitOfWork.ProductsInventory.GetAllProductsInventoryWithProductAndCategoryDetails();
-
-             
-                return Ok(_mapper.Map<List<ProductInventoryDTO>>(productsInventory));
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
-            }
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> AddAProductToInventory(AddProductInventoryDTO addProductInventoryDTO)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            try
-            {
-
-                var Products = await _unitOfWork.Product.GetAllAsync();
-                var ValidProductsIds = Products.Select(m => m.ProductId);
-
-                if (!ValidProductsIds.Contains(addProductInventoryDTO.ProductId))
-                    return BadRequest("Invalid ProductId is being selected.");
-
-
-                if (await _unitOfWork.ProductsInventory.GetByIdAsync(addProductInventoryDTO.ProductId)!=null)
-                    return BadRequest("ProductId is already included.");
-
- 
-                _unitOfWork.ProductsInventory.InsertAsync(_mapper.Map<TbFinishedProductsInventory>(addProductInventoryDTO));
-                await _unitOfWork.Save();
-
-                return NoContent();
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
-            }
-        }
-
-
         //private helper methods 
 
         private bool ValidateCategoryId(int catId)
