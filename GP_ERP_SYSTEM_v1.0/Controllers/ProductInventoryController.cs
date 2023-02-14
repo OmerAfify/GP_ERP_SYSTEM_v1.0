@@ -16,8 +16,8 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
     public class ProductInventoryController : ControllerBase
     {
 
-        private IUnitOfWork _unitOfWork;
-        private IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
         public ProductInventoryController(IUnitOfWork unitOfWork, IMapper mapper)
         {
@@ -29,7 +29,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProductInInventoryById(int id)
         {
-            
+
             try
             {
                 var productInventory = await _unitOfWork.ProductsInventory
@@ -54,7 +54,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             {
                 var productsInventory = await _unitOfWork.ProductsInventory.GetAllProductsInventoryWithProductAndCategoryDetails();
 
-             
+
                 return Ok(_mapper.Map<List<ProductInventoryDTO>>(productsInventory));
             }
             catch (Exception ex)
@@ -75,17 +75,17 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             try
             {
 
-                var Products = await _unitOfWork.Product.GetAllAsync();
-                var ValidProductsIds = Products.Select(m => m.ProductId);
+                var Product = await _unitOfWork.Product.GetByIdAsync(addProductInventoryDTO.ProductId);
 
-                if (!ValidProductsIds.Contains(addProductInventoryDTO.ProductId))
-                    return BadRequest("Invalid ProductId is being selected.");
+                if (Product == null)
+                    return BadRequest("Invalid ProductId is sent.");
+
+                var ProductInventory = await _unitOfWork.ProductsInventory.GetByIdAsync(addProductInventoryDTO.ProductId);
+
+                if (ProductInventory != null)
+                    return BadRequest("Product is already included in the inventory.");
 
 
-                if (await _unitOfWork.ProductsInventory.GetByIdAsync(addProductInventoryDTO.ProductId)!=null)
-                    return BadRequest("ProductId is already included.");
-
- 
                 _unitOfWork.ProductsInventory.InsertAsync(_mapper.Map<TbFinishedProductsInventory>(addProductInventoryDTO));
                 await _unitOfWork.Save();
 
@@ -103,8 +103,8 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         {
             if (!ModelState.IsValid || addProductInventoryDTO.ProductId < 1)
             {
-               return BadRequest(ModelState.Select(x => x.Value.Errors).Where(y => y.Count > 0).ToList());
-                
+                return BadRequest(ModelState.Select(x => x.Value.Errors).Where(y => y.Count > 0).ToList());
+
             }
 
             try
@@ -112,7 +112,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                 var productInInventoryToUpdate = await _unitOfWork.ProductsInventory.GetByIdAsync(addProductInventoryDTO.ProductId);
 
                 if (productInInventoryToUpdate == null)
-                    return BadRequest("Submitted productId is invalid.");
+                    return BadRequest("The submitted productId is invalid.");
 
 
                 _mapper.Map(addProductInventoryDTO, productInInventoryToUpdate);
@@ -129,7 +129,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         }
 
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProductFromInventory(int id)
         {
             if (id < 1)
@@ -155,10 +155,6 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
         }
 
-
-
-
-      
 
 
     }

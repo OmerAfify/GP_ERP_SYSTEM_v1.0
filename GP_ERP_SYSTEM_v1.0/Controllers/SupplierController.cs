@@ -318,7 +318,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
 
         //helper Methods
-        private List<int> GetInvalidRawMaterialsIdsSend(List<int> SendedRawMaterialsIdsList, List<int> StoredRawMaterialsIdsList)
+        private static List<int> GetInvalidRawMaterialsIdsSend(List<int> SendedRawMaterialsIdsList, List<int> StoredRawMaterialsIdsList)
         {
         
             var InvalidRawMaterialsIdsList = SendedRawMaterialsIdsList.

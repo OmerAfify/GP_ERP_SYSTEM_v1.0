@@ -39,6 +39,11 @@ namespace GP_ERP_SYSTEM_v1._0.Helpers.AutomapperProfile
             .ForMember(d=>d.CategoryName, opt=>opt.MapFrom(s=>s.Product.Category.CategoryName)).ReverseMap();
 
 
+            CreateMap<TbRawMaterialsInventory, AddRawMaterialInventoryDTO>().ReverseMap();
+
+            CreateMap<TbRawMaterialsInventory, RawMaterialInventoryDTO>()
+            .ForMember(d => d.MaterialName, opt => opt.MapFrom(s => s.Material.MaterialName))
+            .ForMember(d => d.MaterialDescription, opt => opt.MapFrom(s => s.Material.MaterialDescription));
 
 
 

@@ -16,8 +16,8 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
     public class RawMaterialController : ControllerBase
     {
 
-        private IUnitOfWork _unitOfWork;
-        private IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
         public RawMaterialController(IUnitOfWork unitOfWork, IMapper mapper)
         {

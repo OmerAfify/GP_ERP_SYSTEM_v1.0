@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Threading.Tasks;
 using BusinesssLogic.Repository.GenericRepository;
 using Domains.Interfaces.IGenericRepository;
@@ -21,6 +22,7 @@ namespace BusinessLogic.UnitOfWork
         public IGenericRepository<TbSupplier> Supplier { get; private set; }
         public IGenericRepository<TbSupplyingMaterialDetail> SupplingMaterialDetails { get; private set; }
         public IProductsInventoryRepository ProductsInventory { get; private set; }
+        public IGenericRepository<TbRawMaterialsInventory> RawMaterialInventory { get; private set; }
 
         //FMS
         public IGenericRepository<TbFmsCategory> FmsCategory { get; private set; }
@@ -43,6 +45,7 @@ namespace BusinessLogic.UnitOfWork
             Supplier = new GenericRepository<TbSupplier>(_context);
             SupplingMaterialDetails = new GenericRepository<TbSupplyingMaterialDetail>(_context);
             ProductsInventory = new ProductInventoryRepository(_context);
+            RawMaterialInventory = new GenericRepository<TbRawMaterialsInventory>(_context);
            
             
             //FMS
@@ -57,8 +60,9 @@ namespace BusinessLogic.UnitOfWork
         }
 
         public void Dispose()
-        {
+        {   
             _context.Dispose();
+            GC.SuppressFinalize(this);
         }
 
         public async Task Save()
