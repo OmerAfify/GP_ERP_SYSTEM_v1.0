@@ -19,6 +19,7 @@ namespace Domains.Interfaces.IUnitOfWork
         IGenericRepository<TbSupplyingMaterialDetail> SupplingMaterialDetails { get; }
         IProductsInventoryRepository ProductsInventory { get; }
         IGenericRepository<TbRawMaterialsInventory> RawMaterialInventory { get; }
+        IGenericRepository<TbDistributor> Distributor { get; }
       
         
         //FMS
