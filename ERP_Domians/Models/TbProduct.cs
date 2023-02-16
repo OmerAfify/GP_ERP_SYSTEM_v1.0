@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
-namespace ERP_BusinessLogic.Models
+namespace ERP_Domians.Models
 {
     public partial class TbProduct
     {
@@ -14,19 +13,11 @@ namespace ERP_BusinessLogic.Models
             TbManufacturingOrders = new HashSet<TbManufacturingOrder>();
         }
 
-        [Required]
         public int ProductId { get; set; }
-       
-        public string? ProductName { get; set; }
-        public string? ProductDescription { get; set; }
-        
-        [Required]
+        public string ProductName { get; set; }
+        public string ProductDescription { get; set; }
         public decimal PurchasePrice { get; set; }
-       
-        [Required]  
         public decimal SalesPrice { get; set; }
-
-        [Required]
         public int CategoryId { get; set; }
 
         public virtual TbCategory Category { get; set; }

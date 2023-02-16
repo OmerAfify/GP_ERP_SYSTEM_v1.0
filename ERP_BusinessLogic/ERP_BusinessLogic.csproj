@@ -19,8 +19,4 @@
     <ProjectReference Include="..\ERP_Domians\ERP_Domians.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repository\BusinessRepository\" />
-  </ItemGroup>
-
 </Project>

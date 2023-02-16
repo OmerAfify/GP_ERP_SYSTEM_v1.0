@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Domains.Interfaces.IUnitOfWork;
-using ERP_BusinessLogic.Models;
+using ERP_Domians.Models;
 using GP_ERP_SYSTEM_v1._0.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,8 +15,8 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
     [ApiController]
     public class SupplierController : ControllerBase
     {
-        private IUnitOfWork _unitOfWork;
-        private IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
         public SupplierController(IUnitOfWork unitOfWork, IMapper mapper)
         {
@@ -134,25 +134,22 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         }
 
 
-        [HttpPost]
-        public async Task<IActionResult> AddSupplingMaterialToSupplier(int supplierId, [FromBody] List<SupplyingMaterialDetailsDTO> supplingMaterialDetailsDTO)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
+
+        [HttpGet("{supplierId}")]
+        public async Task<IActionResult> GetSuppliersMaterials(int supplierId)
+        {
             try
             {
-                var supplyingMaterials = _mapper.Map<List<TbSupplyingMaterialDetail>>(supplingMaterialDetailsDTO);
+                var supplier = await _unitOfWork.Supplier.GetByIdAsync(supplierId);
 
-                supplyingMaterials.ForEach(s => s.SupplierId = supplierId);
+                if (supplier == null)
+                    return BadRequest("supplier Id is not found");
 
-               _unitOfWork.SupplingMaterialDetails.InsertRangeAsync(supplyingMaterials);
-               
-                await _unitOfWork.Save();
+                var supplyingMaterials = await _unitOfWork.SupplingMaterialDetails.FindRangeAsync(m => m.SupplierId == supplierId);
+                return Ok(_mapper.Map<List<SupplyingMaterialDetailDTO>>(supplyingMaterials));
 
-                return NoContent();
+
             }
             catch (Exception ex)
             {
@@ -162,32 +159,179 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         }
 
 
-        [HttpGet("{supplierId}")]  
-            public async Task<IActionResult> GetSuppliersMaterials(int supplierId)
+        [HttpPost]
+        public async Task<IActionResult> AddNewSupplyingMaterialToSupplier(int supplierId,[FromBody] List<SupplyingMaterialDetailDTO> supplyingMaterialDetailsDTO)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.Select(x => x.Value.Errors).Where(y => y.Count > 0).ToList());
+          
             try
             {
                 var supplier = await _unitOfWork.Supplier.GetByIdAsync(supplierId);
 
-                if (supplier==null)
-                    return BadRequest("supplier Id is not found");
+                if (supplier == null)
+                    return BadRequest("Supplier Id is not found");
 
-                var supplyingMaterials = await _unitOfWork.SupplingMaterialDetails.FindRangeAsync(m => m.SupplierId == supplierId);
-                return Ok(_mapper.Map<List<SupplyingMaterialDetailsDTO>>(supplyingMaterials) );
+                var SendedRawMaterialsIdsList = supplyingMaterialDetailsDTO.Select(rm => rm.MaterialId).ToList();
 
+                var StoredRawMaterialsIdsList = (await _unitOfWork.RawMaterial.GetAllAsync()).Select(i => i.MaterialId).ToList();
+
+                var InvalidRawMaterialsIdsList = SendedRawMaterialsIdsList.
+                          Where(sended => !StoredRawMaterialsIdsList.Any(stored => stored==sended )).ToList();
+
+                if (InvalidRawMaterialsIdsList.Count > 0)
+                {
+                    return BadRequest("The following Materials ids are invalid: " + String.Join(", ", InvalidRawMaterialsIdsList)+" ." );
+    
+                }
+
+
+                var supplyingMaterialsDetails = _mapper.Map< List<TbSupplyingMaterialDetail> >(supplyingMaterialDetailsDTO);
+
+                supplyingMaterialsDetails.ForEach(s => s.SupplierId = supplierId);
+
+                 _unitOfWork.SupplingMaterialDetails.InsertRangeAsync(supplyingMaterialsDetails);
+
+                await _unitOfWork.Save();
+
+                return NoContent();
+
+            }catch(Exception ex)
+            {
+                return Problem("An error occured while processing the request. " + ex.Message);
+            }
+
+
+        }
+
+
+        [HttpPut]
+        public async Task<IActionResult>  UpdateSupplingMaterialToSupplier(int supplierId, [FromBody] List<SupplyingMaterialDetailDTO> supplyingMaterialDetailsDTO)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.Select(x => x.Value.Errors).Where(y => y.Count > 0).ToList());
+
+            try
+            {
+                var supplier = await _unitOfWork.Supplier.GetByIdAsync(supplierId);
+
+                if (supplier == null)
+                    return BadRequest("Supplier Id is not found");
+
+  
+                var SendedRawMaterialsIdsList = supplyingMaterialDetailsDTO.Select(rm => rm.MaterialId).ToList();
+
+                var StoredRawMaterialsIdsList = (await _unitOfWork.RawMaterial.GetAllAsync()).Select(i => i.MaterialId).ToList();
+
+                var InvalidRawMaterialsIdsList = GetInvalidRawMaterialsIdsSend(SendedRawMaterialsIdsList, StoredRawMaterialsIdsList);
+              
+                if (InvalidRawMaterialsIdsList.Count > 0)
+                {
+                  return BadRequest("The following Materials ids are invalid: " + String.Join(", ", InvalidRawMaterialsIdsList) + " .");
+
+                }
+
+
+
+                var supplyingMaterialsDetailsToUpdate = await (_unitOfWork.SupplingMaterialDetails.FindRangeAsync(s=>s.SupplierId==supplierId && supplyingMaterialDetailsDTO.Select(m=>m.MaterialId).Any(m=>m==s.MaterialId) ));
+
+
+                if (supplyingMaterialDetailsDTO.Count != supplyingMaterialsDetailsToUpdate.ToList().Count)
+                    return BadRequest("The entered Material Ids dosn't exist in the current suppleir Id number : "+supplierId);
+
+
+                foreach (var newMaterial in supplyingMaterialDetailsDTO)
+                {
+                    var itemToChange = supplyingMaterialsDetailsToUpdate.FirstOrDefault(d => d.MaterialId== newMaterial.MaterialId);
+                    if (itemToChange != null) {
+                        _mapper.Map(newMaterial,itemToChange);
+                         _unitOfWork.SupplingMaterialDetails.Update(itemToChange);
+                    }
+                }
+
+                await  _unitOfWork.Save();
+  
+
+               return NoContent();
 
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+                return Problem("An error occured while processing the request. " + ex.Message);
             }
 
-         }
 
-        // AddSupplingMaterialToSupplier(supplierId, List<supplingMaterialDetaisl>) 
-        // UpdateSupplingMaterialToSupplier(supplierId, List<supplingMaterialDetaisl>)
-        // DeleteSupplingMaterialToSupplier(supplierId, List<supplingMaterialDetaisl>)
+        }
+        
+        
+        [HttpDelete]
+        public async Task<IActionResult>  DeleteSupplingMaterialToSupplier(int supplierId, [FromBody] List<int> supplyingMaterialsIds)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.Select(x => x.Value.Errors).Where(y => y.Count > 0).ToList());
 
+            try
+            {
+                var supplier = await _unitOfWork.Supplier.GetByIdAsync(supplierId);
+
+                if (supplier == null)
+                    return BadRequest("Supplier Id is not found");
+
+  
+
+                var StoredRawMaterialsIdsList = (await _unitOfWork.RawMaterial.GetAllAsync()).Select(i => i.MaterialId).ToList();
+
+                var InvalidRawMaterialsIdsList = GetInvalidRawMaterialsIdsSend(supplyingMaterialsIds, StoredRawMaterialsIdsList);
+              
+                if (InvalidRawMaterialsIdsList.Count > 0)
+                {
+                  return BadRequest("The following Materials ids are invalid: " + String.Join(", ", InvalidRawMaterialsIdsList) + " .");
+
+                }
+
+
+                var supplyingMaterialsDetailsToDelete = await (_unitOfWork.SupplingMaterialDetails.FindRangeAsync(s=>s.SupplierId==supplierId && supplyingMaterialsIds.Any(m=>m==s.MaterialId) ));
+
+
+                if (supplyingMaterialsIds.Count != supplyingMaterialsDetailsToDelete.ToList().Count)
+                    return BadRequest("The entered Material Ids dosn't exist in the current suppleir Id number : "+supplierId);
+
+
+                 _unitOfWork.SupplingMaterialDetails.DeleteRange(supplyingMaterialsDetailsToDelete.ToList());
+                await  _unitOfWork.Save();
+  
+
+               return NoContent();
+
+            }
+            catch (Exception ex)
+            {
+                return Problem("An error occured while processing the request. " + ex.Message);
+            }
+
+
+        }
+
+
+
+
+
+
+        //helper Methods
+        private static List<int> GetInvalidRawMaterialsIdsSend(List<int> SendedRawMaterialsIdsList, List<int> StoredRawMaterialsIdsList)
+        {
+        
+            var InvalidRawMaterialsIdsList = SendedRawMaterialsIdsList.
+                      Where(sended => !StoredRawMaterialsIdsList.Any(stored => stored == sended)).ToList();
+
+            return InvalidRawMaterialsIdsList; 
+
+            
+
+        }
+
+
+        
 
 
     }

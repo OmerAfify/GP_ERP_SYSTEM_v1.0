@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace GP_ERP_SYSTEM_v1._0.DTOs
 {
-    public class ProductDTO : AddProductDTO
-    {
-        
-        public int ProductId { get; set; }
-   
-        public string CategoryName { get; set; }
-    }
+  
 
     public class AddProductDTO 
     {
@@ -28,6 +22,14 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
         [Required]
         public int CategoryId { get; set; }
 
+    }
+
+    public class ProductDTO : AddProductDTO
+    {
+
+        public int ProductId { get; set; }
+
+        public string CategoryName { get; set; }
     }
 
 

@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ERP_BusinessLogic.Models;
+using ERP_Domians.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ERP_BusinessLogic.Context
 {
-     public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext() { 
-        
+        public ApplicationDbContext()
+        {
+
         }
-        
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
@@ -30,13 +31,14 @@ namespace ERP_BusinessLogic.Context
         public virtual DbSet<TbEmployeeTaskDetail> TbEmployeeTaskDetails { get; set; }
         public virtual DbSet<TbEmployeeTrainning> TbEmployeeTrainnings { get; set; }
         public virtual DbSet<TbFinishedProductsInventory> TbFinishedProductsInventories { get; set; }
+        public virtual DbSet<TbFmsAccCat> TbFmsAccCats { get; set; }
         public virtual DbSet<TbFmsAccount> TbFmsAccounts { get; set; }
-        public virtual DbSet<TbFmsAccountCategory> TbFmsAccountCategories { get; set; }
+        public virtual DbSet<TbFmsCategory> TbFmsCategories { get; set; }
         public virtual DbSet<TbFmsJournalEntry> TbFmsJournalEntries { get; set; }
-        public virtual DbSet<TbFmsSection> TbFmsSections { get; set; }
-        public virtual DbSet<TbFmsSectionTemplate> TbFmsSectionTemplates { get; set; }
         public virtual DbSet<TbFmsStatement> TbFmsStatements { get; set; }
+        public virtual DbSet<TbFmsStatementAccount> TbFmsStatementAccounts { get; set; }
         public virtual DbSet<TbFmsStatementTemplate> TbFmsStatementTemplates { get; set; }
+        public virtual DbSet<TbFmsTemplateAccount> TbFmsTemplateAccounts { get; set; }
         public virtual DbSet<TbHrmanagerDetail> TbHrmanagerDetails { get; set; }
         public virtual DbSet<TbInterviewDetail> TbInterviewDetails { get; set; }
         public virtual DbSet<TbManufacturingOrder> TbManufacturingOrders { get; set; }
@@ -293,24 +295,49 @@ namespace ERP_BusinessLogic.Context
                     .HasConstraintName("FK__TB_Finish__produ__3C69FB99");
             });
 
+            modelBuilder.Entity<TbFmsAccCat>(entity =>
+            {
+                entity.ToTable("TB_FMS_AccCat");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.AccId).HasColumnName("AccID");
+
+                entity.Property(e => e.CatId).HasColumnName("CatID");
+
+                entity.HasOne(d => d.Acc)
+                    .WithMany(p => p.TbFmsAccCats)
+                    .HasForeignKey(d => d.AccId)
+                    .HasConstraintName("FK__TB_FMS_Ac__AccID__114A936A");
+
+                entity.HasOne(d => d.Cat)
+                    .WithMany(p => p.TbFmsAccCats)
+                    .HasForeignKey(d => d.CatId)
+                    .HasConstraintName("FK__TB_FMS_Ac__CatID__123EB7A3");
+            });
+
             modelBuilder.Entity<TbFmsAccount>(entity =>
             {
                 entity.HasKey(e => e.AccId)
-                    .HasName("PK__TB_FMS_A__91CBC398927CE2DA");
+                    .HasName("PK__TB_FMS_A__91CBC3984704DA5C");
 
                 entity.ToTable("TB_FMS_Account");
 
                 entity.Property(e => e.AccId).HasColumnName("AccID");
 
                 entity.Property(e => e.AccBalance).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.AccCredit).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.AccDebit).HasColumnType("decimal(18, 2)");
             });
 
-            modelBuilder.Entity<TbFmsAccountCategory>(entity =>
+            modelBuilder.Entity<TbFmsCategory>(entity =>
             {
                 entity.HasKey(e => e.CatId)
-                    .HasName("PK__TB_FMS_A__6A1C8ADA073E8323");
+                    .HasName("PK__TB_FMS_A__6A1C8ADACA5D31AF");
 
-                entity.ToTable("TB_FMS_AccountCategory");
+                entity.ToTable("TB_FMS_Category");
 
                 entity.Property(e => e.CatId).HasColumnName("CatID");
             });
@@ -318,7 +345,7 @@ namespace ERP_BusinessLogic.Context
             modelBuilder.Entity<TbFmsJournalEntry>(entity =>
             {
                 entity.HasKey(e => e.Jeid)
-                    .HasName("PK__TB_FMS_J__703C596C781CFD45");
+                    .HasName("PK__TB_FMS_J__703C596C88DAB6E8");
 
                 entity.ToTable("TB_FMS_JournalEntry");
 
@@ -347,46 +374,18 @@ namespace ERP_BusinessLogic.Context
                 entity.HasOne(d => d.Jeaccount1Navigation)
                     .WithMany(p => p.TbFmsJournalEntryJeaccount1Navigations)
                     .HasForeignKey(d => d.Jeaccount1)
-                    .HasConstraintName("FK__TB_FMS_Jo__JEAcc__7C1A6C5A");
+                    .HasConstraintName("FK__TB_FMS_Jo__JEAcc__6FE99F9F");
 
                 entity.HasOne(d => d.Jeaccount2Navigation)
                     .WithMany(p => p.TbFmsJournalEntryJeaccount2Navigations)
                     .HasForeignKey(d => d.Jeaccount2)
-                    .HasConstraintName("FK__TB_FMS_Jo__JEAcc__7D0E9093");
-            });
-
-            modelBuilder.Entity<TbFmsSection>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("TB_FMS_Section");
-
-                entity.Property(e => e.SecId).HasColumnName("SecID");
-
-                entity.HasOne(d => d.Sec)
-                    .WithMany()
-                    .HasForeignKey(d => d.SecId)
-                    .HasConstraintName("FK__TB_FMS_Se__SecID__7E02B4CC");
-            });
-
-            modelBuilder.Entity<TbFmsSectionTemplate>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("TB_FMS_SectionTemplate");
-
-                entity.Property(e => e.SecTempId).HasColumnName("SecTempID");
-
-                entity.HasOne(d => d.SecTemp)
-                    .WithMany()
-                    .HasForeignKey(d => d.SecTempId)
-                    .HasConstraintName("FK__TB_FMS_Se__SecTe__7EF6D905");
+                    .HasConstraintName("FK__TB_FMS_Jo__JEAcc__70DDC3D8");
             });
 
             modelBuilder.Entity<TbFmsStatement>(entity =>
             {
                 entity.HasKey(e => e.StaId)
-                    .HasName("PK__TB_FMS_S__BA875A6111E4C018");
+                    .HasName("PK__TB_FMS_S__BA875A619195C5DC");
 
                 entity.ToTable("TB_FMS_Statement");
 
@@ -397,14 +396,53 @@ namespace ERP_BusinessLogic.Context
                 entity.Property(e => e.StaDate).HasColumnType("datetime");
             });
 
+            modelBuilder.Entity<TbFmsStatementAccount>(entity =>
+            {
+                entity.ToTable("TB_FMS_StatementAccounts");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.AccBalance).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.StaId).HasColumnName("StaID");
+
+                entity.HasOne(d => d.Sta)
+                    .WithMany(p => p.TbFmsStatementAccounts)
+                    .HasForeignKey(d => d.StaId)
+                    .HasConstraintName("FK__TB_FMS_St__StaID__18EBB532");
+            });
+
             modelBuilder.Entity<TbFmsStatementTemplate>(entity =>
             {
                 entity.HasKey(e => e.TempId)
-                    .HasName("PK__TB_FMS_S__06C703E1BB29E8BC");
+                    .HasName("PK__TB_FMS_S__06C703E18319BA98");
 
                 entity.ToTable("TB_FMS_StatementTemplate");
 
                 entity.Property(e => e.TempId).HasColumnName("TempID");
+
+                entity.Property(e => e.TempDate).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<TbFmsTemplateAccount>(entity =>
+            {
+                entity.ToTable("TB_FMS_TemplateAccounts");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.AccId).HasColumnName("AccID");
+
+                entity.Property(e => e.TempId).HasColumnName("TempID");
+
+                entity.HasOne(d => d.Acc)
+                    .WithMany(p => p.TbFmsTemplateAccounts)
+                    .HasForeignKey(d => d.AccId)
+                    .HasConstraintName("FK__TB_FMS_Te__AccID__160F4887");
+
+                entity.HasOne(d => d.Temp)
+                    .WithMany(p => p.TbFmsTemplateAccounts)
+                    .HasForeignKey(d => d.TempId)
+                    .HasConstraintName("FK__TB_FMS_Te__TempI__17036CC0");
             });
 
             modelBuilder.Entity<TbHrmanagerDetail>(entity =>
@@ -789,10 +827,9 @@ namespace ERP_BusinessLogic.Context
 
         }
 
-    
+
     }
 }
-
 
 
 

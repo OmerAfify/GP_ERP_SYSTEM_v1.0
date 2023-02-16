@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Domains.Interfaces.IUnitOfWork;
-using ERP_BusinessLogic.Models;
+using ERP_Domians.Models;
 using GP_ERP_SYSTEM_v1._0.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,8 +16,8 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
     public class ProductController : ControllerBase
     {
 
-        private IUnitOfWork _unitOfWork;
-        private IMapper _mapper;
+        private readonly  IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
         public ProductController(IUnitOfWork unitOfWork, IMapper mapper)
         {
@@ -143,13 +143,14 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         }
 
 
+
         //private helper methods 
 
         private bool ValidateCategoryId(int catId)
         {
             var categoriesIdsList = _unitOfWork.Category.GetAllAsync().Result.Select(c => c.CategoryId);
 
-            return (categoriesIdsList.Contains(catId))? true : false;
+            return categoriesIdsList.Contains(catId);
             
         }
 
