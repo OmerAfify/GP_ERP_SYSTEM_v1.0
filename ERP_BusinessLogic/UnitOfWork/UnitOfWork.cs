@@ -15,8 +15,6 @@ namespace BusinessLogic.UnitOfWork
     {
         private readonly ApplicationDbContext _context;
 
-    
-       
         //SCM
         public IGenericRepository<TbProduct> Product { get; private set; }
         public IGenericRepository<TbCategory> Category { get; private set; }
@@ -25,9 +23,6 @@ namespace BusinessLogic.UnitOfWork
         public IGenericRepository<TbSupplyingMaterialDetail> SupplingMaterialDetails { get; private set; }
         public IProductsInventoryRepository ProductsInventory { get; private set; }
         public IGenericRepository<TbRawMaterialsInventory> RawMaterialInventory { get; private set; }
-        public IGenericRepository<TbDistributor> Distributor { get; private set; }
-
-
 
         //FMS
         public IGenericRepository<TbFmsCategory> FmsCategory { get; private set; }
@@ -51,7 +46,6 @@ namespace BusinessLogic.UnitOfWork
             SupplingMaterialDetails = new GenericRepository<TbSupplyingMaterialDetail>(_context);
             ProductsInventory = new ProductInventoryRepository(_context);
             RawMaterialInventory = new GenericRepository<TbRawMaterialsInventory>(_context);
-            Distributor = new GenericRepository<TbDistributor>(_context);
            
             
             //FMS
