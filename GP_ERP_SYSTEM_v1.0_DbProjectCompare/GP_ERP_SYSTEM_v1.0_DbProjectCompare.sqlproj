@@ -98,6 +98,5 @@
     <Build Include="dbo\Tables\TB_Category.sql" />
     <Build Include="dbo\Tables\TB_Adminstrator.sql" />
     <Build Include="dbo\Tables\__EFMigrationsHistory.sql" />
-    <Build Include="dbo\Functions\accountTotal.sql" />
   </ItemGroup>
 </Project>

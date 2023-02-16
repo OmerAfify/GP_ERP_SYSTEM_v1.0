@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0.csproj": {}
+    "C:\\Users\\hussein\\Source\\Repos\\GP_ERP_SYSTEM_v2\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0.csproj": {}
   },
   "projects": {
-    "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj": {
+    "C:\\Users\\hussein\\Source\\Repos\\GP_ERP_SYSTEM_v2\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj",
+        "projectUniqueName": "C:\\Users\\hussein\\Source\\Repos\\GP_ERP_SYSTEM_v2\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj",
         "projectName": "ERP_BusinessLogic",
-        "projectPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj",
-        "packagesPath": "C:\\Users\\zakaw\\.nuget\\packages\\",
-        "outputPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\obj\\",
+        "projectPath": "C:\\Users\\hussein\\Source\\Repos\\GP_ERP_SYSTEM_v2\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj",
+        "packagesPath": "C:\\Users\\hussein\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hussein\\Source\\Repos\\GP_ERP_SYSTEM_v2\\ERP_BusinessLogic\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\zakaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hussein\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj": {
-                "projectPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj"
+              "C:\\Users\\hussein\\Source\\Repos\\GP_ERP_SYSTEM_v2\\ERP_Domians\\ERP_Domians.csproj": {
+                "projectPath": "C:\\Users\\hussein\\Source\\Repos\\GP_ERP_SYSTEM_v2\\ERP_Domians\\ERP_Domians.csproj"
               }
             }
           }
@@ -78,21 +78,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj": {
+    "C:\\Users\\hussein\\Source\\Repos\\GP_ERP_SYSTEM_v2\\ERP_Domians\\ERP_Domians.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj",
+        "projectUniqueName": "C:\\Users\\hussein\\Source\\Repos\\GP_ERP_SYSTEM_v2\\ERP_Domians\\ERP_Domians.csproj",
         "projectName": "ERP_Domians",
-        "projectPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj",
-        "packagesPath": "C:\\Users\\zakaw\\.nuget\\packages\\",
-        "outputPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\obj\\",
+        "projectPath": "C:\\Users\\hussein\\Source\\Repos\\GP_ERP_SYSTEM_v2\\ERP_Domians\\ERP_Domians.csproj",
+        "packagesPath": "C:\\Users\\hussein\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hussein\\Source\\Repos\\GP_ERP_SYSTEM_v2\\ERP_Domians\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\zakaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hussein\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -132,21 +132,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0.csproj": {
+    "C:\\Users\\hussein\\Source\\Repos\\GP_ERP_SYSTEM_v2\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0.csproj",
+        "projectUniqueName": "C:\\Users\\hussein\\Source\\Repos\\GP_ERP_SYSTEM_v2\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0.csproj",
         "projectName": "GP_ERP_SYSTEM_v1.0",
-        "projectPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0.csproj",
-        "packagesPath": "C:\\Users\\zakaw\\.nuget\\packages\\",
-        "outputPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0\\obj\\",
+        "projectPath": "C:\\Users\\hussein\\Source\\Repos\\GP_ERP_SYSTEM_v2\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0.csproj",
+        "packagesPath": "C:\\Users\\hussein\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hussein\\Source\\Repos\\GP_ERP_SYSTEM_v2\\GP_ERP_SYSTEM_v1.0\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\zakaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hussein\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -160,11 +160,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj": {
-                "projectPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj"
+              "C:\\Users\\hussein\\Source\\Repos\\GP_ERP_SYSTEM_v2\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj": {
+                "projectPath": "C:\\Users\\hussein\\Source\\Repos\\GP_ERP_SYSTEM_v2\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj"
               },
-              "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj": {
-                "projectPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj"
+              "C:\\Users\\hussein\\Source\\Repos\\GP_ERP_SYSTEM_v2\\ERP_Domians\\ERP_Domians.csproj": {
+                "projectPath": "C:\\Users\\hussein\\Source\\Repos\\GP_ERP_SYSTEM_v2\\ERP_Domians\\ERP_Domians.csproj"
               }
             }
           }
@@ -206,7 +206,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

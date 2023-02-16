@@ -25,7 +25,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllAccounts()
+        public async Task<IActionResult> FmsGetAllAccounts()
         {
             try
             {
@@ -38,8 +38,10 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
         }
 
+
+
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetAccountById(int id)
+        public async Task<IActionResult> FmsGetAccountById(int id)
         {
             try
             {
@@ -52,8 +54,9 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
         }
 
+
         [HttpPost]
-        public async Task<IActionResult> AddNewAccount([FromBody] AddFmsAccountDTO Account)
+        public async Task<IActionResult> FmsAddAccount([FromBody] AddFmsAccountDTO Account)
         {
             if (!ModelState.IsValid)
             {
@@ -75,6 +78,64 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
 
 
+
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> FmsUpdateAccount(int id, [FromBody] AddFmsAccountDTO Account)
+        {
+            if (!ModelState.IsValid || id < 1)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+            try
+            {
+                var AccountToUpdate = await _unitOfWork.FmsAccount.GetByIdAsync(id);
+
+                if (AccountToUpdate == null)
+                    return BadRequest("submitted Account ID is invalid.");
+
+
+                _mapper.Map(Account, AccountToUpdate);
+
+                _unitOfWork.FmsAccount.Update(AccountToUpdate);
+                await _unitOfWork.Save();
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal Server Error." + ex.Message);
+            }
+        }
+
+
+        [HttpDelete]
+        public async Task<IActionResult> FmsDeleteAccount(int id)
+        {
+            if (id < 1)
+            {
+                return BadRequest("Id cannot be 0 or less.");
+            }
+
+            try
+            {
+                var FmsAccountToDelete = await _unitOfWork.FmsAccount.GetByIdAsync(id);
+
+                if (FmsAccountToDelete == null)
+                    return BadRequest("Invalid Id is submitted.");
+
+                _unitOfWork.FmsAccount.Delete(FmsAccountToDelete);
+                await _unitOfWork.Save();
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal Server Error. " + ex.Message);
+            }
+        }
 
 
 
