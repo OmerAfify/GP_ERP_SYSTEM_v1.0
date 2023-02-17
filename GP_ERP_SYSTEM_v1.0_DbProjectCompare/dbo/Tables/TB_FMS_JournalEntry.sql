@@ -9,10 +9,6 @@
     [JEAccount2]    INT             NULL,
     PRIMARY KEY CLUSTERED ([JEID] ASC),
     FOREIGN KEY ([JEAccount1]) REFERENCES [dbo].[TB_FMS_Account] ([AccID]),
-    FOREIGN KEY ([JEAccount1]) REFERENCES [dbo].[TB_FMS_Account] ([AccID]),
-    FOREIGN KEY ([JEAccount1]) REFERENCES [dbo].[TB_FMS_Account] ([AccID]),
-    FOREIGN KEY ([JEAccount2]) REFERENCES [dbo].[TB_FMS_Account] ([AccID]),
-    FOREIGN KEY ([JEAccount2]) REFERENCES [dbo].[TB_FMS_Account] ([AccID]),
     FOREIGN KEY ([JEAccount2]) REFERENCES [dbo].[TB_FMS_Account] ([AccID])
 );
 
