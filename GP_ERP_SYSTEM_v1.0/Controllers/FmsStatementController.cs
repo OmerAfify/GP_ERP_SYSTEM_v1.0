@@ -118,7 +118,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         [HttpPost]
         public async Task<IActionResult> FmsAddStatementAccount(int staID, string accName)
         {
-            var StatementAccount = new AddFmsStatementAccountDTO { StaId = staID, AccName = accName };
+            var StatementAccount = new FmsStatementAccountDTO { StaId = staID, AccName = accName };
             try
             {
                 _unitOfWork.FmsStatementAccount.InsertAsync(_mapper.Map<TbFmsStatementAccount>(StatementAccount));

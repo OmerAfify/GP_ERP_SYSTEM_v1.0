@@ -297,9 +297,10 @@ namespace ERP_BusinessLogic.Context
 
             modelBuilder.Entity<TbFmsAccCat>(entity =>
             {
-                entity.ToTable("TB_FMS_AccCat");
+                entity.HasKey(e => new { e.AccId, e.CatId })
+                    .HasName("composite_pk category_account");
 
-                entity.Property(e => e.Id).HasColumnName("ID");
+                entity.ToTable("TB_FMS_AccCat");
 
                 entity.Property(e => e.AccId).HasColumnName("AccID");
 
@@ -308,18 +309,20 @@ namespace ERP_BusinessLogic.Context
                 entity.HasOne(d => d.Acc)
                     .WithMany(p => p.TbFmsAccCats)
                     .HasForeignKey(d => d.AccId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__TB_FMS_Ac__AccID__114A936A");
 
                 entity.HasOne(d => d.Cat)
                     .WithMany(p => p.TbFmsAccCats)
                     .HasForeignKey(d => d.CatId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__TB_FMS_Ac__CatID__123EB7A3");
             });
 
             modelBuilder.Entity<TbFmsAccount>(entity =>
             {
                 entity.HasKey(e => e.AccId)
-                    .HasName("PK__TB_FMS_A__91CBC3984704DA5C");
+                    .HasName("PK__TB_FMS_A__91CBC39804A449CE");
 
                 entity.ToTable("TB_FMS_Account");
 
@@ -335,7 +338,7 @@ namespace ERP_BusinessLogic.Context
             modelBuilder.Entity<TbFmsCategory>(entity =>
             {
                 entity.HasKey(e => e.CatId)
-                    .HasName("PK__TB_FMS_A__6A1C8ADACA5D31AF");
+                    .HasName("PK__TB_FMS_C__6A1C8ADAB474143C");
 
                 entity.ToTable("TB_FMS_Category");
 
@@ -345,7 +348,7 @@ namespace ERP_BusinessLogic.Context
             modelBuilder.Entity<TbFmsJournalEntry>(entity =>
             {
                 entity.HasKey(e => e.Jeid)
-                    .HasName("PK__TB_FMS_J__703C596C88DAB6E8");
+                    .HasName("PK__TB_FMS_J__703C596C510B154B");
 
                 entity.ToTable("TB_FMS_JournalEntry");
 
@@ -374,18 +377,18 @@ namespace ERP_BusinessLogic.Context
                 entity.HasOne(d => d.Jeaccount1Navigation)
                     .WithMany(p => p.TbFmsJournalEntryJeaccount1Navigations)
                     .HasForeignKey(d => d.Jeaccount1)
-                    .HasConstraintName("FK__TB_FMS_Jo__JEAcc__6FE99F9F");
+                    .HasConstraintName("FK__TB_FMS_Jo__JEAcc__10566F31");
 
                 entity.HasOne(d => d.Jeaccount2Navigation)
                     .WithMany(p => p.TbFmsJournalEntryJeaccount2Navigations)
                     .HasForeignKey(d => d.Jeaccount2)
-                    .HasConstraintName("FK__TB_FMS_Jo__JEAcc__70DDC3D8");
+                    .HasConstraintName("FK__TB_FMS_Jo__JEAcc__114A936A");
             });
 
             modelBuilder.Entity<TbFmsStatement>(entity =>
             {
                 entity.HasKey(e => e.StaId)
-                    .HasName("PK__TB_FMS_S__BA875A619195C5DC");
+                    .HasName("PK__TB_FMS_S__BA875A61CF47BBBC");
 
                 entity.ToTable("TB_FMS_Statement");
 
@@ -398,24 +401,26 @@ namespace ERP_BusinessLogic.Context
 
             modelBuilder.Entity<TbFmsStatementAccount>(entity =>
             {
+                entity.HasKey(e => new { e.AccName, e.StaId })
+                    .HasName("composite primary key");
+
                 entity.ToTable("TB_FMS_StatementAccounts");
 
-                entity.Property(e => e.Id).HasColumnName("ID");
+                entity.Property(e => e.StaId).HasColumnName("StaID");
 
                 entity.Property(e => e.AccBalance).HasColumnType("decimal(18, 2)");
-
-                entity.Property(e => e.StaId).HasColumnName("StaID");
 
                 entity.HasOne(d => d.Sta)
                     .WithMany(p => p.TbFmsStatementAccounts)
                     .HasForeignKey(d => d.StaId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__TB_FMS_St__StaID__18EBB532");
             });
 
             modelBuilder.Entity<TbFmsStatementTemplate>(entity =>
             {
                 entity.HasKey(e => e.TempId)
-                    .HasName("PK__TB_FMS_S__06C703E18319BA98");
+                    .HasName("PK__TB_FMS_S__06C703E10B86E807");
 
                 entity.ToTable("TB_FMS_StatementTemplate");
 
@@ -426,9 +431,10 @@ namespace ERP_BusinessLogic.Context
 
             modelBuilder.Entity<TbFmsTemplateAccount>(entity =>
             {
-                entity.ToTable("TB_FMS_TemplateAccounts");
+                entity.HasKey(e => new { e.AccId, e.TempId })
+                    .HasName("composite_pk template_account");
 
-                entity.Property(e => e.Id).HasColumnName("ID");
+                entity.ToTable("TB_FMS_TemplateAccounts");
 
                 entity.Property(e => e.AccId).HasColumnName("AccID");
 
@@ -437,13 +443,16 @@ namespace ERP_BusinessLogic.Context
                 entity.HasOne(d => d.Acc)
                     .WithMany(p => p.TbFmsTemplateAccounts)
                     .HasForeignKey(d => d.AccId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__TB_FMS_Te__AccID__160F4887");
 
                 entity.HasOne(d => d.Temp)
                     .WithMany(p => p.TbFmsTemplateAccounts)
                     .HasForeignKey(d => d.TempId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__TB_FMS_Te__TempI__17036CC0");
             });
+
 
             modelBuilder.Entity<TbHrmanagerDetail>(entity =>
             {

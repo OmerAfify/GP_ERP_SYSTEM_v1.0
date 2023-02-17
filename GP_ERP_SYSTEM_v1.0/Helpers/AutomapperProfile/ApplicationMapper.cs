@@ -54,10 +54,8 @@ namespace GP_ERP_SYSTEM_v1._0.Helpers.AutomapperProfile
             CreateMap<TbFmsAccount, AddFmsAccountDTO>().ReverseMap();
             CreateMap<TbFmsAccount, FmsAccountDTO>().ReverseMap();
 
-            CreateMap<TbFmsAccCat, AddFmsAccCatDTO>().ReverseMap();
             CreateMap<TbFmsAccCat, FmsAccCatDTO>().ReverseMap();
 
-            CreateMap<TbFmsStatementAccount, AddFmsStatementAccountDTO>().ReverseMap();
             CreateMap<TbFmsStatementAccount, FmsStatementAccountDTO>().ReverseMap();
 
             CreateMap<TbFmsStatementTemplate, AddFmsStatementTemplateDTO>().ReverseMap();
@@ -66,7 +64,7 @@ namespace GP_ERP_SYSTEM_v1._0.Helpers.AutomapperProfile
             CreateMap<TbFmsStatement, AddFmsStatementDTO>().ReverseMap();
             CreateMap<TbFmsStatement, FmsStatementDTO>().ReverseMap();
 
-            CreateMap<TbFmsTemplateAccount, AddFmsTemplateAccountDTO>().ReverseMap();
+            
             CreateMap<TbFmsTemplateAccount, FmsTemplateAccountDTO>().ReverseMap();
 
             CreateMap<TbFmsJournalEntry, AddFmsJeDTO>().ReverseMap();

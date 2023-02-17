@@ -26,14 +26,11 @@
         public int CatId { get; set; }
     }
 
-    public class AddFmsAccCatDTO
+    public class FmsAccCatDTO
     {
-        public int? AccId { get; set; }
-        public int? CatId { get; set; }
+        public int AccId { get; set; }
+        public int CatId { get; set; }
     }
 
-    public class FmsAccCatDTO : AddFmsAccCatDTO
-    {
-       public int Id { get; set; }
-    }
+ 
 }

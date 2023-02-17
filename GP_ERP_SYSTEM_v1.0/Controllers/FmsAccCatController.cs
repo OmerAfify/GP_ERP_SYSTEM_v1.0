@@ -39,7 +39,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         [HttpPost]
         public async Task<IActionResult> FmsAddAccCat(int accID, int catID)
         {
-            var AccCat = new AddFmsAccCatDTO { AccId = accID,  CatId = catID};
+            var AccCat = new FmsAccCatDTO { AccId = accID,  CatId = catID};
             try
             {
                 _unitOfWork.FmsAccCat.InsertAsync(_mapper.Map<TbFmsAccCat>(AccCat));
