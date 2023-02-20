@@ -15,15 +15,11 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
         public int StaId { get; set; }
     }
 
-    public class AddFmsStatementAccountDTO
+    public class FmsStatementAccountDTO
     {
         public string AccName { get; set; }
-        public int? StaId { get; set; }
+        public int StaId { get; set; }
         public decimal? AccBalance { get; set; }
-    }
-    public class FmsStatementAccountDTO : AddFmsStatementAccountDTO
-    {
-        public int Id { get; set; }
     }
 
     public class AddFmsStatementTemplateDTO
@@ -37,16 +33,11 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
         public int TempId { get; set; }
     }
 
-    public class AddFmsTemplateAccountDTO
+    public class FmsTemplateAccountDTO
     {
-        public int? AccId { get; set; }
-        public int? TempId { get; set; }
+        public int AccId { get; set; }
+        public int TempId { get; set; }
 
-    }
-
-    public class FmsTemplateAccountDTO : AddFmsTemplateAccountDTO
-    {
-        public int Id { get; set; }
     }
 
 

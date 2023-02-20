@@ -119,7 +119,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         [HttpPost]
         public async Task<IActionResult> FmsAddTemplateAccount(int tempID, int accID)
         {
-            var TemplateAccount = new AddFmsTemplateAccountDTO { TempId = tempID, AccId = accID };
+            var TemplateAccount = new FmsTemplateAccountDTO { TempId = tempID, AccId = accID };
             try
             {
                 _unitOfWork.FmsTemplateAccount.InsertAsync(_mapper.Map<TbFmsTemplateAccount>(TemplateAccount));
