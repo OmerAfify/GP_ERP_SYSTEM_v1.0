@@ -6,6 +6,7 @@ using AutoMapper;
 using Domains.Interfaces.IUnitOfWork;
 using ERP_Domians.Models;
 using GP_ERP_SYSTEM_v1._0.DTOs;
+using GP_ERP_SYSTEM_v1._0.Errors;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -30,19 +31,25 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         public async Task<IActionResult> GetProductInInventoryById(int id)
         {
 
+
+            if (id <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
+
+
             try
             {
                 var productInventory = await _unitOfWork.ProductsInventory
                                               .GetProductInventoryWithProductAndCategoryDetails(id);
 
                 if (productInventory == null)
-                    return BadRequest("Id is not found.");
+                    return NotFound(new ErrorApiResponse(404,"Inventory Product is not Found") );
 
                 return Ok(_mapper.Map<ProductInventoryDTO>(productInventory));
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
+
             }
         }
 
@@ -59,7 +66,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+            return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 
@@ -67,10 +74,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         public async Task<IActionResult> AddAProductToInventory([FromBody] AddProductInventoryDTO addProductInventoryDTO)
         {
             if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState.Select(x => x.Value.Errors).Where(y => y.Count > 0).ToList());
-
-            }
+                return BadRequest(ModelState);
 
             try
             {
@@ -78,12 +82,12 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                 var Product = await _unitOfWork.Product.GetByIdAsync(addProductInventoryDTO.ProductId);
 
                 if (Product == null)
-                    return BadRequest("Invalid ProductId is sent.");
+                    return BadRequest( new ErrorApiResponse(400,"Invalid ProductId is sent."));
 
                 var ProductInventory = await _unitOfWork.ProductsInventory.GetByIdAsync(addProductInventoryDTO.ProductId);
 
                 if (ProductInventory != null)
-                    return BadRequest("Product is already included in the inventory.");
+                    return BadRequest(new ErrorApiResponse(400,"Product is already included in the inventory."));
 
 
                 _unitOfWork.ProductsInventory.InsertAsync(_mapper.Map<TbFinishedProductsInventory>(addProductInventoryDTO));
@@ -93,7 +97,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+            return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 
@@ -101,18 +105,19 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateProductInInventory([FromBody] AddProductInventoryDTO addProductInventoryDTO)
         {
-            if (!ModelState.IsValid || addProductInventoryDTO.ProductId < 1)
-            {
-                return BadRequest(ModelState.Select(x => x.Value.Errors).Where(y => y.Count > 0).ToList());
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-            }
+            if (addProductInventoryDTO.ProductId <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
+
 
             try
             {
                 var productInInventoryToUpdate = await _unitOfWork.ProductsInventory.GetByIdAsync(addProductInventoryDTO.ProductId);
 
                 if (productInInventoryToUpdate == null)
-                    return BadRequest("The submitted productId is invalid.");
+                    return NotFound(new ErrorApiResponse(404,"Product Inventory is not found."));
 
 
                 _mapper.Map(addProductInventoryDTO, productInInventoryToUpdate);
@@ -124,7 +129,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+            return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 
@@ -132,17 +137,17 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProductFromInventory(int id)
         {
-            if (id < 1)
-            {
-                return BadRequest("Id cannot be 0 or less.");
-            }
+          
+            if (id <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
+
 
             try
             {
                 var productInventoryToDelete = await _unitOfWork.ProductsInventory.GetByIdAsync(id);
 
                 if (productInventoryToDelete == null)
-                    return BadRequest("Invalid Id is submitted.");
+                    return NotFound(new ErrorApiResponse(404, "Inventory Product is not found."));
 
                 _unitOfWork.ProductsInventory.Delete(productInventoryToDelete);
                 await _unitOfWork.Save();
@@ -151,7 +156,8 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error. " + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
+
             }
         }
 

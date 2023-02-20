@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BusinessLogic.UnitOfWork;
 using Domains.Interfaces.IUnitOfWork;
 using ERP_BusinessLogic.Context;
+using GP_ERP_SYSTEM_v1._0.Errors;
 using GP_ERP_SYSTEM_v1._0.Helpers.AutomapperProfile;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -51,8 +52,24 @@ namespace GP_ERP_SYSTEM_v1._0
             //Unit of work Dependency Injection
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+            //Overriding ApiController ModelState Default Behavior
+            services.Configure<ApiBehaviorOptions>(opt => {
+                opt.InvalidModelStateResponseFactory = actionContext =>
+                {
+                    var errors = actionContext.ModelState.Where(e => e.Value.Errors.Count > 0)
+                                 .SelectMany(x => x.Value.Errors).Select(x => x.ErrorMessage).ToArray();
+
+                    return new BadRequestObjectResult(new ErrorValidationResponse { Errors = errors });
+
+                };
+
+            });
+
+
         }
 
+
+        
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -62,9 +79,12 @@ namespace GP_ERP_SYSTEM_v1._0
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GP_ERP_SYSTEM_v1._0 v1"));
             }
 
-            app.UseHttpsRedirection();
+           app.UseHttpsRedirection();
 
             app.UseRouting();
+
+    //        app.UseStatusCodePagesWithReExecute("/errors/{0}");
+
 
             app.UseAuthorization();
 

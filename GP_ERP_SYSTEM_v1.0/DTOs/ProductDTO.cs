@@ -10,14 +10,19 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
 
     public class AddProductDTO 
     {
-        public string? ProductName { get; set; }
-        
-        public string? ProductDescription { get; set; }
+        [Required]
+        public string ProductName { get; set; }
         
         [Required]
+        public string ProductDescription { get; set; }
+        
+        [Required]
+        [Range(0.1,double.MaxValue,ErrorMessage ="value can not be 0 or less")]
         public decimal PurchasePrice { get; set; }
+
+
         [Required]
-        public decimal SalesPrice { get; set; }
+        [Range(0.1, double.MaxValue, ErrorMessage = "value can not be 0 or less")] public decimal SalesPrice { get; set; }
         
         [Required]
         public int CategoryId { get; set; }

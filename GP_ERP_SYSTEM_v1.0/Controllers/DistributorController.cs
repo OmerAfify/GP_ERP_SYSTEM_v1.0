@@ -6,6 +6,7 @@ using AutoMapper;
 using Domains.Interfaces.IUnitOfWork;
 using ERP_Domians.Models;
 using GP_ERP_SYSTEM_v1._0.DTOs;
+using GP_ERP_SYSTEM_v1._0.Errors;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -37,7 +38,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 
@@ -45,14 +46,23 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetDirstributorById(int id)
         {
+
+            if (id <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
+
+
             try
             {
                 var distributor = await _unitOfWork.Distributor.GetByIdAsync(id);
+
+                if (distributor == null)
+                    return NotFound(new ErrorApiResponse(400));
+
                  return Ok(_mapper.Map<DistributorDTO>(distributor));
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 
@@ -62,7 +72,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-         
+
             try
             {
                 _unitOfWork.Distributor.InsertAsync(_mapper.Map<TbDistributor>(distributorDTO));
@@ -72,7 +82,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 
@@ -80,17 +90,18 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateDistributor(int id, [FromBody] AddDistributorDTO UpdateDistributor)
         {
-            if (!ModelState.IsValid || id < 1)
-            {
+            if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            }
+
+            if (id <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
 
             try
             {
                 var distributorToUpdate = await _unitOfWork.Distributor.GetByIdAsync(id);
 
                 if (distributorToUpdate == null)
-                    return BadRequest("submitted distributorId is invalid.");
+                    return BadRequest(new ErrorApiResponse(400,"Invalid Id is sent."));
 
 
                  _mapper.Map(UpdateDistributor, distributorToUpdate);
@@ -102,7 +113,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 
@@ -110,17 +121,16 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         [HttpDelete]
         public async Task<IActionResult> DeleteDistributor(int id)
         {
-            if (id < 1)
-            {
-                return BadRequest("Id cannot be 0 or less.");
-            }
+
+            if (id <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
 
             try
             {
                 var distributorToDelete = await _unitOfWork.Distributor.GetByIdAsync(id);
 
                 if (distributorToDelete == null)
-                    return BadRequest("Invalid Id is submitted.");
+                    return BadRequest(new ErrorApiResponse(400,"Invalid Id is sent."));
 
                 _unitOfWork.Distributor.Delete(distributorToDelete);
                 await _unitOfWork.Save();
@@ -129,7 +139,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error. " + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 

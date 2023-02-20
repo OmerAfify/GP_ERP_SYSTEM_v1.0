@@ -6,6 +6,7 @@ using AutoMapper;
 using Domains.Interfaces.IUnitOfWork;
 using ERP_Domians.Models;
 using GP_ERP_SYSTEM_v1._0.DTOs;
+using GP_ERP_SYSTEM_v1._0.Errors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,7 +38,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 
@@ -45,14 +46,22 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetRawMaterialInventoryById(int id)
         {
+
+            if (id <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
+
             try
             {
                 var RawMaterialInventory = await _unitOfWork.RawMaterialInventory.FindAsync(r=>r.MaterialId==id, new List<string> { "Material"});
+
+                if (RawMaterialInventory == null)
+                    return NotFound(new ErrorApiResponse(404, "Raw material in inventory is not found."));
+                
                 return Ok(_mapper.Map<RawMaterialInventoryDTO>(RawMaterialInventory));
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 
@@ -60,20 +69,23 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         [HttpPost]
         public async Task<IActionResult> AddNewRawMaterialToInventory([FromBody] AddRawMaterialInventoryDTO AddRawMaterialInventoryDTO)
         {
-           if (!ModelState.IsValid)
-                    return BadRequest(ModelState.Select(x => x.Value.Errors).Where(y => y.Count > 0).ToList());            
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            if (AddRawMaterialInventoryDTO.MaterialId <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Material Id can't be 0 or less." } });
 
             try
             {
                 var rawMaterial = await _unitOfWork.RawMaterial.GetByIdAsync(AddRawMaterialInventoryDTO.MaterialId);
 
                 if (rawMaterial == null)
-                    return BadRequest("Raw Material id is invalid.");
+                    return BadRequest(new ErrorApiResponse(400, "Raw Material is not found."));
 
                 var rawMaterialInventory = await _unitOfWork.RawMaterialInventory.GetByIdAsync(AddRawMaterialInventoryDTO.MaterialId);
 
                 if (rawMaterialInventory != null)
-                    return BadRequest("This material already exists in the inventory.");
+                    return BadRequest(new ErrorApiResponse(400, "Raw Material already exists in the inventory."));
 
 
                 _unitOfWork.RawMaterialInventory.InsertAsync(_mapper.Map<TbRawMaterialsInventory>(AddRawMaterialInventoryDTO));
@@ -83,7 +95,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 
@@ -91,8 +103,11 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateRawMaterialInInventory([FromBody] AddRawMaterialInventoryDTO UpdateRawMaterialInventoryDTO)
         {
-            if (!ModelState.IsValid || UpdateRawMaterialInventoryDTO.MaterialId < 1)
-                 return BadRequest(ModelState.Select(x => x.Value.Errors).Where(y => y.Count > 0).ToList());
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            if (UpdateRawMaterialInventoryDTO.MaterialId <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
 
             try
             {
@@ -102,20 +117,21 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
 
                 if (rawMaterialInventoryToUpdate == null)
-                    return BadRequest("submitted RawMaterialInventory ID is invalid.");
+                    return BadRequest(new ErrorApiResponse(400, "submitted RawMaterialInventory  is not found."));
 
 
 
                 _mapper.Map(UpdateRawMaterialInventoryDTO, rawMaterialInventoryToUpdate);
 
                 _unitOfWork.RawMaterialInventory.Update(rawMaterialInventoryToUpdate);
+
                 await _unitOfWork.Save();
 
                 return NoContent();
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 
@@ -123,17 +139,17 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRawMaterialFromInventory(int id)
         {
-            if (id < 1)
-            {
-                return BadRequest("Id cannot be 0 or less.");
-            }
+
+            if (id <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
+
 
             try
             {
                 var RawMaterialInventoryToDelete = await _unitOfWork.RawMaterialInventory.GetByIdAsync(id);
 
                 if (RawMaterialInventoryToDelete == null)
-                    return BadRequest("Invalid Id is submitted.");
+                    return NotFound(new ErrorApiResponse(404,"Raw Material is not found."));
 
                 _unitOfWork.RawMaterialInventory.Delete(RawMaterialInventoryToDelete);
                 await _unitOfWork.Save();
@@ -142,7 +158,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error. " + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 

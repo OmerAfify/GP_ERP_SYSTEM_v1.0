@@ -6,6 +6,7 @@ using AutoMapper;
 using Domains.Interfaces.IUnitOfWork;
 using ERP_Domians.Models;
 using GP_ERP_SYSTEM_v1._0.DTOs;
+using GP_ERP_SYSTEM_v1._0.Errors;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -37,7 +38,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500,null,ex.Message));
             }
         }
 
@@ -45,15 +46,23 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProductById(int id)
         {
+          
+            if (id <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
+
             try
             {
                 var product = await _unitOfWork.Product.FindAsync(p => p.ProductId == id,
                                                                  new List<string>() { "Category" });
+
+                if (product == null)
+                    return BadRequest(new ErrorApiResponse(404, "Product Not Found."));
+
                 return Ok(_mapper.Map<ProductDTO>(product));
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 
@@ -67,7 +76,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             
             if (!this.ValidateCategoryId(product.CategoryId))
-                  return BadRequest("invalid CategoryID is selected");
+                  return BadRequest(new ErrorApiResponse(400,"Invalid Category Id is Sent.") );
 
             try
             {
@@ -78,7 +87,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 
@@ -86,23 +95,25 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateProduct(int id, [FromBody] AddProductDTO product)
         {
-            if (!ModelState.IsValid || id < 1)
-            {
+            if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            }
+
+            if (id <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
+
 
             if (!this.ValidateCategoryId(product.CategoryId))
-                return BadRequest("invalid CategoryID is selected");
+                return BadRequest(new ErrorApiResponse(400,"Invalid CategoryId is sent."));
 
             try
             {
                 var productToUpdate = await _unitOfWork.Product.GetByIdAsync(id);
 
                 if (productToUpdate == null)
-                    return BadRequest("submitted productId is invalid.");
+                    return BadRequest(new ErrorApiResponse(400, "Invalid ProductID is sent."));
 
 
-                 _mapper.Map(product, productToUpdate);
+                _mapper.Map(product, productToUpdate);
 
                 _unitOfWork.Product.Update(productToUpdate);
                 await _unitOfWork.Save();
@@ -111,7 +122,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 
@@ -119,17 +130,17 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         [HttpDelete]
         public async Task<IActionResult> DeleteProduct(int id)
         {
-            if (id < 1)
-            {
-                return BadRequest("Id cannot be 0 or less.");
-            }
+
+            if (id <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
+       
 
             try
             {
                 var productToDelete = await _unitOfWork.Product.GetByIdAsync(id);
 
                 if (productToDelete == null)
-                    return BadRequest("Invalid Id is submitted.");
+                    return BadRequest(new ErrorApiResponse(400, "Invalid Product ID is sent."));
 
                 _unitOfWork.Product.Delete(productToDelete);
                 await _unitOfWork.Save();
@@ -138,7 +149,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error. " + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 

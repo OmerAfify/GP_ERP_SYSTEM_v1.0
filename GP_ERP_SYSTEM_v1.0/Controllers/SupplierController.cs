@@ -6,6 +6,7 @@ using AutoMapper;
 using Domains.Interfaces.IUnitOfWork;
 using ERP_Domians.Models;
 using GP_ERP_SYSTEM_v1._0.DTOs;
+using GP_ERP_SYSTEM_v1._0.Errors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,7 +37,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 
@@ -44,14 +45,22 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSupplierById(int id)
         {
+
+            if (id <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
+
             try
             {
                 var Supplier = await _unitOfWork.Supplier.GetByIdAsync(id);
+
+                if (Supplier == null)
+                    return NotFound(new ErrorApiResponse(404, "Supplier is not found"));
+
                 return Ok(_mapper.Map<SupplierDTO>(Supplier));
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 
@@ -60,9 +69,9 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         public async Task<IActionResult> AddNewSupplier([FromBody] AddSupplierDTO Supplier)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
+
+            
 
             try
             {
@@ -73,7 +82,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 
@@ -81,16 +90,18 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateSupplier(int id, [FromBody] AddSupplierDTO Supplier)
         {
-            if (!ModelState.IsValid || id < 1)
-            {
+            if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            }
+
+            if (id <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
+
             try
             {
                 var SupplierToUpdate = await _unitOfWork.Supplier.GetByIdAsync(id);
 
                 if (SupplierToUpdate == null)
-                    return BadRequest("submitted SupplierId is invalid.");
+                    return NotFound(new ErrorApiResponse(404, "Supplier Id is not found."));
 
 
                 _mapper.Map(Supplier, SupplierToUpdate);
@@ -102,7 +113,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 
@@ -110,17 +121,18 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         [HttpDelete]
         public async Task<IActionResult> DeleteSupplier(int id)
         {
-            if (id < 1)
-            {
-                return BadRequest("Id cannot be 0 or less.");
-            }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            if (id <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
 
             try
             {
                 var SupplierToDelete = await _unitOfWork.Supplier.GetByIdAsync(id);
 
                 if (SupplierToDelete == null)
-                    return BadRequest("Invalid Id is submitted.");
+                    return BadRequest(new ErrorApiResponse(400,"Supplier not found."));
 
                 _unitOfWork.Supplier.Delete(SupplierToDelete);
                 await _unitOfWork.Save();
@@ -129,7 +141,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error. " + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
         }
 
@@ -144,7 +156,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                 var supplier = await _unitOfWork.Supplier.GetByIdAsync(supplierId);
 
                 if (supplier == null)
-                    return BadRequest("supplier Id is not found");
+                    return BadRequest(new ErrorApiResponse(400,"supplier Id is not found"));
 
                 var supplyingMaterials = await _unitOfWork.SupplingMaterialDetails.FindRangeAsync(m => m.SupplierId == supplierId);
                 return Ok(_mapper.Map<List<SupplyingMaterialDetailDTO>>(supplyingMaterials));
@@ -153,7 +165,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error." + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
 
         }
@@ -163,14 +175,17 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         public async Task<IActionResult> AddNewSupplyingMaterialToSupplier(int supplierId,[FromBody] List<SupplyingMaterialDetailDTO> supplyingMaterialDetailsDTO)
         {
             if (!ModelState.IsValid)
-                return BadRequest(ModelState.Select(x => x.Value.Errors).Where(y => y.Count > 0).ToList());
-          
+                return BadRequest(ModelState);
+
+            if (supplierId <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
+
             try
             {
                 var supplier = await _unitOfWork.Supplier.GetByIdAsync(supplierId);
 
                 if (supplier == null)
-                    return BadRequest("Supplier Id is not found");
+                    return BadRequest(new ErrorApiResponse(400,"Supplier Id is not found"));
 
                 var SendedRawMaterialsIdsList = supplyingMaterialDetailsDTO.Select(rm => rm.MaterialId).ToList();
 
@@ -181,7 +196,8 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
                 if (InvalidRawMaterialsIdsList.Count > 0)
                 {
-                    return BadRequest("The following Materials ids are invalid: " + String.Join(", ", InvalidRawMaterialsIdsList)+" ." );
+                    return BadRequest(new ErrorApiResponse(400,"The following Materials ids are invalid: " 
+                                                              + String.Join(", ", InvalidRawMaterialsIdsList)+" ." ));
     
                 }
 
@@ -198,7 +214,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
             }catch(Exception ex)
             {
-                return Problem("An error occured while processing the request. " + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
 
 
@@ -209,14 +225,17 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         public async Task<IActionResult>  UpdateSupplingMaterialToSupplier(int supplierId, [FromBody] List<SupplyingMaterialDetailDTO> supplyingMaterialDetailsDTO)
         {
             if (!ModelState.IsValid)
-                return BadRequest(ModelState.Select(x => x.Value.Errors).Where(y => y.Count > 0).ToList());
+                return BadRequest(ModelState);
+
+            if (supplierId <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
 
             try
             {
                 var supplier = await _unitOfWork.Supplier.GetByIdAsync(supplierId);
 
                 if (supplier == null)
-                    return BadRequest("Supplier Id is not found");
+                    return BadRequest(new ErrorApiResponse(400, "Supplier is not found")) ;
 
   
                 var SendedRawMaterialsIdsList = supplyingMaterialDetailsDTO.Select(rm => rm.MaterialId).ToList();
@@ -227,8 +246,8 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
               
                 if (InvalidRawMaterialsIdsList.Count > 0)
                 {
-                  return BadRequest("The following Materials ids are invalid: " + String.Join(", ", InvalidRawMaterialsIdsList) + " .");
-
+                    return BadRequest(new ErrorApiResponse(400, "The following Materials ids are invalid: "
+                                                                           + String.Join(", ", InvalidRawMaterialsIdsList) + " ."));
                 }
 
 
@@ -237,7 +256,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
 
                 if (supplyingMaterialDetailsDTO.Count != supplyingMaterialsDetailsToUpdate.ToList().Count)
-                    return BadRequest("The entered Material Ids dosn't exist in the current suppleir Id number : "+supplierId);
+                    return BadRequest(new ErrorApiResponse(400, "The entered Material Ids dosn't exist in the current suppleir Id number : "+supplierId));
 
 
                 foreach (var newMaterial in supplyingMaterialDetailsDTO)
@@ -257,7 +276,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return Problem("An error occured while processing the request. " + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
 
 
@@ -268,14 +287,17 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         public async Task<IActionResult>  DeleteSupplingMaterialToSupplier(int supplierId, [FromBody] List<int> supplyingMaterialsIds)
         {
             if (!ModelState.IsValid)
-                return BadRequest(ModelState.Select(x => x.Value.Errors).Where(y => y.Count > 0).ToList());
+                return BadRequest(ModelState);
+
+            if (supplierId <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
 
             try
             {
                 var supplier = await _unitOfWork.Supplier.GetByIdAsync(supplierId);
 
                 if (supplier == null)
-                    return BadRequest("Supplier Id is not found");
+                    return NotFound(new ErrorApiResponse(404,"Supplier Id is not found"));
 
   
 
@@ -285,8 +307,8 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
               
                 if (InvalidRawMaterialsIdsList.Count > 0)
                 {
-                  return BadRequest("The following Materials ids are invalid: " + String.Join(", ", InvalidRawMaterialsIdsList) + " .");
-
+                    return BadRequest(new ErrorApiResponse(400, "The following Materials ids are invalid: "
+                                                                    + String.Join(", ", InvalidRawMaterialsIdsList) + " ."));
                 }
 
 
@@ -294,7 +316,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
 
                 if (supplyingMaterialsIds.Count != supplyingMaterialsDetailsToDelete.ToList().Count)
-                    return BadRequest("The entered Material Ids dosn't exist in the current suppleir Id number : "+supplierId);
+                    return BadRequest(new ErrorApiResponse(400,"The entered Material Ids dosn't exist in the current suppleir Id number : "+supplierId));
 
 
                  _unitOfWork.SupplingMaterialDetails.DeleteRange(supplyingMaterialsDetailsToDelete.ToList());
@@ -306,7 +328,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             catch (Exception ex)
             {
-                return Problem("An error occured while processing the request. " + ex.Message);
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
             }
 
 
