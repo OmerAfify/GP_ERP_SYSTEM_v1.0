@@ -10,7 +10,6 @@ namespace ERP_Domians.Models
         public TbRawMaterial()
         {
             TbManufacturingOrderDetails = new HashSet<TbManufacturingOrderDetail>();
-            TbSupplyOrderDetails = new HashSet<TbSupplyOrderDetail>();
             TbSupplyingMaterialDetails = new HashSet<TbSupplyingMaterialDetail>();
         }
 
@@ -20,7 +19,6 @@ namespace ERP_Domians.Models
 
         public virtual TbRawMaterialsInventory TbRawMaterialsInventory { get; set; }
         public virtual ICollection<TbManufacturingOrderDetail> TbManufacturingOrderDetails { get; set; }
-        public virtual ICollection<TbSupplyOrderDetail> TbSupplyOrderDetails { get; set; }
         public virtual ICollection<TbSupplyingMaterialDetail> TbSupplyingMaterialDetails { get; set; }
     }
 }

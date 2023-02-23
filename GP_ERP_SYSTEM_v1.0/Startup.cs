@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using BusinessLogic.UnitOfWork;
 using Domains.Interfaces.IUnitOfWork;
 using ERP_BusinessLogic.Context;
+using ERP_BusinessLogic.Services;
+using ERP_Domians.IServices;
 using GP_ERP_SYSTEM_v1._0.Errors;
 using GP_ERP_SYSTEM_v1._0.Helpers.AutomapperProfile;
 using Microsoft.AspNetCore.Builder;
@@ -51,6 +53,11 @@ namespace GP_ERP_SYSTEM_v1._0
 
             //Unit of work Dependency Injection
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            
+            //OrderService Config
+            services.AddScoped<ISupplierOrderService, SupplierOrderService>();
+
+
 
             //Overriding ApiController ModelState Default Behavior
             services.Configure<ApiBehaviorOptions>(opt => {

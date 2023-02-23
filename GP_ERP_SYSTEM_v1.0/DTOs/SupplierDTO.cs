@@ -9,6 +9,7 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
     {
         public string SupplierName { get; set; }
         public string SupplierDescription { get; set; }
+        public int AdverageDeliveryTimeInDays { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }

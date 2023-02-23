@@ -26,6 +26,11 @@ namespace ERP_BusinessLogic.Context
         public virtual DbSet<TbCustomer> TbCustomers { get; set; }
         public virtual DbSet<TbDistributionOrder> TbDistributionOrders { get; set; }
         public virtual DbSet<TbDistributionOrderDetail> TbDistributionOrderDetails { get; set; }
+
+        public virtual DbSet<TbOrder_Supplier> TbOrder_Suppliers { get; set; }
+        public virtual DbSet<TbOrderStatus_Supplier> TbOrderStatus_Suppliers{ get; set; }
+        public virtual DbSet<TbOrderDetails_Supplier> TbOrderDetails_Suppliers { get; set; }
+
         public virtual DbSet<TbDistributor> TbDistributors { get; set; }
         public virtual DbSet<TbEmployeeDetail> TbEmployeeDetails { get; set; }
         public virtual DbSet<TbEmployeeTaskDetail> TbEmployeeTaskDetails { get; set; }
@@ -50,9 +55,7 @@ namespace ERP_BusinessLogic.Context
         public virtual DbSet<TbRecuirement> TbRecuirements { get; set; }
         public virtual DbSet<TbReporter> TbReporters { get; set; }
         public virtual DbSet<TbSupplier> TbSuppliers { get; set; }
-        public virtual DbSet<TbSupplyOrder> TbSupplyOrders { get; set; }
-        public virtual DbSet<TbSupplyOrderDetail> TbSupplyOrderDetails { get; set; }
-        public virtual DbSet<TbSupplyingMaterialDetail> TbSupplyingMaterialDetails { get; set; }
+         public virtual DbSet<TbSupplyingMaterialDetail> TbSupplyingMaterialDetails { get; set; }
         public virtual DbSet<TbSurvey> TbSurveys { get; set; }
         public virtual DbSet<TbTask> TbTasks { get; set; }
         public virtual DbSet<TbToDoList> TbToDoLists { get; set; }
@@ -667,69 +670,7 @@ namespace ERP_BusinessLogic.Context
                     .HasColumnName("supplierName");
             });
 
-            modelBuilder.Entity<TbSupplyOrder>(entity =>
-            {
-                entity.HasKey(e => e.SupplyOrderId)
-                    .HasName("PK__TB_Suppl__A384C3CE2DCABE0D");
-
-                entity.ToTable("TB_SupplyOrder");
-
-                entity.Property(e => e.SupplyOrderId).HasColumnName("supplyOrderId");
-
-                entity.Property(e => e.ExpectedArrivalDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("expectedArrivalDate");
-
-                entity.Property(e => e.OrderStatus)
-                    .HasColumnName("orderStatus")
-                    .HasDefaultValueSql("((1))");
-
-                entity.Property(e => e.OrderingDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("orderingDate");
-
-                entity.Property(e => e.SupplierId).HasColumnName("supplierId");
-
-                entity.Property(e => e.TotalPrice)
-                    .HasColumnType("decimal(18, 2)")
-                    .HasColumnName("totalPrice");
-
-                entity.Property(e => e.TotalQty).HasColumnName("totalQty");
-
-                entity.HasOne(d => d.Supplier)
-                    .WithMany(p => p.TbSupplyOrders)
-                    .HasForeignKey(d => d.SupplierId)
-                    .HasConstraintName("FK_SupplyOrder_PK_Supplier");
-            });
-
-            modelBuilder.Entity<TbSupplyOrderDetail>(entity =>
-            {
-                entity.HasKey(e => new { e.SupplyOrderId, e.MaterialId })
-                    .HasName("COM_PK_supplyOrderId_materialId");
-
-                entity.ToTable("TB_SupplyOrderDetails");
-
-                entity.Property(e => e.SupplyOrderId).HasColumnName("supplyOrderId");
-
-                entity.Property(e => e.MaterialId).HasColumnName("materialId");
-
-                entity.Property(e => e.Price)
-                    .HasColumnType("decimal(18, 2)")
-                    .HasColumnName("price");
-
-                entity.Property(e => e.Qty).HasColumnName("qty");
-
-                entity.HasOne(d => d.Material)
-                    .WithMany(p => p.TbSupplyOrderDetails)
-                    .HasForeignKey(d => d.MaterialId)
-                    .HasConstraintName("FK_SupplyOrderDetails_PK_RawMaterial");
-
-                entity.HasOne(d => d.SupplyOrder)
-                    .WithMany(p => p.TbSupplyOrderDetails)
-                    .HasForeignKey(d => d.SupplyOrderId)
-                    .HasConstraintName("FK_SupplyOrderDetails_PK_SupplyOrder");
-            });
-
+     
             modelBuilder.Entity<TbSupplyingMaterialDetail>(entity =>
             {
                 entity.HasKey(e => new { e.SupplierId, e.MaterialId })
@@ -741,10 +682,7 @@ namespace ERP_BusinessLogic.Context
 
                 entity.Property(e => e.MaterialId).HasColumnName("materialId");
 
-                entity.Property(e => e.AverageDeliveryTime)
-                    .HasColumnType("datetime")
-                    .HasColumnName("averageDeliveryTime");
-
+           
                 entity.Property(e => e.PricePerUnit)
                     .HasColumnType("decimal(18, 2)")
                     .HasColumnName("pricePerUnit");
@@ -832,8 +770,13 @@ namespace ERP_BusinessLogic.Context
                     .HasForeignKey(d => d.RReporterId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_TB_VisualReport_TB_Reporter");
+
             });
 
+            modelBuilder.Entity<TbOrder_Supplier>().HasMany(od => od.OrderedMaterials).WithOne().OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<TbOrderDetails_Supplier>().OwnsOne(i => i.OrderedRawMaterials, io => { io.WithOwner(); });
+            modelBuilder.Entity<TbOrderStatus_Supplier>().HasKey(x => x.OrderStatusId);
+      
         }
 
 

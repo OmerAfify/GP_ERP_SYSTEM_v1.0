@@ -65,8 +65,6 @@
     <Build Include="dbo\Tables\TB_ToDoList.sql" />
     <Build Include="dbo\Tables\TB_Task.sql" />
     <Build Include="dbo\Tables\TB_Survey.sql" />
-    <Build Include="dbo\Tables\TB_SupplyOrderDetails.sql" />
-    <Build Include="dbo\Tables\TB_SupplyOrder.sql" />
     <Build Include="dbo\Tables\TB_SupplyingMaterialDetails.sql" />
     <Build Include="dbo\Tables\TB_Supplier.sql" />
     <Build Include="dbo\Tables\TB_Reporter.sql" />
@@ -98,5 +96,8 @@
     <Build Include="dbo\Tables\TB_Category.sql" />
     <Build Include="dbo\Tables\TB_Adminstrator.sql" />
     <Build Include="dbo\Tables\__EFMigrationsHistory.sql" />
+    <Build Include="dbo\Tables\TbOrderStatus_Suppliers.sql" />
+    <Build Include="dbo\Tables\TbOrderDetails_Suppliers.sql" />
+    <Build Include="dbo\Tables\TbOrder_Suppliers.sql" />
   </ItemGroup>
 </Project>

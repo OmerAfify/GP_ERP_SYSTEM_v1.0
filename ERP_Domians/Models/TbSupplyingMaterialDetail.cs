@@ -10,8 +10,7 @@ namespace ERP_Domians.Models
         public int SupplierId { get; set; }
         public int MaterialId { get; set; }
         public decimal PricePerUnit { get; set; }
-        public DateTime AverageDeliveryTime { get; set; }
-
+ 
         public virtual TbRawMaterial Material { get; set; }
         public virtual TbSupplier Supplier { get; set; }
     }

@@ -49,6 +49,18 @@ namespace GP_ERP_SYSTEM_v1._0.Helpers.AutomapperProfile
 
             CreateMap<TbSupplyingMaterialDetail, SupplyingMaterialDetailDTO>().ReverseMap();
 
+
+            CreateMap<TbOrder_Supplier, OrderSupplierDTO>()
+                .ForMember(d => d.SupplierName, opt => opt.MapFrom(s => s.Supplier.SupplierName))
+                .ForMember(d => d.OrderStatus, opt => opt.MapFrom(s => s.OrderStatus.OrderStatusName));
+
+
+            CreateMap<TbOrderDetails_Supplier, OrderDetailsSupplierDTO>()
+                .ForMember(d => d.MaterialId, opt => opt.MapFrom(s => s.OrderedRawMaterials.MaterialId))
+                .ForMember(d => d.MaterialName, opt => opt.MapFrom(s => s.OrderedRawMaterials.MaterialName))
+                .ForMember(d => d.SalesPrice, opt => opt.MapFrom(s => s.OrderedRawMaterials.SalesPrice));
+
+
             //FMS DTOs
         
             CreateMap<TbFmsAccount, AddFmsAccountDTO>().ReverseMap();

@@ -20,6 +20,7 @@ namespace Domains.Interfaces.IUnitOfWork
         IProductsInventoryRepository ProductsInventory { get; }
         IGenericRepository<TbRawMaterialsInventory> RawMaterialInventory { get; }
         IGenericRepository<TbDistributor> Distributor { get; }
+        IGenericRepository<TbOrder_Supplier> OrderSupplier { get; }
       
         
         //FMS
@@ -32,6 +33,6 @@ namespace Domains.Interfaces.IUnitOfWork
         IGenericRepository<TbFmsJournalEntry> FmsJournalEntry { get; }
         IGenericRepository<TbFmsAccCat> FmsAccCat { get; }
 
-        public Task Save();
+        public Task<int> Save();
     }
 }

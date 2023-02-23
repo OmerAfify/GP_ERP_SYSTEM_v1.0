@@ -20,7 +20,7 @@ namespace ERP_BusinessLogic.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbAdminstrator", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbAdminstrator", b =>
                 {
                     b.Property<int>("AdminId")
                         .ValueGeneratedOnAdd()
@@ -49,7 +49,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_Adminstrator");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbCategory", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbCategory", b =>
                 {
                     b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
@@ -70,7 +70,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_Category");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbCustomer", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbCustomer", b =>
                 {
                     b.Property<int>("CustomerId")
                         .ValueGeneratedOnAdd()
@@ -105,7 +105,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_Customer");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbDistributionOrder", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbDistributionOrder", b =>
                 {
                     b.Property<int>("DistributionOrderId")
                         .ValueGeneratedOnAdd()
@@ -147,7 +147,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_DistributionOrder");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbDistributionOrderDetail", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbDistributionOrderDetail", b =>
                 {
                     b.Property<int>("DistributionOrderId")
                         .HasColumnType("int")
@@ -173,7 +173,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_DistributionOrderDetails");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbDistributor", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbDistributor", b =>
                 {
                     b.Property<int>("DistributorId")
                         .ValueGeneratedOnAdd()
@@ -206,7 +206,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_Distributor");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbEmployeeDetail", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbEmployeeDetail", b =>
                 {
                     b.Property<int>("EmployeeId")
                         .ValueGeneratedOnAdd()
@@ -249,7 +249,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_EmployeeDetails");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbEmployeeTaskDetail", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbEmployeeTaskDetail", b =>
                 {
                     b.Property<int>("TaskId")
                         .ValueGeneratedOnAdd()
@@ -278,7 +278,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_EmployeeTaskDetails");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbEmployeeTrainning", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbEmployeeTrainning", b =>
                 {
                     b.Property<int>("TrainnningId")
                         .ValueGeneratedOnAdd()
@@ -307,7 +307,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_EmployeeTrainning");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbFinishedProductsInventory", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbFinishedProductsInventory", b =>
                 {
                     b.Property<int>("ProductId")
                         .HasColumnType("int")
@@ -339,7 +339,25 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_FinishedProductsInventory");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbFmsAccount", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbFmsAccCat", b =>
+                {
+                    b.Property<int>("AccId")
+                        .HasColumnType("int")
+                        .HasColumnName("AccID");
+
+                    b.Property<int>("CatId")
+                        .HasColumnType("int")
+                        .HasColumnName("CatID");
+
+                    b.HasKey("AccId", "CatId")
+                        .HasName("composite_pk category_account");
+
+                    b.HasIndex("CatId");
+
+                    b.ToTable("TB_FMS_AccCat");
+                });
+
+            modelBuilder.Entity("ERP_Domians.Models.TbFmsAccount", b =>
                 {
                     b.Property<int>("AccId")
                         .ValueGeneratedOnAdd()
@@ -350,19 +368,25 @@ namespace ERP_BusinessLogic.Migrations
                     b.Property<decimal?>("AccBalance")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("AccCategories")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("AccCredit")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("AccDebit")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("AccName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("IncreaseMode")
+                        .HasColumnType("int");
+
                     b.HasKey("AccId")
-                        .HasName("PK__TB_FMS_A__91CBC398927CE2DA");
+                        .HasName("PK__TB_FMS_A__91CBC39804A449CE");
 
                     b.ToTable("TB_FMS_Account");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbFmsAccountCategory", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbFmsCategory", b =>
                 {
                     b.Property<int>("CatId")
                         .ValueGeneratedOnAdd()
@@ -377,12 +401,12 @@ namespace ERP_BusinessLogic.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CatId")
-                        .HasName("PK__TB_FMS_A__6A1C8ADA073E8323");
+                        .HasName("PK__TB_FMS_C__6A1C8ADAB474143C");
 
-                    b.ToTable("TB_FMS_AccountCategory");
+                    b.ToTable("TB_FMS_Category");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbFmsJournalEntry", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbFmsJournalEntry", b =>
                 {
                     b.Property<int>("Jeid")
                         .ValueGeneratedOnAdd()
@@ -419,7 +443,7 @@ namespace ERP_BusinessLogic.Migrations
                         .HasColumnName("JEName");
 
                     b.HasKey("Jeid")
-                        .HasName("PK__TB_FMS_J__703C596C781CFD45");
+                        .HasName("PK__TB_FMS_J__703C596C510B154B");
 
                     b.HasIndex("Jeaccount1");
 
@@ -428,41 +452,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_FMS_JournalEntry");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbFmsSection", b =>
-                {
-                    b.Property<string>("SecAccounts")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("SecId")
-                        .HasColumnType("int")
-                        .HasColumnName("SecID");
-
-                    b.Property<string>("SecName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasIndex("SecId");
-
-                    b.ToTable("TB_FMS_Section");
-                });
-
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbFmsSectionTemplate", b =>
-                {
-                    b.Property<string>("SecTempAccounts")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("SecTempId")
-                        .HasColumnType("int")
-                        .HasColumnName("SecTempID");
-
-                    b.Property<string>("SecTempName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasIndex("SecTempId");
-
-                    b.ToTable("TB_FMS_SectionTemplate");
-                });
-
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbFmsStatement", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbFmsStatement", b =>
                 {
                     b.Property<int>("StaId")
                         .ValueGeneratedOnAdd()
@@ -480,12 +470,32 @@ namespace ERP_BusinessLogic.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("StaId")
-                        .HasName("PK__TB_FMS_S__BA875A6111E4C018");
+                        .HasName("PK__TB_FMS_S__BA875A61CF47BBBC");
 
                     b.ToTable("TB_FMS_Statement");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbFmsStatementTemplate", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbFmsStatementAccount", b =>
+                {
+                    b.Property<string>("AccName")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("StaId")
+                        .HasColumnType("int")
+                        .HasColumnName("StaID");
+
+                    b.Property<decimal?>("AccBalance")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("AccName", "StaId")
+                        .HasName("composite primary key");
+
+                    b.HasIndex("StaId");
+
+                    b.ToTable("TB_FMS_StatementAccounts");
+                });
+
+            modelBuilder.Entity("ERP_Domians.Models.TbFmsStatementTemplate", b =>
                 {
                     b.Property<int>("TempId")
                         .ValueGeneratedOnAdd()
@@ -493,16 +503,37 @@ namespace ERP_BusinessLogic.Migrations
                         .HasColumnName("TempID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime?>("TempDate")
+                        .HasColumnType("datetime");
+
                     b.Property<string>("TempName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TempId")
-                        .HasName("PK__TB_FMS_S__06C703E1BB29E8BC");
+                        .HasName("PK__TB_FMS_S__06C703E10B86E807");
 
                     b.ToTable("TB_FMS_StatementTemplate");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbHrmanagerDetail", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbFmsTemplateAccount", b =>
+                {
+                    b.Property<int>("AccId")
+                        .HasColumnType("int")
+                        .HasColumnName("AccID");
+
+                    b.Property<int>("TempId")
+                        .HasColumnType("int")
+                        .HasColumnName("TempID");
+
+                    b.HasKey("AccId", "TempId")
+                        .HasName("composite_pk template_account");
+
+                    b.HasIndex("TempId");
+
+                    b.ToTable("TB_FMS_TemplateAccounts");
+                });
+
+            modelBuilder.Entity("ERP_Domians.Models.TbHrmanagerDetail", b =>
                 {
                     b.Property<int>("Hrid")
                         .ValueGeneratedOnAdd()
@@ -523,7 +554,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_HRManagerDetails");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbInterviewDetail", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbInterviewDetail", b =>
                 {
                     b.Property<int>("InterviewId")
                         .ValueGeneratedOnAdd()
@@ -546,7 +577,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_InterviewDetails");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbManufacturingOrder", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbManufacturingOrder", b =>
                 {
                     b.Property<int>("ManufactoringOrderId")
                         .ValueGeneratedOnAdd()
@@ -573,7 +604,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_ManufacturingOrder");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbManufacturingOrderDetail", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbManufacturingOrderDetail", b =>
                 {
                     b.Property<int>("ManfactoringOrderId")
                         .HasColumnType("int")
@@ -594,7 +625,85 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_ManufacturingOrderDetails");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbProduct", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbOrderDetails_Supplier", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TbOrder_SupplierId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TbOrder_SupplierId");
+
+                    b.ToTable("TbOrderDetails_Suppliers");
+                });
+
+            modelBuilder.Entity("ERP_Domians.Models.TbOrderStatus_Supplier", b =>
+                {
+                    b.Property<int>("OrderStatusId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("OrderStatusName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("OrderStatusId");
+
+                    b.ToTable("TbOrderStatus_Suppliers");
+                });
+
+            modelBuilder.Entity("ERP_Domians.Models.TbOrder_Supplier", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("ExpectedArrivalDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("OrderStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("OrderingDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("ShippingCost")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("SubTotalPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("SupplierId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("TotalQty")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderStatusId");
+
+                    b.HasIndex("SupplierId");
+
+                    b.ToTable("TbOrder_Suppliers");
+                });
+
+            modelBuilder.Entity("ERP_Domians.Models.TbProduct", b =>
                 {
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
@@ -630,7 +739,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_Product");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbQuestion", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbQuestion", b =>
                 {
                     b.Property<int>("QuestionId")
                         .ValueGeneratedOnAdd()
@@ -646,7 +755,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_Question");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbRawMaterial", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbRawMaterial", b =>
                 {
                     b.Property<int>("MaterialId")
                         .ValueGeneratedOnAdd()
@@ -668,7 +777,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_RawMaterial");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbRawMaterialsInventory", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbRawMaterialsInventory", b =>
                 {
                     b.Property<int>("MaterialId")
                         .HasColumnType("int")
@@ -700,7 +809,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_RawMaterialsInventory");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbRecuirement", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbRecuirement", b =>
                 {
                     b.Property<int>("RecuirementId")
                         .ValueGeneratedOnAdd()
@@ -735,7 +844,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_Recuirement");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbReporter", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbReporter", b =>
                 {
                     b.Property<int>("ReporterId")
                         .ValueGeneratedOnAdd()
@@ -758,7 +867,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_Reporter");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbSupplier", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbSupplier", b =>
                 {
                     b.Property<int>("SupplierId")
                         .ValueGeneratedOnAdd()
@@ -769,6 +878,9 @@ namespace ERP_BusinessLogic.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("address");
+
+                    b.Property<int>("AdverageDeliveryTimeInDays")
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -797,75 +909,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_Supplier");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbSupplyOrder", b =>
-                {
-                    b.Property<int>("SupplyOrderId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("supplyOrderId")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("ExpectedArrivalDate")
-                        .HasColumnType("datetime")
-                        .HasColumnName("expectedArrivalDate");
-
-                    b.Property<int>("OrderStatus")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("orderStatus")
-                        .HasDefaultValueSql("((1))");
-
-                    b.Property<DateTime>("OrderingDate")
-                        .HasColumnType("datetime")
-                        .HasColumnName("orderingDate");
-
-                    b.Property<int>("SupplierId")
-                        .HasColumnType("int")
-                        .HasColumnName("supplierId");
-
-                    b.Property<decimal>("TotalPrice")
-                        .HasColumnType("decimal(18,2)")
-                        .HasColumnName("totalPrice");
-
-                    b.Property<int>("TotalQty")
-                        .HasColumnType("int")
-                        .HasColumnName("totalQty");
-
-                    b.HasKey("SupplyOrderId")
-                        .HasName("PK__TB_Suppl__A384C3CE2DCABE0D");
-
-                    b.HasIndex("SupplierId");
-
-                    b.ToTable("TB_SupplyOrder");
-                });
-
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbSupplyOrderDetail", b =>
-                {
-                    b.Property<int>("SupplyOrderId")
-                        .HasColumnType("int")
-                        .HasColumnName("supplyOrderId");
-
-                    b.Property<int>("MaterialId")
-                        .HasColumnType("int")
-                        .HasColumnName("materialId");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)")
-                        .HasColumnName("price");
-
-                    b.Property<int>("Qty")
-                        .HasColumnType("int")
-                        .HasColumnName("qty");
-
-                    b.HasKey("SupplyOrderId", "MaterialId")
-                        .HasName("COM_PK_supplyOrderId_materialId");
-
-                    b.HasIndex("MaterialId");
-
-                    b.ToTable("TB_SupplyOrderDetails");
-                });
-
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbSupplyingMaterialDetail", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbSupplyingMaterialDetail", b =>
                 {
                     b.Property<int>("SupplierId")
                         .HasColumnType("int")
@@ -874,10 +918,6 @@ namespace ERP_BusinessLogic.Migrations
                     b.Property<int>("MaterialId")
                         .HasColumnType("int")
                         .HasColumnName("materialId");
-
-                    b.Property<DateTime>("AverageDeliveryTime")
-                        .HasColumnType("datetime")
-                        .HasColumnName("averageDeliveryTime");
 
                     b.Property<decimal>("PricePerUnit")
                         .HasColumnType("decimal(18,2)")
@@ -891,7 +931,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_SupplyingMaterialDetails");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbSurvey", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbSurvey", b =>
                 {
                     b.Property<int>("SurveyId")
                         .ValueGeneratedOnAdd()
@@ -920,7 +960,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_Survey");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbTask", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbTask", b =>
                 {
                     b.Property<int>("TaskId")
                         .ValueGeneratedOnAdd()
@@ -947,7 +987,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_Task");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbToDoList", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbToDoList", b =>
                 {
                     b.Property<int>("ToDoListId")
                         .ValueGeneratedOnAdd()
@@ -971,7 +1011,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_ToDoList");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbVisualReport", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbVisualReport", b =>
                 {
                     b.Property<int>("ReportId")
                         .ValueGeneratedOnAdd()
@@ -1000,9 +1040,9 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_VisualReport");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbAdminstrator", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbAdminstrator", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbReporter", "ReporterIdFkNavigation")
+                    b.HasOne("ERP_Domians.Models.TbReporter", "ReporterIdFkNavigation")
                         .WithMany("TbAdminstrators")
                         .HasForeignKey("ReporterIdFk")
                         .HasConstraintName("FK_TB_Adminstrator_TB_Reporter")
@@ -1011,9 +1051,9 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("ReporterIdFkNavigation");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbDistributionOrder", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbDistributionOrder", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbDistributor", "Distributor")
+                    b.HasOne("ERP_Domians.Models.TbDistributor", "Distributor")
                         .WithMany("TbDistributionOrders")
                         .HasForeignKey("DistributorId")
                         .HasConstraintName("FK_distributionOrder_PK_Distributor")
@@ -1023,16 +1063,16 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("Distributor");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbDistributionOrderDetail", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbDistributionOrderDetail", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbDistributionOrder", "DistributionOrder")
+                    b.HasOne("ERP_Domians.Models.TbDistributionOrder", "DistributionOrder")
                         .WithMany("TbDistributionOrderDetails")
                         .HasForeignKey("DistributionOrderId")
                         .HasConstraintName("FK_DistributionOrderDetails_PK_DistributionOrder")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ERP_BusinessLogic.Models.TbProduct", "Product")
+                    b.HasOne("ERP_Domians.Models.TbProduct", "Product")
                         .WithMany("TbDistributionOrderDetails")
                         .HasForeignKey("ProductId")
                         .HasConstraintName("FK_DistributionOrderDetails_PK_Products")
@@ -1044,9 +1084,9 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbEmployeeDetail", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbEmployeeDetail", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbHrmanagerDetail", "Hrmanager")
+                    b.HasOne("ERP_Domians.Models.TbHrmanagerDetail", "Hrmanager")
                         .WithMany("TbEmployeeDetails")
                         .HasForeignKey("HrmanagerId")
                         .HasConstraintName("FK_TB_EmployeeDetails_TB_HRManagerDetails");
@@ -1054,9 +1094,9 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("Hrmanager");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbEmployeeTaskDetail", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbEmployeeTaskDetail", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbEmployeeDetail", "Emplyee")
+                    b.HasOne("ERP_Domians.Models.TbEmployeeDetail", "Emplyee")
                         .WithMany("TbEmployeeTaskDetails")
                         .HasForeignKey("EmplyeeId")
                         .HasConstraintName("FK_TB_EmployeeTaskDetails_TB_EmployeeDetails");
@@ -1064,14 +1104,14 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("Emplyee");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbEmployeeTrainning", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbEmployeeTrainning", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbEmployeeDetail", "Employee")
+                    b.HasOne("ERP_Domians.Models.TbEmployeeDetail", "Employee")
                         .WithMany("TbEmployeeTrainnings")
                         .HasForeignKey("EmployeeId")
                         .HasConstraintName("FK_TB_EmployeeTrainning_TB_EmployeeDetails");
 
-                    b.HasOne("ERP_BusinessLogic.Models.TbHrmanagerDetail", "Hrmanger")
+                    b.HasOne("ERP_Domians.Models.TbHrmanagerDetail", "Hrmanger")
                         .WithMany("TbEmployeeTrainnings")
                         .HasForeignKey("HrmangerId")
                         .HasConstraintName("FK_TB_EmployeeTrainning_TB_HRManagerDetails");
@@ -1081,11 +1121,11 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("Hrmanger");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbFinishedProductsInventory", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbFinishedProductsInventory", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbProduct", "Product")
+                    b.HasOne("ERP_Domians.Models.TbProduct", "Product")
                         .WithOne("TbFinishedProductsInventory")
-                        .HasForeignKey("ERP_BusinessLogic.Models.TbFinishedProductsInventory", "ProductId")
+                        .HasForeignKey("ERP_Domians.Models.TbFinishedProductsInventory", "ProductId")
                         .HasConstraintName("FK__TB_Finish__produ__3C69FB99")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1093,46 +1133,75 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbFmsJournalEntry", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbFmsAccCat", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbFmsAccount", "Jeaccount1Navigation")
+                    b.HasOne("ERP_Domians.Models.TbFmsAccount", "Acc")
+                        .WithMany("TbFmsAccCats")
+                        .HasForeignKey("AccId")
+                        .HasConstraintName("FK__TB_FMS_Ac__AccID__114A936A")
+                        .IsRequired();
+
+                    b.HasOne("ERP_Domians.Models.TbFmsCategory", "Cat")
+                        .WithMany("TbFmsAccCats")
+                        .HasForeignKey("CatId")
+                        .HasConstraintName("FK__TB_FMS_Ac__CatID__123EB7A3")
+                        .IsRequired();
+
+                    b.Navigation("Acc");
+
+                    b.Navigation("Cat");
+                });
+
+            modelBuilder.Entity("ERP_Domians.Models.TbFmsJournalEntry", b =>
+                {
+                    b.HasOne("ERP_Domians.Models.TbFmsAccount", "Jeaccount1Navigation")
                         .WithMany("TbFmsJournalEntryJeaccount1Navigations")
                         .HasForeignKey("Jeaccount1")
-                        .HasConstraintName("FK__TB_FMS_Jo__JEAcc__7C1A6C5A");
+                        .HasConstraintName("FK__TB_FMS_Jo__JEAcc__10566F31");
 
-                    b.HasOne("ERP_BusinessLogic.Models.TbFmsAccount", "Jeaccount2Navigation")
+                    b.HasOne("ERP_Domians.Models.TbFmsAccount", "Jeaccount2Navigation")
                         .WithMany("TbFmsJournalEntryJeaccount2Navigations")
                         .HasForeignKey("Jeaccount2")
-                        .HasConstraintName("FK__TB_FMS_Jo__JEAcc__7D0E9093");
+                        .HasConstraintName("FK__TB_FMS_Jo__JEAcc__114A936A");
 
                     b.Navigation("Jeaccount1Navigation");
 
                     b.Navigation("Jeaccount2Navigation");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbFmsSection", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbFmsStatementAccount", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbFmsStatement", "Sec")
-                        .WithMany()
-                        .HasForeignKey("SecId")
-                        .HasConstraintName("FK__TB_FMS_Se__SecID__7E02B4CC");
+                    b.HasOne("ERP_Domians.Models.TbFmsStatement", "Sta")
+                        .WithMany("TbFmsStatementAccounts")
+                        .HasForeignKey("StaId")
+                        .HasConstraintName("FK__TB_FMS_St__StaID__18EBB532")
+                        .IsRequired();
 
-                    b.Navigation("Sec");
+                    b.Navigation("Sta");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbFmsSectionTemplate", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbFmsTemplateAccount", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbFmsStatementTemplate", "SecTemp")
-                        .WithMany()
-                        .HasForeignKey("SecTempId")
-                        .HasConstraintName("FK__TB_FMS_Se__SecTe__7EF6D905");
+                    b.HasOne("ERP_Domians.Models.TbFmsAccount", "Acc")
+                        .WithMany("TbFmsTemplateAccounts")
+                        .HasForeignKey("AccId")
+                        .HasConstraintName("FK__TB_FMS_Te__AccID__160F4887")
+                        .IsRequired();
 
-                    b.Navigation("SecTemp");
+                    b.HasOne("ERP_Domians.Models.TbFmsStatementTemplate", "Temp")
+                        .WithMany("TbFmsTemplateAccounts")
+                        .HasForeignKey("TempId")
+                        .HasConstraintName("FK__TB_FMS_Te__TempI__17036CC0")
+                        .IsRequired();
+
+                    b.Navigation("Acc");
+
+                    b.Navigation("Temp");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbInterviewDetail", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbInterviewDetail", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbRecuirement", "Recuriement")
+                    b.HasOne("ERP_Domians.Models.TbRecuirement", "Recuriement")
                         .WithMany("TbInterviewDetails")
                         .HasForeignKey("RecuriementId")
                         .HasConstraintName("FK_TB_InterviewDetails_TB_Recuirement");
@@ -1140,9 +1209,9 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("Recuriement");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbManufacturingOrder", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbManufacturingOrder", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbProduct", "ProductManufactured")
+                    b.HasOne("ERP_Domians.Models.TbProduct", "ProductManufactured")
                         .WithMany("TbManufacturingOrders")
                         .HasForeignKey("ProductManufacturedId")
                         .HasConstraintName("FK_TB_ManufacturingOrder_TB_Product")
@@ -1152,16 +1221,16 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("ProductManufactured");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbManufacturingOrderDetail", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbManufacturingOrderDetail", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbManufacturingOrder", "ManfactoringOrder")
+                    b.HasOne("ERP_Domians.Models.TbManufacturingOrder", "ManfactoringOrder")
                         .WithMany("TbManufacturingOrderDetails")
                         .HasForeignKey("ManfactoringOrderId")
                         .HasConstraintName("FK_TB_ManufacturingOrderDetails_TB_ManufacturingOrder")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ERP_BusinessLogic.Models.TbRawMaterial", "RawMaterial")
+                    b.HasOne("ERP_Domians.Models.TbRawMaterial", "RawMaterial")
                         .WithMany("TbManufacturingOrderDetails")
                         .HasForeignKey("RawMaterialId")
                         .HasConstraintName("FK_TB_ManufacturingOrderDetails_TB_RawMaterial")
@@ -1173,9 +1242,62 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("RawMaterial");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbProduct", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbOrderDetails_Supplier", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbCategory", "Category")
+                    b.HasOne("ERP_Domians.Models.TbOrder_Supplier", null)
+                        .WithMany("OrderedMaterials")
+                        .HasForeignKey("TbOrder_SupplierId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.OwnsOne("ERP_Domians.Models.OwnedProperties.OrderedRawMaterialDetails", "OrderedRawMaterials", b1 =>
+                        {
+                            b1.Property<int>("TbOrderDetails_SupplierId")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int")
+                                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                            b1.Property<int>("MaterialId")
+                                .HasColumnType("int");
+
+                            b1.Property<string>("MaterialName")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<decimal>("SalesPrice")
+                                .HasColumnType("decimal(18,2)");
+
+                            b1.HasKey("TbOrderDetails_SupplierId");
+
+                            b1.ToTable("TbOrderDetails_Suppliers");
+
+                            b1.WithOwner()
+                                .HasForeignKey("TbOrderDetails_SupplierId");
+                        });
+
+                    b.Navigation("OrderedRawMaterials");
+                });
+
+            modelBuilder.Entity("ERP_Domians.Models.TbOrder_Supplier", b =>
+                {
+                    b.HasOne("ERP_Domians.Models.TbOrderStatus_Supplier", "OrderStatus")
+                        .WithMany()
+                        .HasForeignKey("OrderStatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ERP_Domians.Models.TbSupplier", "Supplier")
+                        .WithMany()
+                        .HasForeignKey("SupplierId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("OrderStatus");
+
+                    b.Navigation("Supplier");
+                });
+
+            modelBuilder.Entity("ERP_Domians.Models.TbProduct", b =>
+                {
+                    b.HasOne("ERP_Domians.Models.TbCategory", "Category")
                         .WithMany("TbProducts")
                         .HasForeignKey("CategoryId")
                         .HasConstraintName("FK_Product_PK_Category")
@@ -1185,11 +1307,11 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbRawMaterialsInventory", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbRawMaterialsInventory", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbRawMaterial", "Material")
+                    b.HasOne("ERP_Domians.Models.TbRawMaterial", "Material")
                         .WithOne("TbRawMaterialsInventory")
-                        .HasForeignKey("ERP_BusinessLogic.Models.TbRawMaterialsInventory", "MaterialId")
+                        .HasForeignKey("ERP_Domians.Models.TbRawMaterialsInventory", "MaterialId")
                         .HasConstraintName("FK_RawMaterialsInventory_PK_RawMaterials")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1197,14 +1319,14 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("Material");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbRecuirement", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbRecuirement", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbEmployeeDetail", "Employee")
+                    b.HasOne("ERP_Domians.Models.TbEmployeeDetail", "Employee")
                         .WithMany("TbRecuirements")
                         .HasForeignKey("EmployeeId")
                         .HasConstraintName("FK_TB_Recuirement_TB_EmployeeDetails");
 
-                    b.HasOne("ERP_BusinessLogic.Models.TbHrmanagerDetail", "Hrmanager")
+                    b.HasOne("ERP_Domians.Models.TbHrmanagerDetail", "Hrmanager")
                         .WithMany("TbRecuirements")
                         .HasForeignKey("HrmanagerId")
                         .HasConstraintName("FK_TB_Recuirement_TB_HRManagerDetails");
@@ -1214,49 +1336,16 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("Hrmanager");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbSupplyOrder", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbSupplyingMaterialDetail", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbSupplier", "Supplier")
-                        .WithMany("TbSupplyOrders")
-                        .HasForeignKey("SupplierId")
-                        .HasConstraintName("FK_SupplyOrder_PK_Supplier")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Supplier");
-                });
-
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbSupplyOrderDetail", b =>
-                {
-                    b.HasOne("ERP_BusinessLogic.Models.TbRawMaterial", "Material")
-                        .WithMany("TbSupplyOrderDetails")
-                        .HasForeignKey("MaterialId")
-                        .HasConstraintName("FK_SupplyOrderDetails_PK_RawMaterial")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ERP_BusinessLogic.Models.TbSupplyOrder", "SupplyOrder")
-                        .WithMany("TbSupplyOrderDetails")
-                        .HasForeignKey("SupplyOrderId")
-                        .HasConstraintName("FK_SupplyOrderDetails_PK_SupplyOrder")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Material");
-
-                    b.Navigation("SupplyOrder");
-                });
-
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbSupplyingMaterialDetail", b =>
-                {
-                    b.HasOne("ERP_BusinessLogic.Models.TbRawMaterial", "Material")
+                    b.HasOne("ERP_Domians.Models.TbRawMaterial", "Material")
                         .WithMany("TbSupplyingMaterialDetails")
                         .HasForeignKey("MaterialId")
                         .HasConstraintName("FK_SupplyingMaterialDetails_PK_RawMaterial")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ERP_BusinessLogic.Models.TbSupplier", "Supplier")
+                    b.HasOne("ERP_Domians.Models.TbSupplier", "Supplier")
                         .WithMany("TbSupplyingMaterialDetails")
                         .HasForeignKey("SupplierId")
                         .HasConstraintName("FK_SupplyingMaterialDetails_PK_Supplier")
@@ -1268,14 +1357,14 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbSurvey", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbSurvey", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbCustomer", "Customer")
+                    b.HasOne("ERP_Domians.Models.TbCustomer", "Customer")
                         .WithMany("TbSurveys")
                         .HasForeignKey("CustomerId")
                         .HasConstraintName("FK__TB_Survey__Custo__48CFD27E");
 
-                    b.HasOne("ERP_BusinessLogic.Models.TbQuestion", "Question")
+                    b.HasOne("ERP_Domians.Models.TbQuestion", "Question")
                         .WithMany("TbSurveys")
                         .HasForeignKey("QuestionId")
                         .HasConstraintName("FK__TB_Survey__Quest__49C3F6B7");
@@ -1285,9 +1374,9 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("Question");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbTask", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbTask", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbCustomer", "Customer")
+                    b.HasOne("ERP_Domians.Models.TbCustomer", "Customer")
                         .WithMany("TbTasks")
                         .HasForeignKey("CustomerId")
                         .HasConstraintName("FK_TB_Task_TB_Customer");
@@ -1295,9 +1384,9 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("Customer");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbToDoList", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbToDoList", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbCustomer", "Customer")
+                    b.HasOne("ERP_Domians.Models.TbCustomer", "Customer")
                         .WithMany("TbToDoLists")
                         .HasForeignKey("CustomerId")
                         .HasConstraintName("FK__TB_ToDoLi__Custo__45F365D3");
@@ -1305,15 +1394,15 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("Customer");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbVisualReport", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbVisualReport", b =>
                 {
-                    b.HasOne("ERP_BusinessLogic.Models.TbAdminstrator", "RAdmin")
+                    b.HasOne("ERP_Domians.Models.TbAdminstrator", "RAdmin")
                         .WithMany("TbVisualReports")
                         .HasForeignKey("RAdminId")
                         .HasConstraintName("FK_TB_VisualReport_TB_Adminstrator")
                         .IsRequired();
 
-                    b.HasOne("ERP_BusinessLogic.Models.TbReporter", "RReporter")
+                    b.HasOne("ERP_Domians.Models.TbReporter", "RReporter")
                         .WithMany("TbVisualReports")
                         .HasForeignKey("RReporterId")
                         .HasConstraintName("FK_TB_VisualReport_TB_Reporter")
@@ -1324,17 +1413,17 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("RReporter");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbAdminstrator", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbAdminstrator", b =>
                 {
                     b.Navigation("TbVisualReports");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbCategory", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbCategory", b =>
                 {
                     b.Navigation("TbProducts");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbCustomer", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbCustomer", b =>
                 {
                     b.Navigation("TbSurveys");
 
@@ -1343,17 +1432,17 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("TbToDoLists");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbDistributionOrder", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbDistributionOrder", b =>
                 {
                     b.Navigation("TbDistributionOrderDetails");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbDistributor", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbDistributor", b =>
                 {
                     b.Navigation("TbDistributionOrders");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbEmployeeDetail", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbEmployeeDetail", b =>
                 {
                     b.Navigation("TbEmployeeTaskDetails");
 
@@ -1362,14 +1451,33 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("TbRecuirements");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbFmsAccount", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbFmsAccount", b =>
                 {
+                    b.Navigation("TbFmsAccCats");
+
                     b.Navigation("TbFmsJournalEntryJeaccount1Navigations");
 
                     b.Navigation("TbFmsJournalEntryJeaccount2Navigations");
+
+                    b.Navigation("TbFmsTemplateAccounts");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbHrmanagerDetail", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbFmsCategory", b =>
+                {
+                    b.Navigation("TbFmsAccCats");
+                });
+
+            modelBuilder.Entity("ERP_Domians.Models.TbFmsStatement", b =>
+                {
+                    b.Navigation("TbFmsStatementAccounts");
+                });
+
+            modelBuilder.Entity("ERP_Domians.Models.TbFmsStatementTemplate", b =>
+                {
+                    b.Navigation("TbFmsTemplateAccounts");
+                });
+
+            modelBuilder.Entity("ERP_Domians.Models.TbHrmanagerDetail", b =>
                 {
                     b.Navigation("TbEmployeeDetails");
 
@@ -1378,12 +1486,17 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("TbRecuirements");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbManufacturingOrder", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbManufacturingOrder", b =>
                 {
                     b.Navigation("TbManufacturingOrderDetails");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbProduct", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbOrder_Supplier", b =>
+                {
+                    b.Navigation("OrderedMaterials");
+                });
+
+            modelBuilder.Entity("ERP_Domians.Models.TbProduct", b =>
                 {
                     b.Navigation("TbDistributionOrderDetails");
 
@@ -1392,44 +1505,35 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("TbManufacturingOrders");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbQuestion", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbQuestion", b =>
                 {
                     b.Navigation("TbSurveys");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbRawMaterial", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbRawMaterial", b =>
                 {
                     b.Navigation("TbManufacturingOrderDetails");
 
                     b.Navigation("TbRawMaterialsInventory");
 
                     b.Navigation("TbSupplyingMaterialDetails");
-
-                    b.Navigation("TbSupplyOrderDetails");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbRecuirement", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbRecuirement", b =>
                 {
                     b.Navigation("TbInterviewDetails");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbReporter", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbReporter", b =>
                 {
                     b.Navigation("TbAdminstrators");
 
                     b.Navigation("TbVisualReports");
                 });
 
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbSupplier", b =>
+            modelBuilder.Entity("ERP_Domians.Models.TbSupplier", b =>
                 {
                     b.Navigation("TbSupplyingMaterialDetails");
-
-                    b.Navigation("TbSupplyOrders");
-                });
-
-            modelBuilder.Entity("ERP_BusinessLogic.Models.TbSupplyOrder", b =>
-                {
-                    b.Navigation("TbSupplyOrderDetails");
                 });
 #pragma warning restore 612, 618
         }

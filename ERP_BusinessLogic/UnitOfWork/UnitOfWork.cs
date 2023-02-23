@@ -26,6 +26,7 @@ namespace BusinessLogic.UnitOfWork
         public IProductsInventoryRepository ProductsInventory { get; private set; }
         public IGenericRepository<TbRawMaterialsInventory> RawMaterialInventory { get; private set; }
         public IGenericRepository<TbDistributor> Distributor { get; private set; }
+        public IGenericRepository<TbOrder_Supplier> OrderSupplier { get; private set; }
 
 
 
@@ -52,6 +53,7 @@ namespace BusinessLogic.UnitOfWork
             ProductsInventory = new ProductInventoryRepository(_context);
             RawMaterialInventory = new GenericRepository<TbRawMaterialsInventory>(_context);
             Distributor = new GenericRepository<TbDistributor>(_context);
+            OrderSupplier = new GenericRepository<TbOrder_Supplier>(_context);
            
             
             //FMS
@@ -71,9 +73,9 @@ namespace BusinessLogic.UnitOfWork
             GC.SuppressFinalize(this);
         }
 
-        public async Task Save()
+        public async Task<int> Save()
         {
-            await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync();
         }
 
     }

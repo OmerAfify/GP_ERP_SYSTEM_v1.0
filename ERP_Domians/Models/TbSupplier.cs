@@ -9,7 +9,6 @@ namespace ERP_Domians.Models
     {
         public TbSupplier()
         {
-            TbSupplyOrders = new HashSet<TbSupplyOrder>();
             TbSupplyingMaterialDetails = new HashSet<TbSupplyingMaterialDetail>();
         }
 
@@ -20,7 +19,8 @@ namespace ERP_Domians.Models
         public string Email { get; set; }
         public string Address { get; set; }
 
-        public virtual ICollection<TbSupplyOrder> TbSupplyOrders { get; set; }
-        public virtual ICollection<TbSupplyingMaterialDetail> TbSupplyingMaterialDetails { get; set; }
+        public int AdverageDeliveryTimeInDays { get; set; }
+
+       public virtual ICollection<TbSupplyingMaterialDetail> TbSupplyingMaterialDetails { get; set; }
     }
 }
