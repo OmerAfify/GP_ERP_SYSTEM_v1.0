@@ -1,20 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0.csproj": {}
+    "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0.csproj": {}
   },
   "projects": {
-    "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj": {
+    "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj",
+        "projectUniqueName": "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj",
         "projectName": "ERP_BusinessLogic",
-        "projectPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj",
-        "packagesPath": "C:\\Users\\zakaw\\.nuget\\packages\\",
-        "outputPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\obj\\",
+        "projectPath": "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj",
+        "packagesPath": "C:\\Users\\Mennatuallah\\.nuget\\packages\\",
+        "outputPath": "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\zakaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Mennatuallah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,14 +27,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj": {
-                "projectPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj"
+              "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj": {
+                "projectPath": "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj"
               }
             }
           }
@@ -69,7 +75,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -78,21 +85,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj": {
+    "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj",
+        "projectUniqueName": "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj",
         "projectName": "ERP_Domians",
-        "projectPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj",
-        "packagesPath": "C:\\Users\\zakaw\\.nuget\\packages\\",
-        "outputPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\obj\\",
+        "projectPath": "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj",
+        "packagesPath": "C:\\Users\\Mennatuallah\\.nuget\\packages\\",
+        "outputPath": "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\zakaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Mennatuallah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -100,6 +112,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -123,7 +136,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -132,21 +146,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0.csproj": {
+    "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0.csproj",
+        "projectUniqueName": "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0.csproj",
         "projectName": "GP_ERP_SYSTEM_v1.0",
-        "projectPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0.csproj",
-        "packagesPath": "C:\\Users\\zakaw\\.nuget\\packages\\",
-        "outputPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0\\obj\\",
+        "projectPath": "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0.csproj",
+        "packagesPath": "C:\\Users\\Mennatuallah\\.nuget\\packages\\",
+        "outputPath": "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\GP_ERP_SYSTEM_v1.0\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\zakaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Mennatuallah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -154,17 +173,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj": {
-                "projectPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj"
+              "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj": {
+                "projectPath": "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj"
               },
-              "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj": {
-                "projectPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj"
+              "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj": {
+                "projectPath": "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj"
               }
             }
           }
@@ -194,7 +214,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -206,7 +227,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
