@@ -33,6 +33,9 @@ namespace Domains.Interfaces.IUnitOfWork
         IGenericRepository<TbFmsJournalEntry> FmsJournalEntry { get; }
         IGenericRepository<TbFmsAccCat> FmsAccCat { get; }
 
+        //HRMS
+        IGenericRepository<TbEmployeeDetail> Employee { get; }
+
         public Task<int> Save();
     }
 }

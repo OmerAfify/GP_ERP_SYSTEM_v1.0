@@ -40,6 +40,8 @@ namespace BusinessLogic.UnitOfWork
         public IGenericRepository<TbFmsTemplateAccount> FmsTemplateAccount { get; private set; }
         public IGenericRepository<TbFmsJournalEntry> FmsJournalEntry { get; private set; }
 
+        //HRMS
+        public IGenericRepository<TbEmployeeDetail> Employee { get; private set; }
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
@@ -65,6 +67,10 @@ namespace BusinessLogic.UnitOfWork
             FmsStatement = new GenericRepository<TbFmsStatement>(_context);
             FmsStatementAccount = new GenericRepository<TbFmsStatementAccount>(_context);
             FmsTemplateAccount = new GenericRepository<TbFmsTemplateAccount>(_context);
+
+
+            //HRMS
+            Employee = new GenericRepository<TbEmployeeDetail>(_context);
         }
 
         public void Dispose()
