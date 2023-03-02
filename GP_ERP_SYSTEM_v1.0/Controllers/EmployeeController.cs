@@ -56,7 +56,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddNewEmployee([FromBody] EmployeeDetailsDTO Employee)
+        public async Task<IActionResult> AddNewEmployee([FromBody] AddEmployeeDTO Employee)
         {
             if (!ModelState.IsValid)
             {
@@ -76,7 +76,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateEmployee(int id, [FromBody] EmployeeDetailsDTO Employee)
+        public async Task<IActionResult> UpdateEmployee(int id, [FromBody] AddEmployeeDTO Employee)
         {
             if (!ModelState.IsValid || id < 1)
             {

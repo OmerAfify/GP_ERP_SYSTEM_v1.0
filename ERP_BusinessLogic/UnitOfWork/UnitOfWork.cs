@@ -42,6 +42,7 @@ namespace BusinessLogic.UnitOfWork
 
         //HRMS
         public IGenericRepository<TbEmployeeDetail> Employee { get; private set; }
+        public IGenericRepository<TbHrmanagerDetail> HRManager { get; private set; }
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
@@ -71,6 +72,7 @@ namespace BusinessLogic.UnitOfWork
 
             //HRMS
             Employee = new GenericRepository<TbEmployeeDetail>(_context);
+            HRManager = new GenericRepository<TbHrmanagerDetail>(_context);
         }
 
         public void Dispose()

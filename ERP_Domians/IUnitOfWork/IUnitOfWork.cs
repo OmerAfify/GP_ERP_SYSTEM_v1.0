@@ -35,7 +35,7 @@ namespace Domains.Interfaces.IUnitOfWork
 
         //HRMS
         IGenericRepository<TbEmployeeDetail> Employee { get; }
-
+        IGenericRepository<TbHrmanagerDetail> HRManager { get; }
         public Task<int> Save();
     }
 }
