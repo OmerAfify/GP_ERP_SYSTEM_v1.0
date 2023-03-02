@@ -72,9 +72,12 @@ namespace GP_ERP_SYSTEM_v1._0
 
             });
 
+            //CORS Policy 
+            services.AddCors(opt=> 
+            { opt.AddPolicy("CorsPolicy", builder => builder.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin()); });
+
 
         }
-
 
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -86,12 +89,14 @@ namespace GP_ERP_SYSTEM_v1._0
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GP_ERP_SYSTEM_v1._0 v1"));
             }
 
-           app.UseHttpsRedirection();
+
+            app.UseCors("CorsPolicy");
+
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 
-    //        app.UseStatusCodePagesWithReExecute("/errors/{0}");
-
+           //app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
             app.UseAuthorization();
 

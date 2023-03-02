@@ -60,6 +60,9 @@ namespace GP_ERP_SYSTEM_v1._0.Helpers.AutomapperProfile
                 .ForMember(d => d.MaterialName, opt => opt.MapFrom(s => s.OrderedRawMaterials.MaterialName))
                 .ForMember(d => d.SalesPrice, opt => opt.MapFrom(s => s.OrderedRawMaterials.SalesPrice));
 
+            CreateMap<TbDistributor, DistributorDTO>().ReverseMap();
+            CreateMap<TbDistributor, AddDistributorDTO>().ReverseMap();
+
 
             //FMS DTOs
         
