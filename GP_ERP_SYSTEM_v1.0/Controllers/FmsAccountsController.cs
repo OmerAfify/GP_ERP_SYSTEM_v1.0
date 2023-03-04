@@ -15,8 +15,8 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
     [ApiController]
     public class FmsAccountsController : ControllerBase
     {
-        private IUnitOfWork _unitOfWork;
-        private IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
         public FmsAccountsController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;

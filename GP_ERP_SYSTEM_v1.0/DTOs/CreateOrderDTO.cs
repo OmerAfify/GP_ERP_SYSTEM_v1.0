@@ -7,8 +7,8 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
 {
     public class CreateOrderDTO
     {
-        public int materialId { get; set; }
-        public int materialQuantity { get; set; }
+        public int MaterialId { get; set; }
+        public int MaterialQuantity { get; set; }
 
     }
 }

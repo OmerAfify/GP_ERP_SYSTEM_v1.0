@@ -20,7 +20,7 @@ namespace GP_ERP_SYSTEM_v1._0.Errors
 
 
 
-        private string GetDefaultStatusCodeMessage(int statusCode)
+        private static string GetDefaultStatusCodeMessage(int statusCode)
         {
             return statusCode switch
             {

@@ -28,6 +28,8 @@ namespace BusinessLogic.UnitOfWork
         public IGenericRepository<TbDistributor> Distributor { get; private set; }
         public IGenericRepository<TbOrder_Supplier> OrderSupplier { get; private set; }
 
+        public IManufactoringRepository Manufacturing { get; private set; }
+        
 
 
         //FMS
@@ -39,7 +41,7 @@ namespace BusinessLogic.UnitOfWork
         public IGenericRepository<TbFmsStatementAccount> FmsStatementAccount { get; private set; }
         public IGenericRepository<TbFmsTemplateAccount> FmsTemplateAccount { get; private set; }
         public IGenericRepository<TbFmsJournalEntry> FmsJournalEntry { get; private set; }
-
+    
         //HRMS
         public IGenericRepository<TbEmployeeDetail> Employee { get; private set; }
         public UnitOfWork(ApplicationDbContext context)
@@ -56,8 +58,10 @@ namespace BusinessLogic.UnitOfWork
             RawMaterialInventory = new GenericRepository<TbRawMaterialsInventory>(_context);
             Distributor = new GenericRepository<TbDistributor>(_context);
             OrderSupplier = new GenericRepository<TbOrder_Supplier>(_context);
-           
+            Manufacturing = new ManufacturingRepository(_context);
             
+
+
             //FMS
             FmsCategory = new GenericRepository<TbFmsCategory>(_context);
             FmsAccount = new GenericRepository<TbFmsAccount>(_context);

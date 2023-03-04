@@ -10,7 +10,7 @@ namespace ERP_Domians.Models
         public TbProduct()
         {
             TbDistributionOrderDetails = new HashSet<TbDistributionOrderDetail>();
-            TbManufacturingOrders = new HashSet<TbManufacturingOrder>();
+       //     TbManufacturingOrders = new HashSet<TbManufacturingOrder>();
         }
 
         public int ProductId { get; set; }
@@ -23,6 +23,6 @@ namespace ERP_Domians.Models
         public virtual TbCategory Category { get; set; }
         public virtual TbFinishedProductsInventory TbFinishedProductsInventory { get; set; }
         public virtual ICollection<TbDistributionOrderDetail> TbDistributionOrderDetails { get; set; }
-        public virtual ICollection<TbManufacturingOrder> TbManufacturingOrders { get; set; }
+      //  public virtual ICollection<TbManufacturingOrder> TbManufacturingOrders { get; set; }
     }
 }

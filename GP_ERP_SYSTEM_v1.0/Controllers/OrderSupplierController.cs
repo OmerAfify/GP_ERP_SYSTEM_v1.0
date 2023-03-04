@@ -23,8 +23,8 @@ namespace GP_ERP_SYSTEM_v1._0
 
         public OrderSupplierController(ISupplierOrderService orderService, IUnitOfWork unitOfWork, IMapper mapper)
         {
-            _unitOfWork = unitOfWork;
-            _mapper = mapper;
+             _unitOfWork = unitOfWork;
+             _mapper = mapper;
              _orderService = orderService;
         }
 
@@ -37,11 +37,11 @@ namespace GP_ERP_SYSTEM_v1._0
             try {
 
                 var supplierMaterialDetails = await _unitOfWork.SupplingMaterialDetails
-                                .FindRangeAsync(r => r.SupplierId == supplierId && order.Select(m => m.materialId)
+                                .FindRangeAsync(r => r.SupplierId == supplierId && order.Select(m => m.MaterialId)
                                             .Any(m => r.MaterialId == m));
 
 
-                if (supplierMaterialDetails.Count()==0)
+                if (supplierMaterialDetails.Count() == 0)
                     return NotFound(new ErrorApiResponse(404, "the supplier Id associated with the materials ids are not found.")); ;
 
 

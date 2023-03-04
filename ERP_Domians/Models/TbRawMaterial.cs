@@ -9,7 +9,7 @@ namespace ERP_Domians.Models
     {
         public TbRawMaterial()
         {
-            TbManufacturingOrderDetails = new HashSet<TbManufacturingOrderDetail>();
+           TbManufacturingOrderDetails = new HashSet<TbManufacturingOrderDetail>();
             TbSupplyingMaterialDetails = new HashSet<TbSupplyingMaterialDetail>();
         }
 

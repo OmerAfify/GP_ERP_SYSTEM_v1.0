@@ -54,8 +54,9 @@ namespace GP_ERP_SYSTEM_v1._0
             //Unit of work Dependency Injection
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             
-            //OrderService Config
+            //Service Config
             services.AddScoped<ISupplierOrderService, SupplierOrderService>();
+            services.AddScoped<IManufacturingOrderService, ManufacturingOrderService>();
 
 
 

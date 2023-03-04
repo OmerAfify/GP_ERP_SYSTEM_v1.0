@@ -579,29 +579,36 @@ namespace ERP_BusinessLogic.Migrations
 
             modelBuilder.Entity("ERP_Domians.Models.TbManufacturingOrder", b =>
                 {
-                    b.Property<int>("ManufactoringOrderId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("manufactoringOrderId")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("LeadTimePerDays")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("leadTime_per_Days");
+                    b.Property<DateTime>("FinishingDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("ManufacturingCost")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ManufacturingStatusId")
+                        .HasColumnType("int");
 
                     b.Property<int>("ProductManufacturedId")
-                        .HasColumnType("int")
-                        .HasColumnName("productManufacturedId");
+                        .HasColumnType("int");
 
-                    b.Property<int>("QtyToProduce")
-                        .HasColumnType("int")
-                        .HasColumnName("qtyToProduce");
+                    b.Property<int>("QtyToManufacture")
+                        .HasColumnType("int");
 
-                    b.HasKey("ManufactoringOrderId");
+                    b.Property<DateTime>("StartingDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ManufacturingStatusId");
 
                     b.HasIndex("ProductManufacturedId");
 
-                    b.ToTable("TB_ManufacturingOrder");
+                    b.ToTable("TbManufacturingOrders");
                 });
 
             modelBuilder.Entity("ERP_Domians.Models.TbManufacturingOrderDetail", b =>
@@ -623,6 +630,21 @@ namespace ERP_BusinessLogic.Migrations
                     b.HasIndex("RawMaterialId");
 
                     b.ToTable("TB_ManufacturingOrderDetails");
+                });
+
+            modelBuilder.Entity("ERP_Domians.Models.TbManufacturingStatus", b =>
+                {
+                    b.Property<int>("statusId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("statusName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("statusId");
+
+                    b.ToTable("TbManufacturingStatus");
                 });
 
             modelBuilder.Entity("ERP_Domians.Models.TbOrderDetails_Supplier", b =>
@@ -1211,12 +1233,19 @@ namespace ERP_BusinessLogic.Migrations
 
             modelBuilder.Entity("ERP_Domians.Models.TbManufacturingOrder", b =>
                 {
-                    b.HasOne("ERP_Domians.Models.TbProduct", "ProductManufactured")
-                        .WithMany("TbManufacturingOrders")
-                        .HasForeignKey("ProductManufacturedId")
-                        .HasConstraintName("FK_TB_ManufacturingOrder_TB_Product")
+                    b.HasOne("ERP_Domians.Models.TbManufacturingStatus", "manufacturingStatus")
+                        .WithMany()
+                        .HasForeignKey("ManufacturingStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("ERP_Domians.Models.TbProduct", "ProductManufactured")
+                        .WithMany()
+                        .HasForeignKey("ProductManufacturedId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("manufacturingStatus");
 
                     b.Navigation("ProductManufactured");
                 });
@@ -1224,7 +1253,7 @@ namespace ERP_BusinessLogic.Migrations
             modelBuilder.Entity("ERP_Domians.Models.TbManufacturingOrderDetail", b =>
                 {
                     b.HasOne("ERP_Domians.Models.TbManufacturingOrder", "ManfactoringOrder")
-                        .WithMany("TbManufacturingOrderDetails")
+                        .WithMany("ManufacturingOrderDetails")
                         .HasForeignKey("ManfactoringOrderId")
                         .HasConstraintName("FK_TB_ManufacturingOrderDetails_TB_ManufacturingOrder")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1488,7 +1517,7 @@ namespace ERP_BusinessLogic.Migrations
 
             modelBuilder.Entity("ERP_Domians.Models.TbManufacturingOrder", b =>
                 {
-                    b.Navigation("TbManufacturingOrderDetails");
+                    b.Navigation("ManufacturingOrderDetails");
                 });
 
             modelBuilder.Entity("ERP_Domians.Models.TbOrder_Supplier", b =>
@@ -1501,8 +1530,6 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("TbDistributionOrderDetails");
 
                     b.Navigation("TbFinishedProductsInventory");
-
-                    b.Navigation("TbManufacturingOrders");
                 });
 
             modelBuilder.Entity("ERP_Domians.Models.TbQuestion", b =>
