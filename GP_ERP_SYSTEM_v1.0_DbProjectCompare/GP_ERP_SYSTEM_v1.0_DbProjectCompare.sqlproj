@@ -100,5 +100,6 @@
     <Build Include="dbo\Tables\TbOrder_Suppliers.sql" />
     <Build Include="dbo\Tables\TbManufacturingStatus.sql" />
     <Build Include="dbo\Tables\TbManufacturingOrders.sql" />
+    <Build Include="dbo\Tables\TbDistributionOrderStatus.sql" />
   </ItemGroup>
 </Project>

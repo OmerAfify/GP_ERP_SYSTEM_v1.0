@@ -9,18 +9,41 @@ namespace ERP_Domians.Models
     {
         public TbDistributionOrder()
         {
-            TbDistributionOrderDetails = new HashSet<TbDistributionOrderDetail>();
+
         }
 
-        public int DistributionOrderId { get; set; }
-        public int DistributorId { get; set; }
-        public int TotalQty { get; set; }
-        public decimal TotalPrice { get; set; }
-        public DateTime OrderingDate { get; set; }
-        public DateTime ExpectedArrivalDate { get; set; }
-        public int OrderStatus { get; set; }
+        public TbDistributionOrder(int distributorId, int totalQty, decimal totalPrice, decimal shippingCost, decimal subtotal,
+            DateTime expectedArrivalDate, int orderStatusId, IReadOnlyList<TbDistributionOrderDetail> distributionOrderDetails)
+        {
+            DistributorId = distributorId;
+            TotalQty = totalQty;
+            ShippingCost = shippingCost;
+            SubTotal = subtotal;
+            TotalPrice = totalPrice;
+            ExpectedArrivalDate = expectedArrivalDate;
+            OrderStatusId = orderStatusId;
+            DistributionOrderDetails = distributionOrderDetails;
+        }
 
+        public int Id { get; set; }
+    
+        public int DistributorId { get; set; }
         public virtual TbDistributor Distributor { get; set; }
-        public virtual ICollection<TbDistributionOrderDetail> TbDistributionOrderDetails { get; set; }
+
+
+        public int TotalQty { get; set; }
+
+        public decimal ShippingCost { get; set; }
+        public decimal SubTotal { get; set; }
+        public decimal TotalPrice { get; set; }
+        
+        public DateTime OrderingDate  { get; set; } = DateTime.UtcNow;
+        public DateTime ExpectedArrivalDate { get; set; }
+
+        public int OrderStatusId { get; set; }
+        public virtual TbDistributionOrderStatus OrderStatus { get; set; }
+
+        public virtual IReadOnlyList<TbDistributionOrderDetail> DistributionOrderDetails { get; set; }
+
     }
 }

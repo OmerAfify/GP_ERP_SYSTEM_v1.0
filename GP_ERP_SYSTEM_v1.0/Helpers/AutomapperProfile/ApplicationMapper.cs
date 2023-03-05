@@ -70,17 +70,23 @@ namespace GP_ERP_SYSTEM_v1._0.Helpers.AutomapperProfile
                 .ForMember(d => d.ProductManufacturedName, opt => opt.MapFrom(s => s.ProductManufactured.ProductName))
                 .ForMember(d => d.ManufacturingStatus, opt => opt.MapFrom(s => s.ManufacturingStatus.statusName));
 
-            //.ReverseMap();
-
-
+        
             CreateMap<TbManufacturingOrderDetail, ManufactoringOrderDetailsDTO>()
                 .ForMember(d => d.RawMaterialName, opt => opt.MapFrom(s => s.RawMaterial.MaterialName));
+
+
+
+
+            CreateMap<TbDistributionOrder, ReturnedDistributionOrderDTO>()
+                .ForMember(d => d.OrderStatus, opt => opt.MapFrom(s => s.OrderStatus.Status))
+                .ForMember(d => d.DistributorName, opt => opt.MapFrom(s => s.Distributor.DistributorName));
+
+
+
+                CreateMap<TbDistributionOrderDetail, DistributionOrderDetailsDTO>()
+                .ForMember(d => d.ProductName, opt => opt.MapFrom(s => s.Product.ProductName))
+                .ForMember(d => d.ProductSalesPrice, opt => opt.MapFrom(s => s.Product.SalesPrice));
                 
-                //.ReverseMap();
-
-            ;
-
-
 
 
             //FMS DTOs

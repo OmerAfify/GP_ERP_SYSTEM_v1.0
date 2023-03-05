@@ -41,8 +41,10 @@ namespace ERP_BusinessLogic.Context
 
         /*Distribution Section*/
         public virtual DbSet<TbDistributor> TbDistributors { get; set; }
+
         public virtual DbSet<TbDistributionOrder> TbDistributionOrders { get; set; }
         public virtual DbSet<TbDistributionOrderDetail> TbDistributionOrderDetails { get; set; }
+        public virtual DbSet<TbDistributionOrderStatus> TbDistributionOrderStatus { get; set; }
 
         /*End of Distribution Section*/
 
@@ -269,21 +271,15 @@ namespace ERP_BusinessLogic.Context
             /*Distributor*/
             modelBuilder.Entity<TbDistributionOrder>(entity =>
             {
-                entity.HasKey(e => e.DistributionOrderId)
-                    .HasName("PK__TB_Distr__BAC7F8314DA2F88A");
 
                 entity.ToTable("TB_DistributionOrder");
-
-                entity.Property(e => e.DistributionOrderId).HasColumnName("distributionOrderId");
-
-                entity.Property(e => e.DistributorId).HasColumnName("distributorId");
 
                 entity.Property(e => e.ExpectedArrivalDate)
                     .HasColumnType("datetime")
                     .HasColumnName("expectedArrivalDate");
 
-                entity.Property(e => e.OrderStatus)
-                    .HasColumnName("orderStatus")
+                entity.Property(e => e.OrderStatusId)
+                    .HasColumnName("orderStatusId")
                     .HasDefaultValueSql("((1))");
 
                 entity.Property(e => e.OrderingDate)
@@ -297,9 +293,10 @@ namespace ERP_BusinessLogic.Context
                 entity.Property(e => e.TotalQty).HasColumnName("totalQty");
 
                 entity.HasOne(d => d.Distributor)
-                    .WithMany(p => p.TbDistributionOrders)
+                    .WithMany()
                     .HasForeignKey(d => d.DistributorId)
                     .HasConstraintName("FK_distributionOrder_PK_Distributor");
+
             });
             modelBuilder.Entity<TbDistributionOrderDetail>(entity =>
             {
@@ -319,7 +316,7 @@ namespace ERP_BusinessLogic.Context
                 entity.Property(e => e.Qty).HasColumnName("qty");
 
                 entity.HasOne(d => d.DistributionOrder)
-                    .WithMany(p => p.TbDistributionOrderDetails)
+                    .WithMany(p => p.DistributionOrderDetails)
                     .HasForeignKey(d => d.DistributionOrderId)
                     .HasConstraintName("FK_DistributionOrderDetails_PK_DistributionOrder");
 
@@ -328,6 +325,10 @@ namespace ERP_BusinessLogic.Context
                     .HasForeignKey(d => d.ProductId)
                     .HasConstraintName("FK_DistributionOrderDetails_PK_Products");
             });
+            modelBuilder.Entity<TbDistributionOrderStatus>().HasKey(x => x.Id);
+
+
+
             modelBuilder.Entity<TbDistributor>(entity =>
             {
                 entity.HasKey(e => e.DistributorId);

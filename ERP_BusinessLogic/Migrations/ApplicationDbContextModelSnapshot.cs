@@ -107,29 +107,33 @@ namespace ERP_BusinessLogic.Migrations
 
             modelBuilder.Entity("ERP_Domians.Models.TbDistributionOrder", b =>
                 {
-                    b.Property<int>("DistributionOrderId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("distributionOrderId")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("DistributorId")
-                        .HasColumnType("int")
-                        .HasColumnName("distributorId");
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("ExpectedArrivalDate")
                         .HasColumnType("datetime")
                         .HasColumnName("expectedArrivalDate");
 
-                    b.Property<int>("OrderStatus")
+                    b.Property<int>("OrderStatusId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("orderStatus")
+                        .HasColumnName("orderStatusId")
                         .HasDefaultValueSql("((1))");
 
                     b.Property<DateTime>("OrderingDate")
                         .HasColumnType("datetime")
                         .HasColumnName("orderingDate");
+
+                    b.Property<decimal>("ShippingCost")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("SubTotal")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18,2)")
@@ -139,10 +143,11 @@ namespace ERP_BusinessLogic.Migrations
                         .HasColumnType("int")
                         .HasColumnName("totalQty");
 
-                    b.HasKey("DistributionOrderId")
-                        .HasName("PK__TB_Distr__BAC7F8314DA2F88A");
+                    b.HasKey("Id");
 
                     b.HasIndex("DistributorId");
+
+                    b.HasIndex("OrderStatusId");
 
                     b.ToTable("TB_DistributionOrder");
                 });
@@ -171,6 +176,21 @@ namespace ERP_BusinessLogic.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("TB_DistributionOrderDetails");
+                });
+
+            modelBuilder.Entity("ERP_Domians.Models.TbDistributionOrderStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TbDistributionOrderStatus");
                 });
 
             modelBuilder.Entity("ERP_Domians.Models.TbDistributor", b =>
@@ -1076,19 +1096,27 @@ namespace ERP_BusinessLogic.Migrations
             modelBuilder.Entity("ERP_Domians.Models.TbDistributionOrder", b =>
                 {
                     b.HasOne("ERP_Domians.Models.TbDistributor", "Distributor")
-                        .WithMany("TbDistributionOrders")
+                        .WithMany()
                         .HasForeignKey("DistributorId")
                         .HasConstraintName("FK_distributionOrder_PK_Distributor")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ERP_Domians.Models.TbDistributionOrderStatus", "OrderStatus")
+                        .WithMany()
+                        .HasForeignKey("OrderStatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Distributor");
+
+                    b.Navigation("OrderStatus");
                 });
 
             modelBuilder.Entity("ERP_Domians.Models.TbDistributionOrderDetail", b =>
                 {
                     b.HasOne("ERP_Domians.Models.TbDistributionOrder", "DistributionOrder")
-                        .WithMany("TbDistributionOrderDetails")
+                        .WithMany("DistributionOrderDetails")
                         .HasForeignKey("DistributionOrderId")
                         .HasConstraintName("FK_DistributionOrderDetails_PK_DistributionOrder")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1233,7 +1261,7 @@ namespace ERP_BusinessLogic.Migrations
 
             modelBuilder.Entity("ERP_Domians.Models.TbManufacturingOrder", b =>
                 {
-                    b.HasOne("ERP_Domians.Models.TbManufacturingStatus", "manufacturingStatus")
+                    b.HasOne("ERP_Domians.Models.TbManufacturingStatus", "ManufacturingStatus")
                         .WithMany()
                         .HasForeignKey("ManufacturingStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1245,7 +1273,7 @@ namespace ERP_BusinessLogic.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("manufacturingStatus");
+                    b.Navigation("ManufacturingStatus");
 
                     b.Navigation("ProductManufactured");
                 });
@@ -1463,12 +1491,7 @@ namespace ERP_BusinessLogic.Migrations
 
             modelBuilder.Entity("ERP_Domians.Models.TbDistributionOrder", b =>
                 {
-                    b.Navigation("TbDistributionOrderDetails");
-                });
-
-            modelBuilder.Entity("ERP_Domians.Models.TbDistributor", b =>
-                {
-                    b.Navigation("TbDistributionOrders");
+                    b.Navigation("DistributionOrderDetails");
                 });
 
             modelBuilder.Entity("ERP_Domians.Models.TbEmployeeDetail", b =>

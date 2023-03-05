@@ -57,6 +57,7 @@ namespace GP_ERP_SYSTEM_v1._0
             //Service Config
             services.AddScoped<ISupplierOrderService, SupplierOrderService>();
             services.AddScoped<IManufacturingOrderService, ManufacturingOrderService>();
+            services.AddScoped<IDistributionOrderService, DistributionOrderService>();
 
 
 
