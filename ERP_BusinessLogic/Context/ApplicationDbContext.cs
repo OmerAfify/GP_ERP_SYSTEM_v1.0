@@ -4,21 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ERP_Domians.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace ERP_BusinessLogic.Context
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext()
-        {
-
-        }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
         }
+
+      
+
 
         /*SCM*/
 
@@ -107,10 +107,13 @@ namespace ERP_BusinessLogic.Context
 
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.HasAnnotation("Relational:Collation", "Latin1_General_CI_AS");
+        protected override void OnModelCreating(ModelBuilder modelBuilder){
 
+
+            base.OnModelCreating(modelBuilder);
+
+
+            modelBuilder.HasAnnotation("Relational:Collation", "Latin1_General_CI_AS");
 
             /*SCM*/
 

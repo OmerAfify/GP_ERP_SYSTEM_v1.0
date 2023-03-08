@@ -1,23 +1,28 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using BusinessLogic.UnitOfWork;
 using Domains.Interfaces.IUnitOfWork;
 using ERP_BusinessLogic.Context;
 using ERP_BusinessLogic.Services;
 using ERP_Domians.IServices;
+using ERP_Domians.Models;
 using GP_ERP_SYSTEM_v1._0.Errors;
 using GP_ERP_SYSTEM_v1._0.Helpers.AutomapperProfile;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 namespace GP_ERP_SYSTEM_v1._0
@@ -45,7 +50,43 @@ namespace GP_ERP_SYSTEM_v1._0
             });
 
             //DbContext settings
-           services.AddDbContext<ApplicationDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("ERP_DB_connectionString")));
+            services.AddDbContext<ApplicationDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("ERP_DB_connectionString")));
+
+            //Identity Settings
+            services.AddIdentity<ApplicationUser, IdentityRole>(
+                opt =>
+                {
+                    opt.Password.RequiredLength = 8;
+                    opt.User.RequireUniqueEmail = true;
+                }).AddEntityFrameworkStores<ApplicationDbContext>();
+
+
+            services.AddAuthentication(opt => {
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+
+            }).AddJwtBearer(opt => {
+                opt.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidateLifetime = true,
+                    ValidIssuer = Configuration["Jwt:ValidIssuer"],
+                    ValidAudience = Configuration["Jwt:ValidAudience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+                };
+            });
+
+
+
+            services.AddAuthorization();
+
+
+
+
+
 
 
             //Automapper Settings 
@@ -53,11 +94,18 @@ namespace GP_ERP_SYSTEM_v1._0
 
             //Unit of work Dependency Injection
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+
+
+
             
-            //Service Config
+            //Services Config
             services.AddScoped<ISupplierOrderService, SupplierOrderService>();
             services.AddScoped<IManufacturingOrderService, ManufacturingOrderService>();
             services.AddScoped<IDistributionOrderService, DistributionOrderService>();
+            services.AddScoped<ITokenService, TokenService>();
+
+
 
 
 
@@ -98,8 +146,9 @@ namespace GP_ERP_SYSTEM_v1._0
 
             app.UseRouting();
 
-           //app.UseStatusCodePagesWithReExecute("/errors/{0}");
+            //app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
