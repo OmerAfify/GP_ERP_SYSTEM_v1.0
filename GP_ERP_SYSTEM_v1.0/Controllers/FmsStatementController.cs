@@ -50,7 +50,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> FmsAddStatement([FromBody] AddFmsStatementDTO Statement)
+        public async Task<IActionResult> FmsAddStatement(int templateID)
         {
             if (!ModelState.IsValid)
             {
@@ -58,7 +58,46 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             try
             {
-                _unitOfWork.FmsStatement.InsertAsync(_mapper.Map<TbFmsStatement>(Statement));
+
+                //create statement
+
+                var template = await _unitOfWork.FmsStatementTemplate.GetByIdAsync(templateID);
+                var statement = new TbFmsStatement
+
+                {
+                    StaDate = System.DateTime.Now,
+                    StaName = template.TempName
+                };
+
+                //save statement to db, get statement id
+
+                _unitOfWork.FmsStatement.InsertAsync(statement);
+                await _unitOfWork.Save();
+                TbFmsStatement saved_statement = await _unitOfWork.FmsStatement.FindAsync(o => o.StaDate == statement.StaDate);
+
+                //add accounts to statement and update statement balance
+
+                var accounts = await _unitOfWork.FmsTemplateAccount.FindRangeAsync(o => o.TempId == templateID);
+                decimal? statementBalance = 0;
+
+                foreach (var account in accounts)
+                {
+                    var fullAccount = await _unitOfWork.FmsAccount.GetByIdAsync(account.AccId);
+                    statementBalance += fullAccount.AccBalance;
+                    var statementAccount = new TbFmsStatementAccount
+                    {
+                        AccBalance = fullAccount.AccBalance,
+                        AccName = fullAccount.AccName,
+                        StaId = statement.StaId
+                    };
+                    _unitOfWork.FmsStatementAccount.InsertAsync(statementAccount);
+                }
+
+                statement.StaBalance = statementBalance;
+                _unitOfWork.FmsStatement.Update(statement);
+
+                //save
+      
                 await _unitOfWork.Save();
                 return Ok();
             }
@@ -155,13 +194,18 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
             try
             {
-                var FmsStatementAccToDelete = await _unitOfWork.FmsStatementAccount.FindAsync(o => o.StaId == staid);
+                var FmsStatementAccsToDelete = await _unitOfWork.FmsStatementAccount.FindRangeAsync(o => o.StaId == staid);
 
-                if (FmsStatementAccToDelete == null)
+                if (FmsStatementAccsToDelete == null)
                     return BadRequest("Invalid Id is submitted.");
 
-                _unitOfWork.FmsStatementAccount.Delete(FmsStatementAccToDelete);
-                await _unitOfWork.Save();
+                foreach (var acc in FmsStatementAccsToDelete)
+                {
+                    _unitOfWork.FmsStatementAccount.Delete(acc);
+                    await _unitOfWork.Save();
+                }
+
+
 
                 return NoContent();
             }
@@ -172,7 +216,48 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         }
 
 
+        //public  async Task<TbFmsStatement> CreateStatement(int tempID)
+        //{
+        //    var template = await _unitOfWork.FmsStatementTemplate.GetByIdAsync(tempID);
+        //    var statement = new TbFmsStatement
+        //    {
+        //        StaDate = System.DateTime.Now,
+        //        StaName = template.TempName
+        //    };
+        //    return statement;
+        //}
 
+        //public async Task<TbFmsStatement> SaveStatementDB(TbFmsStatement statement)
+        //{
+        //    _unitOfWork.FmsStatement.InsertAsync(statement);
+        //    await _unitOfWork.Save();
+        //    TbFmsStatement saved_statement = await _unitOfWork.FmsStatement.FindAsync(o => o.StaDate == statement.StaDate);
+        //    return saved_statement;
+
+        //}
+
+        //public async void AddAccountsToStatement (int tempID, TbFmsStatement statement)
+
+        //{
+        //    var accounts = await _unitOfWork.FmsTemplateAccount.FindRangeAsync(o => o.TempId == tempID);
+        //    decimal? statementBalance = 0;
+
+        //    foreach (var account in accounts)
+        //    {
+        //        var fullAccount = await _unitOfWork.FmsAccount.GetByIdAsync(account.AccId);
+        //        statementBalance += fullAccount.AccBalance;
+        //        var statementAccount = new TbFmsStatementAccount
+        //        {
+        //            AccBalance = fullAccount.AccBalance,
+        //            AccName = fullAccount.AccName,
+        //            StaId = statement.StaId
+        //        };
+        //        _unitOfWork.FmsStatementAccount.InsertAsync(statementAccount);
+        //    }
+
+        //    statement.StaBalance = statementBalance;
+        //    _unitOfWork.FmsStatement.Update(statement);
+        //}
 
 
 

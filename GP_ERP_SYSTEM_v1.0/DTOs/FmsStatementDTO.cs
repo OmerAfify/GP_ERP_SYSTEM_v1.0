@@ -4,7 +4,6 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
 {
     public class AddFmsStatementDTO
     {
-        
         public string StaName { get; set; }
         public decimal? StaBalance { get; set; }
         public DateTime? StaDate { get; set; }

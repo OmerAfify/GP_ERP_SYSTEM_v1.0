@@ -134,7 +134,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<IActionResult> FmsGetTemplateAccounts(int tempID)
         {
             try
