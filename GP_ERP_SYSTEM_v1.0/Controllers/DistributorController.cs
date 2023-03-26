@@ -22,7 +22,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IDistributionOrderService _distributionOrderService;
-
+    
         public DistributorController(IUnitOfWork unitOfWork, IMapper mapper, IDistributionOrderService distributionOrderService)
         {
             _unitOfWork = unitOfWork;
@@ -185,8 +185,9 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
                 if (order == null)
                     return StatusCode(500, "An uexpected error occured while creating your order. please try again later");
-                else
-                    return Ok(_mapper.Map<ReturnedDistributionOrderDTO>(order) );
+
+
+                return Ok(_mapper.Map<ReturnedDistributionOrderDTO>(order) );
 
 
             }
@@ -198,12 +199,8 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
 
 
-
-
-
         }
 
-     
         
         [HttpGet("{id}")]
         public async Task<ActionResult<ReturnedDistributionOrderDTO>> GetDistributionOrderById(int id)
@@ -250,6 +247,93 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
 
         }
+
+
+
+
+        // Updating Status APIs
+
+        [HttpGet]
+        public async Task<ActionResult> ChangeDistributionStatusToShipped(int orderId) {
+
+            try
+            {
+                var order = await _unitOfWork.Distribution.GetByIdAsync(orderId);
+
+                if(order==null) return NotFound(new ErrorApiResponse(404, "Distribution Order Id is not found."));
+
+                if(order.OrderStatusId != 1)
+                    return BadRequest(new ErrorApiResponse(400, "Distribution Order status has to be pending inorder to change it to shipped.."));
+
+                order.OrderStatusId = 2;
+                _unitOfWork.Distribution.Update(order);
+
+                await _unitOfWork.Save();
+                return Ok("status updated from pending to shipped");
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ErrorApiResponse(500) { Message = ex.Message });
+            }
+
+
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> ChangeDistributionStatusToFullfilled(int orderId) {
+
+            try
+            {
+                var order = await _unitOfWork.Distribution.GetDistributionOrderById(orderId);
+
+                if (order == null) return NotFound(new ErrorApiResponse(404, "Distribution Order Id is not found."));
+
+                if (order.OrderStatusId != 2)
+                    return BadRequest(new ErrorApiResponse(400, "Distribution Order status has to be shipped inorder to change it to fullfilled.."));
+
+                order.OrderStatusId = 3;
+                _unitOfWork.Distribution.Update(order);
+
+
+
+                // Remove Qty to distribute  + set ROP from the products inventory when its status are shipped.
+
+                foreach (var product in order.DistributionOrderDetails)
+                {
+                    await UpdateProductsInventory(product.ProductId, product.Qty);
+                }
+
+
+                await _unitOfWork.Save();
+                return Ok("status updated from shipped to fullfilled");
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ErrorApiResponse(500) { Message = ex.Message });
+            }
+
+        }
+
+
+
+        //private helper methods 
+
+        private async Task UpdateProductsInventory(int productId, int qtyToRemove) {
+
+            var product = await _unitOfWork.ProductsInventory.GetByIdAsync(productId);
+
+            product.Quantity -= qtyToRemove;
+       
+            if (product.Quantity <= product.ReorderingPoint)
+                product.HasReachedROP = true;
+
+          _unitOfWork.ProductsInventory.Update(product);
+
+        }
+
+
 
 
 

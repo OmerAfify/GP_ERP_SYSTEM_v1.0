@@ -13,7 +13,7 @@ namespace ERP_Domians.Models
         public decimal? MonthlyCosts { get; set; }
         public string Area { get; set; }
         public int ReorderingPoint { get; set; }
-
+        public bool HasReachedROP { get; set; } = false;
         public virtual TbProduct Product { get; set; }
     }
 }

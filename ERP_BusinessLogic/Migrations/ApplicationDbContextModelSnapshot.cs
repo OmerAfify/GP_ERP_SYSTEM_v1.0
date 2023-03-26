@@ -409,6 +409,9 @@ namespace ERP_BusinessLogic.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("area");
 
+                    b.Property<bool>("HasReachedROP")
+                        .HasColumnType("bit");
+
                     b.Property<decimal?>("MonthlyCosts")
                         .HasColumnType("decimal(18,2)")
                         .HasColumnName("monthlyCosts");
@@ -899,6 +902,9 @@ namespace ERP_BusinessLogic.Migrations
                     b.Property<string>("Area")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("area");
+
+                    b.Property<bool>("HasReachedROP")
+                        .HasColumnType("bit");
 
                     b.Property<decimal>("MonthlyCosts")
                         .HasColumnType("decimal(18,2)")

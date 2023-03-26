@@ -36,6 +36,7 @@ namespace GP_ERP_SYSTEM_v1._0
 
             try
             {
+                
                 var product = await _unitOfWork.Product.GetByIdAsync(manufactoringOrder.ProductManufacturedId);
 
                 if (product==null) return BadRequest(new ErrorApiResponse(400, "Please enter a valid product ID and try again."));
@@ -59,10 +60,12 @@ namespace GP_ERP_SYSTEM_v1._0
                     manufactoringOrder.QtyToManufacture,manufactoringOrder.ManufacturingCost,manufactoringOrder.StartingDate,
                     manufactoringOrder.RawMaterialsUsed);
 
+
                 if (result == null)
-                    return StatusCode(500, "Error happened while adding order");
-                else
-                    return Ok(  _mapper.Map<ReturnedManufacturingOrderDTO>(result) );
+                   return StatusCode(500, "Error happened while adding order");
+
+          
+                return Ok(  _mapper.Map<ReturnedManufacturingOrderDTO>(result) );
                 
             }
             catch (Exception ex)
@@ -116,6 +119,115 @@ namespace GP_ERP_SYSTEM_v1._0
             {
                 return StatusCode(500, new ErrorApiResponse(500) { Message = ex.Message });
             }
+
+        }
+
+
+
+
+        // Updating Status APIs
+        [HttpGet]
+        public async Task<ActionResult> ChangeManufacturingStatusToManufacturing(int orderId)
+        {
+
+            try
+            {
+                var order = await _unitOfWork.Manufacturing.GetManufacturingOrderById(orderId);
+
+                if (order == null) return NotFound(new ErrorApiResponse(404, "Manufacturing Order Id is not found."));
+
+                if (order.ManufacturingStatusId != 1)
+                    return BadRequest(new ErrorApiResponse(400, "Manufacturing Order status has to be pending inorder to change it to Manufacturing.."));
+
+                order.ManufacturingStatusId = 2;
+                _unitOfWork.Manufacturing.Update(order);
+
+
+                //Check Rawmaterials used if reached ReorderingPoint. if reached ? send/ notify user to order it from the suppliers 
+                foreach (var rawMaterial in order.ManufacturingOrderDetails)
+                {
+                    await UpdateRawMaterialsInventory(rawMaterial.RawMaterialId, rawMaterial.RawMaterialQtyUsed);
+                }
+
+
+                await _unitOfWork.Save();
+                return Ok("status updated from pending to manufacturing");
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ErrorApiResponse(500) { Message = ex.Message });
+            }
+
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> ChangeManufacturingStatusToShippedToInventory(int orderId)
+        {
+
+            try
+            {
+                var order = await _unitOfWork.Manufacturing.GetManufacturingOrderById(orderId);
+
+                if (order == null) return NotFound(new ErrorApiResponse(404, "Manufacturing Order Id is not found."));
+
+                if (order.ManufacturingStatusId != 2)
+                    return BadRequest(new ErrorApiResponse(400, "Manufacturing Order status has to be manufacturing inorder to change it to ShippedToInventory.."));
+
+                order.ManufacturingStatusId = 3;
+                _unitOfWork.Manufacturing.Update(order);
+
+                //Update Products Inventory ++QTY + UpdateHasReachedROP
+                await UpdateProductsInventory(order.ProductManufacturedId, order.QtyToManufacture);
+
+
+                await _unitOfWork.Save();
+                return Ok("status updated from manufacturing to shippedToInventory");
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ErrorApiResponse(500) { Message = ex.Message });
+            }
+
+        }
+
+
+
+
+        //private helper methods
+
+        private async Task UpdateProductsInventory(int productId, int qtyToAdd)
+        {
+
+            var product = await _unitOfWork.ProductsInventory.GetByIdAsync(productId);
+
+            product.Quantity += qtyToAdd;
+
+            if (product.Quantity > product.ReorderingPoint)
+                product.HasReachedROP = false;
+            else
+                product.HasReachedROP = true;
+
+            _unitOfWork.ProductsInventory.Update(product);
+
+            await _unitOfWork.Save();
+
+        }
+        private async Task UpdateRawMaterialsInventory(int rawMaterialId, int qtyToRemove)
+        {
+
+            var rawMaterial = await _unitOfWork.RawMaterialInventory.GetByIdAsync(rawMaterialId);
+
+            rawMaterial.Quantity -= qtyToRemove;
+
+            if (rawMaterial.Quantity <= rawMaterial.ReorderingPoint)
+                rawMaterial.HasReachedROP = true;
+            else
+                rawMaterial.HasReachedROP = false;
+
+            _unitOfWork.RawMaterialInventory.Update(rawMaterial);
+
 
         }
 
