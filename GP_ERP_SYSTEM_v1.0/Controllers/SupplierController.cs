@@ -158,8 +158,8 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                 if (supplier == null)
                     return BadRequest(new ErrorApiResponse(400,"supplier Id is not found"));
 
-                var supplyingMaterials = await _unitOfWork.SupplingMaterialDetails.FindRangeAsync(m => m.SupplierId == supplierId);
-                return Ok(_mapper.Map<List<SupplyingMaterialDetailDTO>>(supplyingMaterials));
+                var supplyingMaterials = await _unitOfWork.SupplingMaterialDetails.FindRangeAsync(m => m.SupplierId == supplierId,new List<string>() {"Material"} );
+                return Ok(_mapper.Map<List<ReturnedSupplyingMaterialDetailDTO>>(supplyingMaterials));
 
 
             }
