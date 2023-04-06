@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace GP_ERP_SYSTEM_v1._0.DTOs
 {
@@ -21,17 +22,23 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
         public decimal? AccBalance { get; set; }
     }
 
-    public class AddFmsStatementTemplateDTO
+    public class AddFmsTemplateDTO : FmsTemplateDTO
+    {
+        public List<int> Accounts { get; set; }
+    }
+
+    public class FmsTemplateDTO
     {
         public string TempName { get; set; }
         public DateTime? TempDate { get; set; }
     }
 
-    public class FmsStatementTemplateDTO : AddFmsStatementTemplateDTO
+    public class ViewFmsTemplateDTO : FmsTemplateDTO
     {
-        public int TempId { get; set; }
-    }
 
+        public int TempId { get; set; }
+        public List<int> Accounts { get; set; }
+    }
     public class FmsTemplateAccountDTO
     {
         public int AccId { get; set; }

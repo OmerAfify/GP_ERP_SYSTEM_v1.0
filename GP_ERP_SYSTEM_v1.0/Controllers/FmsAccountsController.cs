@@ -64,7 +64,9 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
             try
             {
-                _unitOfWork.FmsAccount.InsertAsync(_mapper.Map<TbFmsAccount>(Account));
+
+                TbFmsAccount tbFmsAccount = _mapper.Map<TbFmsAccount>(Account);
+                _unitOfWork.FmsAccount.InsertAsync(tbFmsAccount);
                 await _unitOfWork.Save();
 
                 return NoContent();

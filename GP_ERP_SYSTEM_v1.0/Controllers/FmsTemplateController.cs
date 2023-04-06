@@ -28,7 +28,26 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             try
             {
                 var Templates = await _unitOfWork.FmsStatementTemplate.GetAllAsync();
-                return Ok(_mapper.Map<List<FmsStatementTemplateDTO>>(Templates));
+                List<ViewFmsTemplateDTO> TemplatesDTO = new List<ViewFmsTemplateDTO>();
+                foreach (var Template in Templates)
+                {
+                    IEnumerable<TbFmsTemplateAccount> TemplateAccounts = await _unitOfWork.FmsTemplateAccount.FindRangeAsync(o => o.TempId == Template.TempId);
+                    List<int> TemplateAccountIds = new List<int>();
+                    foreach (TbFmsTemplateAccount TemplateAccount in TemplateAccounts)
+                    {
+                        TemplateAccountIds.Add(TemplateAccount.AccId);
+                    }
+                    ViewFmsTemplateDTO viewFmsTemplateDTO = new ViewFmsTemplateDTO()
+                    {
+                        Accounts = TemplateAccountIds,
+                        TempId = Template.TempId,
+                        TempDate = Template.TempDate,
+                        TempName = Template.TempName,
+                    };
+                    TemplatesDTO.Add(viewFmsTemplateDTO);
+
+                }
+                return Ok(TemplatesDTO);
             }
             catch (Exception ex)
             {
@@ -41,7 +60,17 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             try
             {
                 var Template = await _unitOfWork.FmsStatementTemplate.GetByIdAsync(id);
-                return Ok(_mapper.Map<FmsStatementTemplateDTO>(Template));
+                // ViewFmsTemplateDTO tempWithAccounts = _mapper.Map<ViewFmsTemplateDTO>(Template);
+                ViewFmsTemplateDTO tempWithAccounts = new ViewFmsTemplateDTO()
+                {
+                    TempId = id, TempName = Template.TempName, TempDate = Template.TempDate, Accounts = new List<int> { }
+                };
+                 var accounts = await _unitOfWork.FmsTemplateAccount.FindRangeAsync(o => o.TempId == id);
+                foreach (var account in accounts)
+                {
+                    tempWithAccounts.Accounts.Add(account.AccId);
+                }
+                return Ok(tempWithAccounts);
             }
             catch (Exception ex)
             {
@@ -50,7 +79,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> FmsAddTemplate([FromBody] AddFmsStatementTemplateDTO Template)
+        public async Task<IActionResult> FmsAddTemplate([FromBody] AddFmsTemplateDTO Template)
         {
             if (!ModelState.IsValid)
             {
@@ -59,6 +88,16 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             try
             {
                 _unitOfWork.FmsStatementTemplate.InsertAsync(_mapper.Map<TbFmsStatementTemplate>(Template));
+                await _unitOfWork.Save();
+                TbFmsStatementTemplate savedTemplate = await 
+                    _unitOfWork.FmsStatementTemplate.FindAsync(o => o.TempDate == Template.TempDate);
+                foreach (var acc in Template.Accounts)
+                {
+
+                    var TemplateAccount = new FmsTemplateAccountDTO { TempId = savedTemplate.TempId, AccId = acc };
+                    _unitOfWork.FmsTemplateAccount.InsertAsync(_mapper.Map<TbFmsTemplateAccount>(TemplateAccount));
+                }
+                  
                 await _unitOfWork.Save();
                 return Ok();
             }
@@ -74,7 +113,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> FmsUpdateTemplate(int id, [FromBody] AddFmsStatementTemplateDTO Template)
+        public async Task<IActionResult> FmsUpdateTemplate(int id, [FromBody] AddFmsTemplateDTO Template)
         {
             if (!ModelState.IsValid || id < 1) { return BadRequest(ModelState); }
             try
@@ -134,7 +173,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
         }
 
-        [HttpGet("{id}")]
+        [HttpGet]
         public async Task<IActionResult> FmsGetTemplateAccounts(int tempID)
         {
             try

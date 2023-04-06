@@ -5,7 +5,7 @@
         
         public string AccName { get; set; }
         
-        public int? IncreaseMode { get; set; }
+        public string IncreaseMode { get; set; }
     }
     public class FmsAccountDTO : AddFmsAccountDTO
     {

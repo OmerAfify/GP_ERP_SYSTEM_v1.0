@@ -88,20 +88,27 @@ namespace GP_ERP_SYSTEM_v1._0.Helpers.AutomapperProfile
                 CreateMap<TbDistributionOrderDetail, DistributionOrderDetailsDTO>()
                 .ForMember(d => d.ProductName, opt => opt.MapFrom(s => s.Product.ProductName))
                 .ForMember(d => d.ProductSalesPrice, opt => opt.MapFrom(s => s.Product.SalesPrice));
-                
+
 
 
             //FMS DTOs
 
-            CreateMap<TbFmsAccount, AddFmsAccountDTO>().ReverseMap();
-            CreateMap<TbFmsAccount, FmsAccountDTO>().ReverseMap();
+            CreateMap<TbFmsAccount, AddFmsAccountDTO>().ReverseMap()
+                .ForMember(src => src.IncreaseMode, opt => opt.MapFrom(S => S.IncreaseMode == "Debit" ? 0 :
+                1))
+                .ForMember(src => src.AccBalance, opt => opt.MapFrom(S => 0))
+                .ForMember(src => src.AccDebit, opt => opt.MapFrom(S => 0))
+                .ForMember(src => src.AccCredit, opt => opt.MapFrom(S => 0));
+
+            CreateMap<TbFmsAccount, FmsAccountDTO>()
+                .ForMember(src => src.IncreaseMode, opt => opt.MapFrom(S => S.IncreaseMode == 0 ? "Debit" :
+                "Credit"));
 
             CreateMap<TbFmsAccCat, FmsAccCatDTO>().ReverseMap();
 
             CreateMap<TbFmsStatementAccount, FmsStatementAccountDTO>().ReverseMap();
 
-            CreateMap<TbFmsStatementTemplate, AddFmsStatementTemplateDTO>().ReverseMap();
-            CreateMap<TbFmsStatementTemplate, FmsStatementTemplateDTO>().ReverseMap();
+            CreateMap<TbFmsStatementTemplate, AddFmsTemplateDTO>().ReverseMap();
 
             CreateMap<TbFmsStatement, AddFmsStatementDTO>().ReverseMap();
             CreateMap<TbFmsStatement, FmsStatementDTO>().ReverseMap();
