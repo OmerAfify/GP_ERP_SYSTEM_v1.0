@@ -10,8 +10,6 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
         public int MaterialId { get; set; }
         public decimal PricePerUnit { get; set; }
 
-
-
     }
 
 

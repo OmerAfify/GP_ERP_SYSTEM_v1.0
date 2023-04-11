@@ -19,6 +19,12 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
+        //used only in the API call of AddNewSupplyingMaterialToSupplier
+        public class SupplierMaterialDetails {
+            public List<SupplyingMaterialDetailDTO> SupplyingMaterialDetails { get; set; }      
+        }
+
+
         public SupplierController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
@@ -71,7 +77,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            
+
 
             try
             {
@@ -132,7 +138,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                 var SupplierToDelete = await _unitOfWork.Supplier.GetByIdAsync(id);
 
                 if (SupplierToDelete == null)
-                    return BadRequest(new ErrorApiResponse(400,"Supplier not found."));
+                    return BadRequest(new ErrorApiResponse(400, "Supplier not found."));
 
                 _unitOfWork.Supplier.Delete(SupplierToDelete);
                 await _unitOfWork.Save();
@@ -156,9 +162,9 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                 var supplier = await _unitOfWork.Supplier.GetByIdAsync(supplierId);
 
                 if (supplier == null)
-                    return BadRequest(new ErrorApiResponse(400,"supplier Id is not found"));
+                    return BadRequest(new ErrorApiResponse(400, "supplier Id is not found"));
 
-                var supplyingMaterials = await _unitOfWork.SupplingMaterialDetails.FindRangeAsync(m => m.SupplierId == supplierId,new List<string>() {"Material"} );
+                var supplyingMaterials = await _unitOfWork.SupplingMaterialDetails.FindRangeAsync(m => m.SupplierId == supplierId, new List<string>() { "Material" });
                 return Ok(_mapper.Map<List<ReturnedSupplyingMaterialDetailDTO>>(supplyingMaterials));
 
 
@@ -172,7 +178,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> AddNewSupplyingMaterialToSupplier(int supplierId,[FromBody] List<SupplyingMaterialDetailDTO> supplyingMaterialDetailsDTO)
+        public async Task<IActionResult> AddNewSupplyingMaterialToSupplier(int supplierId, [FromBody] SupplierMaterialDetails supplyingMaterialDetailsDTO)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -187,7 +193,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                 if (supplier == null)
                     return BadRequest(new ErrorApiResponse(400,"Supplier Id is not found"));
 
-                var SendedRawMaterialsIdsList = supplyingMaterialDetailsDTO.Select(rm => rm.MaterialId).ToList();
+                var SendedRawMaterialsIdsList = supplyingMaterialDetailsDTO.SupplyingMaterialDetails.Select(rm => rm.MaterialId).ToList();
 
                 var StoredRawMaterialsIdsList = (await _unitOfWork.RawMaterial.GetAllAsync()).Select(i => i.MaterialId).ToList();
 
@@ -202,7 +208,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                 }
 
 
-                var supplyingMaterialsDetails = _mapper.Map< List<TbSupplyingMaterialDetail> >(supplyingMaterialDetailsDTO);
+                var supplyingMaterialsDetails = _mapper.Map< List<TbSupplyingMaterialDetail> >(supplyingMaterialDetailsDTO.SupplyingMaterialDetails);
 
                 supplyingMaterialsDetails.ForEach(s => s.SupplierId = supplierId);
 
