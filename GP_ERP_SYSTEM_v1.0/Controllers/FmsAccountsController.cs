@@ -45,7 +45,21 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             try
             {
                 var Account = await _unitOfWork.FmsAccount.GetByIdAsync(id);
-                return Ok(_mapper.Map<FmsAccountDTO>(Account));
+                var accCatObjs = await _unitOfWork.FmsAccCat.FindRangeAsync(o => o.AccId == id);
+                var categories = await _unitOfWork.FmsCategory.GetAllAsync();
+                List<string> accCatStr = (from p in accCatObjs join e in categories on p.CatId equals e.CatId
+                                          select e.CatName).ToList();
+                ViewFmsAccountDTO result = new ViewFmsAccountDTO
+                {
+                    AccBalance = Account.AccBalance,
+                    AccCategories = accCatStr,
+                    AccCredit = Account.AccCredit,
+                    AccDebit = Account.AccDebit,
+                    AccId = Account.AccId,
+                    AccName = Account.AccName,
+                    IncreaseMode = Account.IncreaseMode == 0 ? "Debit" : "Credit"
+                };
+                return Ok(result);
             }
             catch (Exception ex)
             {

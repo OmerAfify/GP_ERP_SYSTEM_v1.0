@@ -1,4 +1,7 @@
-﻿namespace GP_ERP_SYSTEM_v1._0.DTOs
+﻿using System;
+using System.Collections.Generic;
+
+namespace GP_ERP_SYSTEM_v1._0.DTOs
 {
     public class AddFmsAccountDTO
     {
@@ -14,7 +17,10 @@
        public decimal? AccDebit { get; set; }
        public decimal? AccCredit { get; set; }
     }
-
+    public class ViewFmsAccountDTO : FmsAccountDTO
+    {
+        public List<string> AccCategories { get; set; }
+    }
     public class AddFmsCategoryDTO
     {
         

@@ -110,7 +110,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
             try
             {
-                var AccCats = await _unitOfWork.FmsAccCat.FindRangeAsync(o => o.CatId == accID);
+                var AccCats = await _unitOfWork.FmsAccCat.FindRangeAsync(o => o.AccId == accID);
                 return Ok(_mapper.Map<List<FmsAccCatDTO>>(AccCats));
             }
             catch (Exception ex)

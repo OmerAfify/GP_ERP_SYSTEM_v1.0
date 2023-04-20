@@ -15,6 +15,11 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
         public int StaId { get; set; }
     }
 
+    public class ViewFmsStatementDTO : FmsStatementDTO
+    {
+        public List<FmsStatementAccountDTO> accounts { get; set; }
+    }
+
     public class FmsStatementAccountDTO
     {
         public string AccName { get; set; }

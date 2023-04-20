@@ -60,7 +60,6 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             try
             {
                 var Template = await _unitOfWork.FmsStatementTemplate.GetByIdAsync(id);
-                // ViewFmsTemplateDTO tempWithAccounts = _mapper.Map<ViewFmsTemplateDTO>(Template);
                 ViewFmsTemplateDTO tempWithAccounts = new ViewFmsTemplateDTO()
                 {
                     TempId = id, TempName = Template.TempName, TempDate = Template.TempDate, Accounts = new List<int> { }
@@ -108,8 +107,8 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
 
         }
-
        
+
 
 
         [HttpPut("{id}")]

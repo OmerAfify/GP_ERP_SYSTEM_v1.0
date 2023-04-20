@@ -41,7 +41,17 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             try
             {
                 var Statement = await _unitOfWork.FmsStatement.GetByIdAsync(id);
-                return Ok(_mapper.Map<FmsStatementDTO>(Statement));
+                var Accounts = await _unitOfWork.FmsStatementAccount.FindRangeAsync(p => p.StaId == id);
+                ViewFmsStatementDTO result = new ViewFmsStatementDTO()
+                {
+                    StaId = id,
+                    StaDate = Statement.StaDate,
+                    StaName = Statement.StaName,
+                    accounts = _mapper.Map<List<FmsStatementAccountDTO>>(Accounts),
+                    StaBalance = Statement.StaBalance,
+
+                };
+                return Ok(result);
             }
             catch (Exception ex)
             {
