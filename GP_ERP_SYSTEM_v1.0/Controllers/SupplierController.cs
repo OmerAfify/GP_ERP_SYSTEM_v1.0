@@ -23,6 +23,10 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         public class SupplierMaterialDetails {
             public List<SupplyingMaterialDetailDTO> SupplyingMaterialDetails { get; set; }      
         }
+        public class SupplierMaterialId
+        {
+            public int SupplyierMaterialId { get; set; }
+        }
 
 
         public SupplierController(IUnitOfWork unitOfWork, IMapper mapper)
@@ -340,6 +344,101 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
         }
 
+
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteSupplingMaterialToSupplier_V2(int supplierId, [FromBody] SupplierMaterialId supplyingMaterialId)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            if (supplierId <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
+
+            try
+            {
+                var supplier = await _unitOfWork.Supplier.GetByIdAsync(supplierId);
+
+                if (supplier == null)
+                    return NotFound(new ErrorApiResponse(404, "Supplier Id is not found"));
+
+                var supplyingRawMaterial = await _unitOfWork.RawMaterial.GetByIdAsync(supplyingMaterialId.SupplyierMaterialId);
+
+                if (supplyingRawMaterial == null)
+                {
+                    return BadRequest(new ErrorApiResponse(400, "The following Material id is invalid:" + supplyingMaterialId));
+                }
+
+
+                var supplyingMaterialsDetailsToDelete = await (_unitOfWork.SupplingMaterialDetails.FindAsync(s => s.SupplierId == supplierId && supplyingMaterialId.SupplyierMaterialId == s.MaterialId));
+
+
+                if (supplyingMaterialsDetailsToDelete == null)
+                    return BadRequest(new ErrorApiResponse(400, "The entered Material Ids dosn't exist in the current suppleir Id number : " + supplierId));
+
+
+                _unitOfWork.SupplingMaterialDetails.Delete(supplyingMaterialsDetailsToDelete);
+                await _unitOfWork.Save();
+
+
+                return NoContent();
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
+            }
+
+
+        }
+
+
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteSupplingMaterialToSupplier_V3(int supplierId, int supplyingMaterialId)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            if (supplierId <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
+
+            try
+            {
+                var supplier = await _unitOfWork.Supplier.GetByIdAsync(supplierId);
+
+                if (supplier == null)
+                    return NotFound(new ErrorApiResponse(404, "Supplier Id is not found"));
+
+                var supplyingRawMaterial = await _unitOfWork.RawMaterial.GetByIdAsync(supplyingMaterialId);
+
+                if (supplyingRawMaterial == null)
+                {
+                    return BadRequest(new ErrorApiResponse(400, "The following Material id is invalid:" + supplyingMaterialId));
+                }
+
+
+                var supplyingMaterialsDetailsToDelete = await (_unitOfWork.SupplingMaterialDetails.FindAsync(s => s.SupplierId == supplierId && supplyingMaterialId == s.MaterialId));
+
+
+                if (supplyingMaterialsDetailsToDelete == null)
+                    return BadRequest(new ErrorApiResponse(400, "The entered Material Ids dosn't exist in the current suppleir Id number : " + supplierId));
+
+
+                _unitOfWork.SupplingMaterialDetails.Delete(supplyingMaterialsDetailsToDelete);
+                await _unitOfWork.Save();
+
+
+                return NoContent();
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
+            }
+
+
+        }
 
 
 
