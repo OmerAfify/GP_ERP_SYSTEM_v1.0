@@ -1,14 +1,21 @@
 {
   "version": 3,
   "targets": {
+<<<<<<< Updated upstream
+    "net5.0": {}
+=======
     "net5.0": {
       "Microsoft.AspNetCore.Cryptography.Internal/5.0.17": {
         "type": "package",
         "compile": {
-          "lib/net5.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {}
+          "lib/net5.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net5.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {}
+          "lib/net5.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.AspNetCore.Cryptography.KeyDerivation/5.0.17": {
@@ -17,10 +24,14 @@
           "Microsoft.AspNetCore.Cryptography.Internal": "5.0.17"
         },
         "compile": {
-          "lib/net5.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {}
+          "lib/net5.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net5.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {}
+          "lib/net5.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore/5.0.17": {
@@ -30,10 +41,14 @@
           "Microsoft.Extensions.Identity.Stores": "5.0.17"
         },
         "compile": {
-          "lib/net5.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {}
+          "lib/net5.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net5.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {}
+          "lib/net5.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.EntityFrameworkCore/5.0.17": {
@@ -49,19 +64,27 @@
           "System.Diagnostics.DiagnosticSource": "5.0.1"
         },
         "compile": {
-          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.dll": {}
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.dll": {}
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.EntityFrameworkCore.Abstractions/5.0.17": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/5.0.17": {
@@ -80,10 +103,14 @@
           "Microsoft.Extensions.Configuration.Abstractions": "5.0.0"
         },
         "compile": {
-          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Relational.dll": {}
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Relational.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Relational.dll": {}
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Relational.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.Caching.Abstractions/5.0.0": {
@@ -92,10 +119,14 @@
           "Microsoft.Extensions.Primitives": "5.0.0"
         },
         "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.Caching.Memory/5.0.0": {
@@ -108,10 +139,14 @@
           "Microsoft.Extensions.Primitives": "5.0.0"
         },
         "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.Configuration.Abstractions/5.0.0": {
@@ -120,10 +155,14 @@
           "Microsoft.Extensions.Primitives": "5.0.0"
         },
         "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.DependencyInjection/5.0.2": {
@@ -132,19 +171,27 @@
           "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0"
         },
         "compile": {
-          "lib/net5.0/Microsoft.Extensions.DependencyInjection.dll": {}
+          "lib/net5.0/Microsoft.Extensions.DependencyInjection.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net5.0/Microsoft.Extensions.DependencyInjection.dll": {}
+          "lib/net5.0/Microsoft.Extensions.DependencyInjection.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.DependencyInjection.Abstractions/5.0.0": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.Identity.Core/5.0.17": {
@@ -155,10 +202,14 @@
           "Microsoft.Extensions.Options": "5.0.0"
         },
         "compile": {
-          "lib/net5.0/Microsoft.Extensions.Identity.Core.dll": {}
+          "lib/net5.0/Microsoft.Extensions.Identity.Core.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net5.0/Microsoft.Extensions.Identity.Core.dll": {}
+          "lib/net5.0/Microsoft.Extensions.Identity.Core.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.Identity.Stores/5.0.17": {
@@ -169,10 +220,14 @@
           "Microsoft.Extensions.Logging": "5.0.0"
         },
         "compile": {
-          "lib/net5.0/Microsoft.Extensions.Identity.Stores.dll": {}
+          "lib/net5.0/Microsoft.Extensions.Identity.Stores.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net5.0/Microsoft.Extensions.Identity.Stores.dll": {}
+          "lib/net5.0/Microsoft.Extensions.Identity.Stores.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.Logging/5.0.0": {
@@ -184,19 +239,27 @@
           "Microsoft.Extensions.Options": "5.0.0"
         },
         "compile": {
-          "lib/netstandard2.1/Microsoft.Extensions.Logging.dll": {}
+          "lib/netstandard2.1/Microsoft.Extensions.Logging.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.1/Microsoft.Extensions.Logging.dll": {}
+          "lib/netstandard2.1/Microsoft.Extensions.Logging.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.Logging.Abstractions/5.0.0": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.Options/5.0.0": {
@@ -206,46 +269,66 @@
           "Microsoft.Extensions.Primitives": "5.0.0"
         },
         "compile": {
-          "lib/net5.0/Microsoft.Extensions.Options.dll": {}
+          "lib/net5.0/Microsoft.Extensions.Options.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net5.0/Microsoft.Extensions.Options.dll": {}
+          "lib/net5.0/Microsoft.Extensions.Options.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.Primitives/5.0.0": {
         "type": "package",
         "compile": {
-          "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {}
+          "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {}
+          "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {
+            "related": ".xml"
+          }
         }
       },
       "System.Collections.Immutable/5.0.0": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/System.Collections.Immutable.dll": {}
+          "lib/netstandard2.0/System.Collections.Immutable.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/System.Collections.Immutable.dll": {}
+          "lib/netstandard2.0/System.Collections.Immutable.dll": {
+            "related": ".xml"
+          }
         }
       },
       "System.ComponentModel.Annotations/5.0.0": {
         "type": "package",
         "compile": {
-          "ref/netstandard2.1/System.ComponentModel.Annotations.dll": {}
+          "ref/netstandard2.1/System.ComponentModel.Annotations.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.1/System.ComponentModel.Annotations.dll": {}
+          "lib/netstandard2.1/System.ComponentModel.Annotations.dll": {
+            "related": ".xml"
+          }
         }
       },
       "System.Diagnostics.DiagnosticSource/5.0.1": {
         "type": "package",
         "compile": {
-          "lib/net5.0/System.Diagnostics.DiagnosticSource.dll": {}
+          "lib/net5.0/System.Diagnostics.DiagnosticSource.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net5.0/System.Diagnostics.DiagnosticSource.dll": {}
+          "lib/net5.0/System.Diagnostics.DiagnosticSource.dll": {
+            "related": ".xml"
+          }
         }
       }
     }
@@ -734,26 +817,33 @@
         "version.txt"
       ]
     }
+>>>>>>> Stashed changes
   },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net5.0": [
-      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 5.0.17"
-    ]
+    "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\zakaw\\.nuget\\packages\\": {}
+    "C:\\Users\\Mennatuallah\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj",
+      "projectUniqueName": "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj",
       "projectName": "ERP_Domians",
-      "projectPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj",
-      "packagesPath": "C:\\Users\\zakaw\\.nuget\\packages\\",
-      "outputPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\obj\\",
+      "projectPath": "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj",
+      "packagesPath": "C:\\Users\\Mennatuallah\\.nuget\\packages\\",
+      "outputPath": "E:\\GraduationProjectBackEnd\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\zakaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mennatuallah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -761,6 +851,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -778,19 +869,14 @@
     "frameworks": {
       "net5.0": {
         "targetAlias": "net5.0",
-        "dependencies": {
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
-            "target": "Package",
-            "version": "[5.0.17, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -799,7 +885,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

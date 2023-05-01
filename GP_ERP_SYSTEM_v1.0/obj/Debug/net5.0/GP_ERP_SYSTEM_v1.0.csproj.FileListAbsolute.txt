@@ -294,9 +294,18 @@ E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5
 E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.pdb
 E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.genruntimeconfig.cache
 E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\ref\GP_ERP_SYSTEM_v1.0.dll
+<<<<<<< Updated upstream
+=======
 D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
 D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+>>>>>>> Stashed changes
