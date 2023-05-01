@@ -86,10 +86,24 @@ namespace GP_ERP_SYSTEM_v1._0.Helpers.AutomapperProfile
             CreateMap<TbFmsCategory, FmsCategoryDTO>().ReverseMap();
 
 
-
             //HRMS
             CreateMap<TbEmployeeDetail, AddEmployeeDTO>().ReverseMap();
-            CreateMap<TbEmployeeDetail, EmployeeDetailsDTO>().ReverseMap();
+            CreateMap<TbEmployeeDetail, EmployeeDetailDTO>().ReverseMap();
+
+
+
+            CreateMap<TbHrmanagerDetail, AddHRManagerDTO>().ReverseMap();
+            CreateMap<TbHrmanagerDetail, HRManagerDTO>().ReverseMap();
+
+            CreateMap<TbEmployeeTrainning, AddEmployeeTrainningDTO>().ReverseMap();
+            CreateMap<TbEmployeeTrainning, EmployeeTrainningDTO>().ReverseMap();
+
+            CreateMap<TbEmployeeTaskDetail, AddEmployeeTrainningDTO>().ReverseMap();
+            CreateMap<TbEmployeeTaskDetail, EmployeeTaskDTO>().ReverseMap();
+
+            //CRM
+            CreateMap<TbCustomer, AddCustomerDTO>().ReverseMap();
+            CreateMap<TbCustomer, CustomerDTO>().ReverseMap();
 
 
 
