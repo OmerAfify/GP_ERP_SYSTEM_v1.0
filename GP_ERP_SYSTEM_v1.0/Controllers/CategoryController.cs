@@ -17,8 +17,8 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
     public class CategoryController : ControllerBase
     {
 
-        private IUnitOfWork _unitOfWork;
-        private IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
         public CategoryController(IUnitOfWork unitOfWork, IMapper mapper)
         {

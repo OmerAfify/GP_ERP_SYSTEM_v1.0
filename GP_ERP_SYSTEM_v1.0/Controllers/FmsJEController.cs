@@ -66,6 +66,36 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
             try
             {
+                //retrieve affected accounts
+                TbFmsAccount debitAccount = await _unitOfWork.FmsAccount.GetByIdAsync(FmsJournalEntry.Jeaccount1);
+                TbFmsAccount creditAccount = await _unitOfWork.FmsAccount.GetByIdAsync(FmsJournalEntry.Jeaccount2);
+                
+                //apply changes
+
+                //debitAccount 
+                debitAccount.AccDebit += FmsJournalEntry.Jedebit;
+                if (debitAccount.IncreaseMode == 0)
+                {
+                    debitAccount.AccBalance += FmsJournalEntry.Jedebit;
+                }
+                else
+                {
+                    debitAccount.AccBalance -= FmsJournalEntry.Jedebit;
+                }
+
+                //credit account
+
+                creditAccount.AccCredit += FmsJournalEntry.Jecredit;
+                if (creditAccount.IncreaseMode == 1)
+                {
+                    creditAccount.AccBalance += FmsJournalEntry.Jecredit;
+                }
+                else
+                {
+                    creditAccount.AccBalance -= FmsJournalEntry.Jecredit;
+                }
+                _unitOfWork.FmsAccount.Update(creditAccount);
+                _unitOfWork.FmsAccount.Update(debitAccount);
                 _unitOfWork.FmsJournalEntry.InsertAsync(_mapper.Map<TbFmsJournalEntry>(FmsJournalEntry));
                 await _unitOfWork.Save();
 

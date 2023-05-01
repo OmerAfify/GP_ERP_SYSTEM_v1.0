@@ -17,6 +17,7 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
         public decimal MonthlyCosts { get; set; }
         public string Area { get; set; }
         public int ReorderingPoint { get; set; }
+        public bool HasReachedROP { get; set; }
 
 
 

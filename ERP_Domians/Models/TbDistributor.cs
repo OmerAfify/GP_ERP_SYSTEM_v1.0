@@ -9,7 +9,7 @@ namespace ERP_Domians.Models
     {
         public TbDistributor()
         {
-            TbDistributionOrders = new HashSet<TbDistributionOrder>();
+
         }
 
         public int DistributorId { get; set; }
@@ -18,6 +18,5 @@ namespace ERP_Domians.Models
         public string Email { get; set; }
         public string Address { get; set; }
 
-        public virtual ICollection<TbDistributionOrder> TbDistributionOrders { get; set; }
     }
 }

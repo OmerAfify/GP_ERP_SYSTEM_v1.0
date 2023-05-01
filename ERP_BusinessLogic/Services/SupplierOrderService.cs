@@ -28,12 +28,12 @@ namespace ERP_BusinessLogic.Services
 
             //get Supplier supplying Materials Details from DB
 var supplierSupplyingMaterials = await _unitOfWork.SupplingMaterialDetails
-                .FindRangeAsync(r => r.SupplierId == supplierId && materialsOrdered.Select(m=>m.materialId)
+                .FindRangeAsync(r => r.SupplierId == supplierId && materialsOrdered.Select(m=>m.MaterialId)
                             .Any(m=> r.MaterialId == m ) );
 
             //get RawMaterials details from DB
             var rawMaterials = await _unitOfWork.RawMaterial
-                 .FindRangeAsync(m=> materialsOrdered.Select(m=>m.materialId)
+                 .FindRangeAsync(m=> materialsOrdered.Select(m=>m.MaterialId)
                  .Any(mo=>m.MaterialId==mo));
 
 
@@ -43,9 +43,9 @@ var supplierSupplyingMaterials = await _unitOfWork.SupplingMaterialDetails
             foreach(var material in materialsOrdered)
             {
                 var supplierMaterialDetails = supplierSupplyingMaterials
-                                              .FirstOrDefault(s => s.MaterialId == material.materialId);
+                                              .FirstOrDefault(s => s.MaterialId == material.MaterialId);
 
-                var rawMaterial = rawMaterials.FirstOrDefault(m=>m.MaterialId==material.materialId);
+                var rawMaterial = rawMaterials.FirstOrDefault(m=>m.MaterialId==material.MaterialId);
 
                 var orderedMaterialDetail = new OrderedRawMaterialDetails(rawMaterial.MaterialId, rawMaterial.MaterialName,
                                                                           supplierMaterialDetails.PricePerUnit);

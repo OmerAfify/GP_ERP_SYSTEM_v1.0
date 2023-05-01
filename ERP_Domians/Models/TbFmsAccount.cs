@@ -20,7 +20,7 @@ namespace ERP_Domians.Models
         public decimal? AccBalance { get; set; }
         public decimal? AccDebit { get; set; }
         public decimal? AccCredit { get; set; }
-        public int? IncreaseMode { get; set; }
+        public int IncreaseMode { get; set; }
 
         public virtual ICollection<TbFmsAccCat> TbFmsAccCats { get; set; }
         public virtual ICollection<TbFmsJournalEntry> TbFmsJournalEntryJeaccount1Navigations { get; set; }

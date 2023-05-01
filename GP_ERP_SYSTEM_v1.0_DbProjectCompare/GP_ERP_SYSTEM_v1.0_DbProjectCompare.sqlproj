@@ -74,7 +74,6 @@
     <Build Include="dbo\Tables\TB_Question.sql" />
     <Build Include="dbo\Tables\TB_Product.sql" />
     <Build Include="dbo\Tables\TB_ManufacturingOrderDetails.sql" />
-    <Build Include="dbo\Tables\TB_ManufacturingOrder.sql" />
     <Build Include="dbo\Tables\TB_InterviewDetails.sql" />
     <Build Include="dbo\Tables\TB_HRManagerDetails.sql" />
     <Build Include="dbo\Tables\TB_FMS_TemplateAccounts.sql" />
@@ -99,5 +98,15 @@
     <Build Include="dbo\Tables\TbOrderStatus_Suppliers.sql" />
     <Build Include="dbo\Tables\TbOrderDetails_Suppliers.sql" />
     <Build Include="dbo\Tables\TbOrder_Suppliers.sql" />
+    <Build Include="dbo\Tables\TbManufacturingStatus.sql" />
+    <Build Include="dbo\Tables\TbManufacturingOrders.sql" />
+    <Build Include="dbo\Tables\TbDistributionOrderStatus.sql" />
+    <Build Include="dbo\Tables\AspNetUserTokens.sql" />
+    <Build Include="dbo\Tables\AspNetUsers.sql" />
+    <Build Include="dbo\Tables\AspNetUserRoles.sql" />
+    <Build Include="dbo\Tables\AspNetUserLogins.sql" />
+    <Build Include="dbo\Tables\AspNetUserClaims.sql" />
+    <Build Include="dbo\Tables\AspNetRoles.sql" />
+    <Build Include="dbo\Tables\AspNetRoleClaims.sql" />
   </ItemGroup>
 </Project>
