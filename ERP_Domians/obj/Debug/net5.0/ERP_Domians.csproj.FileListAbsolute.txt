@@ -1,0 +1,48 @@
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_Domians\bin\Debug\net5.0\ERP_Domians.deps.json
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_Domians\bin\Debug\net5.0\ERP_Domians.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_Domians\bin\Debug\net5.0\ref\ERP_Domians.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_Domians\bin\Debug\net5.0\ERP_Domians.pdb
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.GeneratedMSBuildEditorConfig.editorconfig
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.AssemblyInfoInputs.cache
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.AssemblyInfo.cs
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.csproj.CoreCompileInputs.cache
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ref\ERP_Domians.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\ERP_Domians\bin\Debug\net5.0\ERP_Domians.deps.json
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\ERP_Domians\bin\Debug\net5.0\ERP_Domians.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\ERP_Domians\bin\Debug\net5.0\ERP_Domians.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.csproj.AssemblyReference.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.AssemblyInfoInputs.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.AssemblyInfo.cs
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.csproj.CoreCompileInputs.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\refint\ERP_Domians.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ref\ERP_Domians.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.csproj.AssemblyReference.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\ERP_Domians\bin\Debug\net5.0\ERP_Domians.deps.json
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\ERP_Domians\bin\Debug\net5.0\ERP_Domians.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\ERP_Domians\bin\Debug\net5.0\ERP_Domians.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\ERP_Domians\obj\Debug\net5.0\ERP_Domians.csproj.AssemblyReference.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\ERP_Domians\obj\Debug\net5.0\ERP_Domians.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\ERP_Domians\obj\Debug\net5.0\ERP_Domians.AssemblyInfoInputs.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\ERP_Domians\obj\Debug\net5.0\ERP_Domians.AssemblyInfo.cs
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\ERP_Domians\obj\Debug\net5.0\ERP_Domians.csproj.CoreCompileInputs.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\ERP_Domians\obj\Debug\net5.0\ERP_Domians.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\ERP_Domians\obj\Debug\net5.0\refint\ERP_Domians.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\ERP_Domians\obj\Debug\net5.0\ERP_Domians.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\ERP_Domians\obj\Debug\net5.0\ref\ERP_Domians.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\ERP_Domians\bin\Debug\net5.0\ERP_Domians.deps.json
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\ERP_Domians\bin\Debug\net5.0\ERP_Domians.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\ERP_Domians\bin\Debug\net5.0\ERP_Domians.pdb
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.csproj.AssemblyReference.cache
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.GeneratedMSBuildEditorConfig.editorconfig
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.AssemblyInfoInputs.cache
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.AssemblyInfo.cs
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.csproj.CoreCompileInputs.cache
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\refint\ERP_Domians.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.pdb
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ref\ERP_Domians.dll

@@ -1,0 +1,302 @@
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\appsettings.Development.json
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\appsettings.json
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.exe
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.deps.json
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.runtimeconfig.json
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.runtimeconfig.dev.json
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\ref\GP_ERP_SYSTEM_v1.0.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.pdb
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.OpenApi.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.Runtime.Caching.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\ERP_BusinessLogic.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\ERP_Domians.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\ERP_BusinessLogic.pdb
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\ERP_Domians.pdb
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.csproj.AssemblyReference.cache
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.GeneratedMSBuildEditorConfig.editorconfig
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.AssemblyInfoInputs.cache
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.AssemblyInfo.cs
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.csproj.CoreCompileInputs.cache
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.MvcApplicationPartsAssemblyInfo.cs
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.MvcApplicationPartsAssemblyInfo.cache
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\staticwebassets\GP_ERP_SYSTEM_v1.0.StaticWebAssets.Manifest.cache
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\staticwebassets\GP_ERP_SYSTEM_v1.0.StaticWebAssets.xml
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\scopedcss\bundle\GP_ERP_SYSTEM_v1.0.styles.css
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.RazorTargetAssemblyInfo.cache
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.csproj.CopyComplete
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\ref\GP_ERP_SYSTEM_v1.0.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.pdb
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.genruntimeconfig.cache
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Humanizer.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\AutoMapper.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\appsettings.json
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.StaticWebAssets.xml
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.exe
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.deps.json
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.runtimeconfig.json
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.runtimeconfig.dev.json
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Humanizer.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.Runtime.Caching.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\ERP_BusinessLogic.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\ERP_Domians.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\ERP_BusinessLogic.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\ERP_Domians.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.csproj.AssemblyReference.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.AssemblyInfoInputs.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.AssemblyInfo.cs
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.csproj.CoreCompileInputs.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\scopedcss\bundle\GP_ERP_SYSTEM_v1.0.styles.css
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\staticwebassets\GP_ERP_SYSTEM_v1.0.StaticWebAssets.Manifest.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.RazorTargetAssemblyInfo.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.csproj.CopyComplete
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\refint\GP_ERP_SYSTEM_v1.0.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.genruntimeconfig.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\ref\GP_ERP_SYSTEM_v1.0.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.csproj.AssemblyReference.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.AssemblyInfoInputs.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.AssemblyInfo.cs
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.csproj.CoreCompileInputs.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\refint\GP_ERP_SYSTEM_v1.0.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\appsettings.json
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.StaticWebAssets.xml
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.exe
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.deps.json
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.runtimeconfig.json
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.runtimeconfig.dev.json
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Humanizer.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.Runtime.Caching.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\ERP_BusinessLogic.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\ERP_Domians.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\ERP_BusinessLogic.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\ERP_Domians.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\scopedcss\bundle\GP_ERP_SYSTEM_v1.0.styles.css
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\staticwebassets\GP_ERP_SYSTEM_v1.0.StaticWebAssets.Manifest.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.RazorTargetAssemblyInfo.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.csproj.CopyComplete
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.genruntimeconfig.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\ref\GP_ERP_SYSTEM_v1.0.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\appsettings.Development.json
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\appsettings.json
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.StaticWebAssets.xml
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.exe
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.deps.json
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.runtimeconfig.json
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.runtimeconfig.dev.json
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\GP_ERP_SYSTEM_v1.0.pdb
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\AutoMapper.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Humanizer.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.OpenApi.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Newtonsoft.Json.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.Runtime.Caching.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\ERP_BusinessLogic.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\ERP_Domians.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\ERP_BusinessLogic.pdb
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\ERP_Domians.pdb
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.csproj.AssemblyReference.cache
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.GeneratedMSBuildEditorConfig.editorconfig
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.AssemblyInfoInputs.cache
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.AssemblyInfo.cs
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.csproj.CoreCompileInputs.cache
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.MvcApplicationPartsAssemblyInfo.cs
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.MvcApplicationPartsAssemblyInfo.cache
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\scopedcss\bundle\GP_ERP_SYSTEM_v1.0.styles.css
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\staticwebassets\GP_ERP_SYSTEM_v1.0.StaticWebAssets.Manifest.cache
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.RazorTargetAssemblyInfo.cache
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.csproj.CopyComplete
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\refint\GP_ERP_SYSTEM_v1.0.dll
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.pdb
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.genruntimeconfig.cache
+E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\ref\GP_ERP_SYSTEM_v1.0.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll

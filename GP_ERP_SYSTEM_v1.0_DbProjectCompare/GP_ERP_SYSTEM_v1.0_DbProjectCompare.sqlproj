@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>GP_ERP_SYSTEM_v1.0_DbProjectCompare</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{b730ecc7-77af-4f0d-86b0-77301b0f75d6}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>GP_ERP_SYSTEM_v1.0_DbProjectCompare</RootNamespace>
+    <AssemblyName>GP_ERP_SYSTEM_v1.0_DbProjectCompare</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Functions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\TB_VisualReport.sql" />
+    <Build Include="dbo\Tables\TB_ToDoList.sql" />
+    <Build Include="dbo\Tables\TB_Task.sql" />
+    <Build Include="dbo\Tables\TB_Survey.sql" />
+    <Build Include="dbo\Tables\TB_SupplyingMaterialDetails.sql" />
+    <Build Include="dbo\Tables\TB_Supplier.sql" />
+    <Build Include="dbo\Tables\TB_Reporter.sql" />
+    <Build Include="dbo\Tables\TB_Recuirement.sql" />
+    <Build Include="dbo\Tables\TB_RawMaterialsInventory.sql" />
+    <Build Include="dbo\Tables\TB_RawMaterial.sql" />
+    <Build Include="dbo\Tables\TB_Question.sql" />
+    <Build Include="dbo\Tables\TB_Product.sql" />
+    <Build Include="dbo\Tables\TB_ManufacturingOrderDetails.sql" />
+    <Build Include="dbo\Tables\TB_InterviewDetails.sql" />
+    <Build Include="dbo\Tables\TB_HRManagerDetails.sql" />
+    <Build Include="dbo\Tables\TB_FMS_TemplateAccounts.sql" />
+    <Build Include="dbo\Tables\TB_FMS_StatementTemplate.sql" />
+    <Build Include="dbo\Tables\TB_FMS_StatementAccounts.sql" />
+    <Build Include="dbo\Tables\TB_FMS_Statement.sql" />
+    <Build Include="dbo\Tables\TB_FMS_JournalEntry.sql" />
+    <Build Include="dbo\Tables\TB_FMS_Category.sql" />
+    <Build Include="dbo\Tables\TB_FMS_Account.sql" />
+    <Build Include="dbo\Tables\TB_FMS_AccCat.sql" />
+    <Build Include="dbo\Tables\TB_FinishedProductsInventory.sql" />
+    <Build Include="dbo\Tables\TB_EmployeeTrainning.sql" />
+    <Build Include="dbo\Tables\TB_EmployeeTaskDetails.sql" />
+    <Build Include="dbo\Tables\TB_EmployeeDetails.sql" />
+    <Build Include="dbo\Tables\TB_Distributor.sql" />
+    <Build Include="dbo\Tables\TB_DistributionOrderDetails.sql" />
+    <Build Include="dbo\Tables\TB_DistributionOrder.sql" />
+    <Build Include="dbo\Tables\TB_Customer.sql" />
+    <Build Include="dbo\Tables\TB_Category.sql" />
+    <Build Include="dbo\Tables\TB_Adminstrator.sql" />
+    <Build Include="dbo\Tables\__EFMigrationsHistory.sql" />
+    <Build Include="dbo\Tables\TbOrderStatus_Suppliers.sql" />
+    <Build Include="dbo\Tables\TbOrderDetails_Suppliers.sql" />
+    <Build Include="dbo\Tables\TbOrder_Suppliers.sql" />
+    <Build Include="dbo\Tables\TbManufacturingStatus.sql" />
+    <Build Include="dbo\Tables\TbManufacturingOrders.sql" />
+    <Build Include="dbo\Tables\TbDistributionOrderStatus.sql" />
+    <Build Include="dbo\Tables\AspNetUserTokens.sql" />
+    <Build Include="dbo\Tables\AspNetUsers.sql" />
+    <Build Include="dbo\Tables\AspNetUserRoles.sql" />
+    <Build Include="dbo\Tables\AspNetUserLogins.sql" />
+    <Build Include="dbo\Tables\AspNetUserClaims.sql" />
+    <Build Include="dbo\Tables\AspNetRoles.sql" />
+    <Build Include="dbo\Tables\AspNetRoleClaims.sql" />
+  </ItemGroup>
+</Project>

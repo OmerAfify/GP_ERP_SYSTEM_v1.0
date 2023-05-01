@@ -1,0 +1,19 @@
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0_DbProjectCompare\bin\Debug\GP_ERP_SYSTEM_v1.0_DbProjectCompare.dacpac
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0_DbProjectCompare\bin\Debug\GP_ERP_SYSTEM_v1.0_DbProjectCompare.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0_DbProjectCompare\bin\Debug\GP_ERP_SYSTEM_v1.0_DbProjectCompare.pdb
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0_DbProjectCompare\obj\Debug\GP_ERP_SYSTEM_v1.0_DbProjectCompare.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0_DbProjectCompare\obj\Debug\GP_ERP_SYSTEM_v1.0_DbProjectCompare.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0_DbProjectCompare\bin\Debug\GP_ERP_SYSTEM_v1.0_DbProjectCompare.dacpac
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0_DbProjectCompare\bin\Debug\GP_ERP_SYSTEM_v1.0_DbProjectCompare.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0_DbProjectCompare\bin\Debug\GP_ERP_SYSTEM_v1.0_DbProjectCompare.pdb
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0_DbProjectCompare\obj\Debug\GP_ERP_SYSTEM_v1.0_DbProjectCompare.sqlproj.AssemblyReference.cache
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0_DbProjectCompare\obj\Debug\Model.xml
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0_DbProjectCompare\obj\Debug\refactor.xml
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0_DbProjectCompare\obj\Debug\postdeploy.sql
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0_DbProjectCompare\obj\Debug\predeploy.sql
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0_DbProjectCompare\obj\Debug\GP_ERP_SYSTEM_v1.0_DbProjectCompare.dll
+C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v2\GP_ERP_SYSTEM_v1.0_DbProjectCompare\obj\Debug\GP_ERP_SYSTEM_v1.0_DbProjectCompare.pdb
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0_DbProjectCompare\obj\Debug\Model.xml
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0_DbProjectCompare\obj\Debug\refactor.xml
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0_DbProjectCompare\obj\Debug\postdeploy.sql
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0_DbProjectCompare\obj\Debug\predeploy.sql
