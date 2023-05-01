@@ -15,8 +15,8 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
     [ApiController]
     public class FmsAccountsController : ControllerBase
     {
-        private IUnitOfWork _unitOfWork;
-        private IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
         public FmsAccountsController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
@@ -45,7 +45,21 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             try
             {
                 var Account = await _unitOfWork.FmsAccount.GetByIdAsync(id);
-                return Ok(_mapper.Map<FmsAccountDTO>(Account));
+                var accCatObjs = await _unitOfWork.FmsAccCat.FindRangeAsync(o => o.AccId == id);
+                var categories = await _unitOfWork.FmsCategory.GetAllAsync();
+                List<string> accCatStr = (from p in accCatObjs join e in categories on p.CatId equals e.CatId
+                                          select e.CatName).ToList();
+                ViewFmsAccountDTO result = new ViewFmsAccountDTO
+                {
+                    AccBalance = Account.AccBalance,
+                    AccCategories = accCatStr,
+                    AccCredit = Account.AccCredit,
+                    AccDebit = Account.AccDebit,
+                    AccId = Account.AccId,
+                    AccName = Account.AccName,
+                    IncreaseMode = Account.IncreaseMode == 0 ? "Debit" : "Credit"
+                };
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -64,7 +78,9 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
             try
             {
-                _unitOfWork.FmsAccount.InsertAsync(_mapper.Map<TbFmsAccount>(Account));
+
+                TbFmsAccount tbFmsAccount = _mapper.Map<TbFmsAccount>(Account);
+                _unitOfWork.FmsAccount.InsertAsync(tbFmsAccount);
                 await _unitOfWork.Save();
 
                 return NoContent();

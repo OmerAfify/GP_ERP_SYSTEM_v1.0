@@ -20,6 +20,77 @@ namespace ERP_BusinessLogic.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("ERP_Domians.Models.ApplicationUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers");
+                });
+
             modelBuilder.Entity("ERP_Domians.Models.TbAdminstrator", b =>
                 {
                     b.Property<int>("AdminId")
@@ -107,29 +178,33 @@ namespace ERP_BusinessLogic.Migrations
 
             modelBuilder.Entity("ERP_Domians.Models.TbDistributionOrder", b =>
                 {
-                    b.Property<int>("DistributionOrderId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("distributionOrderId")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("DistributorId")
-                        .HasColumnType("int")
-                        .HasColumnName("distributorId");
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("ExpectedArrivalDate")
                         .HasColumnType("datetime")
                         .HasColumnName("expectedArrivalDate");
 
-                    b.Property<int>("OrderStatus")
+                    b.Property<int>("OrderStatusId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("orderStatus")
+                        .HasColumnName("orderStatusId")
                         .HasDefaultValueSql("((1))");
 
                     b.Property<DateTime>("OrderingDate")
                         .HasColumnType("datetime")
                         .HasColumnName("orderingDate");
+
+                    b.Property<decimal>("ShippingCost")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("SubTotal")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18,2)")
@@ -139,10 +214,11 @@ namespace ERP_BusinessLogic.Migrations
                         .HasColumnType("int")
                         .HasColumnName("totalQty");
 
-                    b.HasKey("DistributionOrderId")
-                        .HasName("PK__TB_Distr__BAC7F8314DA2F88A");
+                    b.HasKey("Id");
 
                     b.HasIndex("DistributorId");
+
+                    b.HasIndex("OrderStatusId");
 
                     b.ToTable("TB_DistributionOrder");
                 });
@@ -171,6 +247,21 @@ namespace ERP_BusinessLogic.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("TB_DistributionOrderDetails");
+                });
+
+            modelBuilder.Entity("ERP_Domians.Models.TbDistributionOrderStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TbDistributionOrderStatus");
                 });
 
             modelBuilder.Entity("ERP_Domians.Models.TbDistributor", b =>
@@ -317,6 +408,9 @@ namespace ERP_BusinessLogic.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("area");
+
+                    b.Property<bool>("HasReachedROP")
+                        .HasColumnType("bit");
 
                     b.Property<decimal?>("MonthlyCosts")
                         .HasColumnType("decimal(18,2)")
@@ -579,29 +673,36 @@ namespace ERP_BusinessLogic.Migrations
 
             modelBuilder.Entity("ERP_Domians.Models.TbManufacturingOrder", b =>
                 {
-                    b.Property<int>("ManufactoringOrderId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("manufactoringOrderId")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("LeadTimePerDays")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("leadTime_per_Days");
+                    b.Property<DateTime>("FinishingDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("ManufacturingCost")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ManufacturingStatusId")
+                        .HasColumnType("int");
 
                     b.Property<int>("ProductManufacturedId")
-                        .HasColumnType("int")
-                        .HasColumnName("productManufacturedId");
+                        .HasColumnType("int");
 
-                    b.Property<int>("QtyToProduce")
-                        .HasColumnType("int")
-                        .HasColumnName("qtyToProduce");
+                    b.Property<int>("QtyToManufacture")
+                        .HasColumnType("int");
 
-                    b.HasKey("ManufactoringOrderId");
+                    b.Property<DateTime>("StartingDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ManufacturingStatusId");
 
                     b.HasIndex("ProductManufacturedId");
 
-                    b.ToTable("TB_ManufacturingOrder");
+                    b.ToTable("TbManufacturingOrders");
                 });
 
             modelBuilder.Entity("ERP_Domians.Models.TbManufacturingOrderDetail", b =>
@@ -623,6 +724,21 @@ namespace ERP_BusinessLogic.Migrations
                     b.HasIndex("RawMaterialId");
 
                     b.ToTable("TB_ManufacturingOrderDetails");
+                });
+
+            modelBuilder.Entity("ERP_Domians.Models.TbManufacturingStatus", b =>
+                {
+                    b.Property<int>("statusId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("statusName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("statusId");
+
+                    b.ToTable("TbManufacturingStatus");
                 });
 
             modelBuilder.Entity("ERP_Domians.Models.TbOrderDetails_Supplier", b =>
@@ -786,6 +902,9 @@ namespace ERP_BusinessLogic.Migrations
                     b.Property<string>("Area")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("area");
+
+                    b.Property<bool>("HasReachedROP")
+                        .HasColumnType("bit");
 
                     b.Property<decimal>("MonthlyCosts")
                         .HasColumnType("decimal(18,2)")
@@ -1040,6 +1159,137 @@ namespace ERP_BusinessLogic.Migrations
                     b.ToTable("TB_VisualReport");
                 });
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens");
+                });
+
             modelBuilder.Entity("ERP_Domians.Models.TbAdminstrator", b =>
                 {
                     b.HasOne("ERP_Domians.Models.TbReporter", "ReporterIdFkNavigation")
@@ -1054,19 +1304,27 @@ namespace ERP_BusinessLogic.Migrations
             modelBuilder.Entity("ERP_Domians.Models.TbDistributionOrder", b =>
                 {
                     b.HasOne("ERP_Domians.Models.TbDistributor", "Distributor")
-                        .WithMany("TbDistributionOrders")
+                        .WithMany()
                         .HasForeignKey("DistributorId")
                         .HasConstraintName("FK_distributionOrder_PK_Distributor")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ERP_Domians.Models.TbDistributionOrderStatus", "OrderStatus")
+                        .WithMany()
+                        .HasForeignKey("OrderStatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Distributor");
+
+                    b.Navigation("OrderStatus");
                 });
 
             modelBuilder.Entity("ERP_Domians.Models.TbDistributionOrderDetail", b =>
                 {
                     b.HasOne("ERP_Domians.Models.TbDistributionOrder", "DistributionOrder")
-                        .WithMany("TbDistributionOrderDetails")
+                        .WithMany("DistributionOrderDetails")
                         .HasForeignKey("DistributionOrderId")
                         .HasConstraintName("FK_DistributionOrderDetails_PK_DistributionOrder")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1211,12 +1469,19 @@ namespace ERP_BusinessLogic.Migrations
 
             modelBuilder.Entity("ERP_Domians.Models.TbManufacturingOrder", b =>
                 {
-                    b.HasOne("ERP_Domians.Models.TbProduct", "ProductManufactured")
-                        .WithMany("TbManufacturingOrders")
-                        .HasForeignKey("ProductManufacturedId")
-                        .HasConstraintName("FK_TB_ManufacturingOrder_TB_Product")
+                    b.HasOne("ERP_Domians.Models.TbManufacturingStatus", "ManufacturingStatus")
+                        .WithMany()
+                        .HasForeignKey("ManufacturingStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("ERP_Domians.Models.TbProduct", "ProductManufactured")
+                        .WithMany()
+                        .HasForeignKey("ProductManufacturedId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ManufacturingStatus");
 
                     b.Navigation("ProductManufactured");
                 });
@@ -1224,7 +1489,7 @@ namespace ERP_BusinessLogic.Migrations
             modelBuilder.Entity("ERP_Domians.Models.TbManufacturingOrderDetail", b =>
                 {
                     b.HasOne("ERP_Domians.Models.TbManufacturingOrder", "ManfactoringOrder")
-                        .WithMany("TbManufacturingOrderDetails")
+                        .WithMany("ManufacturingOrderDetails")
                         .HasForeignKey("ManfactoringOrderId")
                         .HasConstraintName("FK_TB_ManufacturingOrderDetails_TB_ManufacturingOrder")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1413,6 +1678,57 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("RReporter");
                 });
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("ERP_Domians.Models.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("ERP_Domians.Models.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ERP_Domians.Models.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("ERP_Domians.Models.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("ERP_Domians.Models.TbAdminstrator", b =>
                 {
                     b.Navigation("TbVisualReports");
@@ -1434,12 +1750,7 @@ namespace ERP_BusinessLogic.Migrations
 
             modelBuilder.Entity("ERP_Domians.Models.TbDistributionOrder", b =>
                 {
-                    b.Navigation("TbDistributionOrderDetails");
-                });
-
-            modelBuilder.Entity("ERP_Domians.Models.TbDistributor", b =>
-                {
-                    b.Navigation("TbDistributionOrders");
+                    b.Navigation("DistributionOrderDetails");
                 });
 
             modelBuilder.Entity("ERP_Domians.Models.TbEmployeeDetail", b =>
@@ -1488,7 +1799,7 @@ namespace ERP_BusinessLogic.Migrations
 
             modelBuilder.Entity("ERP_Domians.Models.TbManufacturingOrder", b =>
                 {
-                    b.Navigation("TbManufacturingOrderDetails");
+                    b.Navigation("ManufacturingOrderDetails");
                 });
 
             modelBuilder.Entity("ERP_Domians.Models.TbOrder_Supplier", b =>
@@ -1501,8 +1812,6 @@ namespace ERP_BusinessLogic.Migrations
                     b.Navigation("TbDistributionOrderDetails");
 
                     b.Navigation("TbFinishedProductsInventory");
-
-                    b.Navigation("TbManufacturingOrders");
                 });
 
             modelBuilder.Entity("ERP_Domians.Models.TbQuestion", b =>

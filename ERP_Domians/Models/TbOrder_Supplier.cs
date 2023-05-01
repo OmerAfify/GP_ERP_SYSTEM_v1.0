@@ -8,18 +8,13 @@ namespace ERP_Domians.Models
 {
     public class TbOrder_Supplier
     {
-        private object p;
-
+        
         public TbOrder_Supplier()
         {
 
         }
 
-        public TbOrder_Supplier(int supplierId, object p)
-        {
-            SupplierId = supplierId;
-            this.p = p;
-        }
+       
 
         public TbOrder_Supplier(int supplierId, int totalQty,  decimal subTotalPrice, decimal shippingCost, decimal totalPrice,
                                 int orderStatusId, DateTime expectedArrivalDate, 

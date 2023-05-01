@@ -21,8 +21,10 @@ namespace Domains.Interfaces.IUnitOfWork
         IGenericRepository<TbRawMaterialsInventory> RawMaterialInventory { get; }
         IGenericRepository<TbDistributor> Distributor { get; }
         IGenericRepository<TbOrder_Supplier> OrderSupplier { get; }
-      
-        
+        IManufactoringRepository Manufacturing { get; }
+        IDistributionRepository Distribution { get; }
+       
+
         //FMS
         IGenericRepository<TbFmsCategory> FmsCategory { get; }
         IGenericRepository<TbFmsAccount> FmsAccount { get; }

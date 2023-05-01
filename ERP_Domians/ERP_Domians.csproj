@@ -1,7 +1,17 @@
+<<<<<<< HEAD
 <Project Sdk="Microsoft.NET.Sdk">
   
    <PropertyGroup>
+=======
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+>>>>>>> f8ecd11488657aa3d4a01cd36bdc2e432ebb46fe
     <TargetFramework>net5.0</TargetFramework>
    </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.17" />
+  </ItemGroup>
 
 </Project>

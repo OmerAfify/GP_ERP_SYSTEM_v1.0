@@ -14,6 +14,8 @@ namespace ERP_Domians.Models
         public string Area { get; set; }
         public int ReorderingPoint { get; set; }
 
+        public bool HasReachedROP { get; set; } = false;
+
         public virtual TbRawMaterial Material { get; set; }
     }
 }

@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace ERP_Domians.Models.HelpersProperties
 {
- public   class MaterialsOrderedParmeters
+    public class OrderedFinishedProductParameters
     {
-            public int materialId { get; set; }
-            public int Qty { get; set; }
-
-
+        public int ProductId { get; set; }
+        public int Qty { get; set; }
     }
 }
