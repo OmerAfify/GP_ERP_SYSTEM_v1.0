@@ -43,14 +43,13 @@ namespace BusinessLogic.UnitOfWork
         //HRMS
         public IGenericRepository<TbEmployeeDetail> Employee { get; private set; }
         public IGenericRepository<TbHrmanagerDetail> HRManager { get; private set; }
-<<<<<<< Updated upstream
-=======
+
         public IGenericRepository<TbEmployeeTrainning> EmployeeTrainning { get; private set; }
         public IGenericRepository<TbEmployeeTaskDetail> EmployeeTaskDetail { get; private set; }
 
         //CRM
         public IGenericRepository<TbCustomer> Customer { get; private set; }
->>>>>>> Stashed changes
+
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
@@ -82,15 +81,14 @@ namespace BusinessLogic.UnitOfWork
             //HRMS
             Employee = new GenericRepository<TbEmployeeDetail>(_context);
             HRManager = new GenericRepository<TbHrmanagerDetail>(_context);
-<<<<<<< Updated upstream
-=======
+
             EmployeeTrainning = new GenericRepository<TbEmployeeTrainning>(_context);
             EmployeeTaskDetail = new GenericRepository<TbEmployeeTaskDetail>(_context);
 
 
             //CRM
             Customer = new GenericRepository<TbCustomer>(_context);
->>>>>>> Stashed changes
+
         }
 
         public void Dispose()

@@ -54,11 +54,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         }
 
         [HttpPost]
-<<<<<<< Updated upstream:GP_ERP_SYSTEM_v1.0/Controllers/EmployeeController.cs
-        public async Task<IActionResult> AddNewEmployee([FromBody] AddEmployeeDTO Employee)
-=======
         public async Task<IActionResult> AddNewCustomer([FromBody] AddCustomerDTO Customer)
->>>>>>> Stashed changes:GP_ERP_SYSTEM_v1.0/Controllers/CustomerController.cs
         {
             if (!ModelState.IsValid)
             {
@@ -77,11 +73,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         }
 
         [HttpPut("{id}")]
-<<<<<<< Updated upstream:GP_ERP_SYSTEM_v1.0/Controllers/EmployeeController.cs
-        public async Task<IActionResult> UpdateEmployee(int id, [FromBody] AddEmployeeDTO Employee)
-=======
         public async Task<IActionResult> UpdateCustomer(int id, [FromBody] AddCustomerDTO Customer)
->>>>>>> Stashed changes:GP_ERP_SYSTEM_v1.0/Controllers/CustomerController.cs
         {
             if (!ModelState.IsValid || id < 1)
             {

@@ -36,8 +36,7 @@ namespace Domains.Interfaces.IUnitOfWork
         //HRMS
         IGenericRepository<TbEmployeeDetail> Employee { get; }
         IGenericRepository<TbHrmanagerDetail> HRManager { get; }
-<<<<<<< Updated upstream
-=======
+
         IGenericRepository<TbEmployeeTrainning> EmployeeTrainning { get; }
         IGenericRepository<TbEmployeeTaskDetail> EmployeeTaskDetail { get; }
 
@@ -45,7 +44,6 @@ namespace Domains.Interfaces.IUnitOfWork
         //CRM
         IGenericRepository<TbCustomer> Customer { get; }
 
->>>>>>> Stashed changes
         public Task<int> Save();
     }
 }

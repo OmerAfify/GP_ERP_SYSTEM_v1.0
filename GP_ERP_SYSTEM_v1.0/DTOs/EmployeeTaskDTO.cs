@@ -1,9 +1,4 @@
-<<<<<<< Updated upstream
-﻿namespace GP_ERP_SYSTEM_v1._0.DTOs
-{
-    public class EmployeeTaskDTO
-    {
-=======
+
 ﻿using System;
 
 namespace GP_ERP_SYSTEM_v1._0.DTOs
@@ -15,10 +10,11 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
         public DateTime? TaskDeadlineTime { get; set; }
         public int? BounsHours { get; set; }
     }
+
     public class EmployeeTaskDTO : AddEmployeeTrainningDTO
     {
         public int TaskId { get; set; }
         public int? EmplyeeId { get; set; }
->>>>>>> Stashed changes
+
     }
 }
