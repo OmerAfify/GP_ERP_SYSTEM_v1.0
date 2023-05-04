@@ -81,6 +81,7 @@ namespace CoffeeCorner.Controllers
 
         //}
 
+     
         [HttpPost]
         public async Task<ActionResult<UserDTO>> Login([FromBody] LoginDTO loginUserDTO)
         {
@@ -92,9 +93,9 @@ namespace CoffeeCorner.Controllers
             try
             {
                 var user = await _userManager.FindByEmailAsync(loginUserDTO.Email);
-
+            
                 if (user == null)
-                    return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Email doesn't exists." } });
+                    return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Email doesn't exist." } });
 
                 var result = await _signInManager.PasswordSignInAsync(loginUserDTO.Email, loginUserDTO.Password, false, false);
 
@@ -119,54 +120,47 @@ namespace CoffeeCorner.Controllers
 
 
 
+        //[HttpGet]
+        //[Authorize]
+        //public async Task<ActionResult<UserDTO>> GetCurrentUser() {
 
 
+        //  try {   
+        //    var email =  User.FindFirstValue(ClaimTypes.Email);
+        //    var user = await _userManager.FindByEmailAsync(email);
 
+        //    if (user == null)
+        //        return BadRequest();
 
-
-        [HttpGet]
-        [Authorize]
-        public async Task<ActionResult<UserDTO>> GetCurrentUser() {
-
-
-          try {   
-            var email =  User.FindFirstValue(ClaimTypes.Email);
-            var user = await _userManager.FindByEmailAsync(email);
-
-            if (user == null)
-                return BadRequest();
-
-            return Ok(new UserDTO()
-            {
-                Email = user.Email,
-                Name = user.FirstName,
-                Token = _tokenService.CreateToken(user)
-            });     
-          } catch (Exception ex)
-            {
-                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
-            }
+        //    return Ok(new UserDTO()
+        //    {
+        //        Email = user.Email,
+        //        Name = user.FirstName,
+        //        Token = _tokenService.CreateToken(user)
+        //    });     
+        //  } catch (Exception ex)
+        //    {
+        //        return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
+        //    }
          
-        }
+        //}
 
     
-        [HttpGet]
-        public async Task<ActionResult<bool>> CheckIfEmailExistsAsync ([FromQuery] string email)
-        {
-            try {
+        //[HttpGet]
+        //public async Task<ActionResult<bool>> CheckIfEmailExistsAsync ([FromQuery] string email)
+        //{
+        //    try {
 
-                return await _userManager.FindByEmailAsync(email) != null;
+        //        return await _userManager.FindByEmailAsync(email) != null;
 
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
-            }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
+        //    }
 
              
-        }
-
-
+        //}
 
     }
 }

@@ -8,6 +8,7 @@ using ERP_Domians.IServices;
 using ERP_Domians.Models.HelpersProperties;
 using GP_ERP_SYSTEM_v1._0.DTOs;
 using GP_ERP_SYSTEM_v1._0.Errors;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,6 +16,7 @@ namespace GP_ERP_SYSTEM_v1._0
 {
     [Route("api/[action]")]
     [ApiController]
+    [Authorize(Roles = "Admin,SCM")]
     public class OrderSupplierController : ControllerBase
     {
         private readonly ISupplierOrderService _orderService;

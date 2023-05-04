@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 using ERP_Domians.IServices;
 using ERP_Domians.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
@@ -14,19 +16,23 @@ namespace ERP_BusinessLogic.Services
     {
 
         private readonly IConfiguration _configuration;
+        private readonly UserManager<ApplicationUser> _userManager;
 
 
-        public TokenService(IConfiguration configuration)
+        public TokenService(IConfiguration configuration, UserManager<ApplicationUser> userManager)
         {
             _configuration = configuration;
+            _userManager = userManager;
         }
 
+       
 
         public string CreateToken(ApplicationUser applicationUser)
         {
+        
             var signingCredentials = GetSigningCredentials();
-            var claims =  GetClaims(applicationUser);
-            var tokenOptions = GenerateTokenOptions(signingCredentials, claims);
+            var claims =  GetClaimsAsync(applicationUser);
+            var tokenOptions = GenerateTokenOptions(signingCredentials, claims.Result);
 
             return new JwtSecurityTokenHandler().WriteToken(tokenOptions);
         }
@@ -44,14 +50,22 @@ namespace ERP_BusinessLogic.Services
 
 
         //gets the user claims that will be shown in the JWT decoded token to identify him 
-        private static List<Claim> GetClaims(ApplicationUser user)
+        private async Task<List<Claim>> GetClaimsAsync(ApplicationUser user)
         {
+            
             var claims = new List<Claim>()
             {
                 new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.Name, user.FirstName),
-            //    new Claim(ClaimTypes.Role, "admin")
+                new Claim(ClaimTypes.Name, user.FirstName)
             };
+
+
+           var roles =  await _userManager.GetRolesAsync(user);
+
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
 
             return claims;
         }

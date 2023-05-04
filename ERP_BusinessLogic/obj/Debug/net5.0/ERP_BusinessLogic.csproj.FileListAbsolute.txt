@@ -1,21 +1,3 @@
-D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_BusinessLogic.deps.json
-D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_BusinessLogic.runtimeconfig.json
-D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_BusinessLogic.runtimeconfig.dev.json
-D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_BusinessLogic.dll
-D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ref\ERP_BusinessLogic.dll
-D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_BusinessLogic.pdb
-D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_Domians.dll
-D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_Domians.pdb
-D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.csproj.AssemblyReference.cache
-D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
-D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.AssemblyInfoInputs.cache
-D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.AssemblyInfo.cs
-D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.csproj.CoreCompileInputs.cache
-D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.csproj.CopyComplete
-D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.dll
-D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ref\ERP_BusinessLogic.dll
-D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.pdb
-D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.genruntimeconfig.cache
 C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_BusinessLogic.deps.json
 C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_BusinessLogic.runtimeconfig.json
 C:\Users\hussein\Source\Repos\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_BusinessLogic.runtimeconfig.dev.json
@@ -70,3 +52,21 @@ E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.
 E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.pdb
 E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.genruntimeconfig.cache
 E:\GraduationProjectBackEnd\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ref\ERP_BusinessLogic.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_BusinessLogic.deps.json
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_BusinessLogic.runtimeconfig.json
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_BusinessLogic.runtimeconfig.dev.json
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_BusinessLogic.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ref\ERP_BusinessLogic.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_BusinessLogic.pdb
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_Domians.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_Domians.pdb
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.csproj.AssemblyReference.cache
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.AssemblyInfoInputs.cache
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.AssemblyInfo.cs
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.csproj.CoreCompileInputs.cache
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.csproj.CopyComplete
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ref\ERP_BusinessLogic.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.pdb
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.genruntimeconfig.cache
