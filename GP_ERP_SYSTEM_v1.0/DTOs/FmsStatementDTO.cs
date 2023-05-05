@@ -29,7 +29,7 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
 
     public class AddFmsTemplateDTO : FmsTemplateDTO
     {
-        public List<int> Accounts { get; set; }
+        public List<FmsAccountIdDto> Accounts { get; set; }
     }
 
     public class FmsTemplateDTO

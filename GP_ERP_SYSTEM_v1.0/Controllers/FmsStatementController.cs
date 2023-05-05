@@ -148,10 +148,13 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             try
             {
                 var FmsStatementToDelete = await _unitOfWork.FmsStatement.GetByIdAsync(id);
+                var FmsStatementAccsToDelete = (await _unitOfWork.FmsStatementAccount.FindRangeAsync(p => p.StaId == id))
+                    .ToList();
 
                 if (FmsStatementToDelete == null)
                     return BadRequest("Invalid Id is submitted.");
 
+                _unitOfWork.FmsStatementAccount.DeleteRange(FmsStatementAccsToDelete);
                 _unitOfWork.FmsStatement.Delete(FmsStatementToDelete);
                 await _unitOfWork.Save();
 

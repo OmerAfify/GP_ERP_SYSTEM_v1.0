@@ -99,10 +99,12 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             try
             {
                 var FmsCategoryToDelete = await _unitOfWork.FmsCategory.GetByIdAsync(id);
+                var associatedAccCats = (await _unitOfWork.FmsAccCat.FindRangeAsync(p => p.CatId == id)).ToList();
 
                 if (FmsCategoryToDelete == null)
                     return BadRequest("Invalid Id is submitted.");
 
+                _unitOfWork.FmsAccCat.DeleteRange(associatedAccCats);
                 _unitOfWork.FmsCategory.Delete(FmsCategoryToDelete);
                 await _unitOfWork.Save();
 

@@ -90,12 +90,13 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                 await _unitOfWork.Save();
                 TbFmsStatementTemplate savedTemplate = await 
                     _unitOfWork.FmsStatementTemplate.FindAsync(o => o.TempDate == Template.TempDate);
-                foreach (var acc in Template.Accounts)
+                List<TbFmsTemplateAccount> tempAccounts = new List<TbFmsTemplateAccount>();
+                foreach (var account in Template.Accounts)
                 {
 
-                    var TemplateAccount = new FmsTemplateAccountDTO { TempId = savedTemplate.TempId, AccId = acc };
-                    _unitOfWork.FmsTemplateAccount.InsertAsync(_mapper.Map<TbFmsTemplateAccount>(TemplateAccount));
-                }
+                    tempAccounts.Add(new TbFmsTemplateAccount { AccId = account.AccId, TempId = savedTemplate.TempId });
+                } 
+                _unitOfWork.FmsTemplateAccount.InsertRangeAsync(tempAccounts);
                   
                 await _unitOfWork.Save();
                 return Ok();
@@ -139,10 +140,13 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             try
             {
                 var FmsStatementTemplateToDelete = await _unitOfWork.FmsStatementTemplate.GetByIdAsync(id);
+                var FmsTempAccsToDelete = (await _unitOfWork.FmsTemplateAccount.FindRangeAsync(p => p.TempId == id))
+                    .ToList();
 
                 if (FmsStatementTemplateToDelete == null)
                     return BadRequest("Invalid Id is submitted.");
 
+                _unitOfWork.FmsTemplateAccount.DeleteRange(FmsTempAccsToDelete);
                 _unitOfWork.FmsStatementTemplate.Delete(FmsStatementTemplateToDelete);
                 await _unitOfWork.Save();
 

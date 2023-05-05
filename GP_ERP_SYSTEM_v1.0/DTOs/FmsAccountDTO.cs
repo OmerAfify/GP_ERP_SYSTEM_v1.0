@@ -17,6 +17,11 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
        public decimal? AccDebit { get; set; }
        public decimal? AccCredit { get; set; }
     }
+
+    public class FmsAccountIdDto
+    {
+        public int AccId { get; set; }
+    }
     public class ViewFmsAccountDTO : FmsAccountDTO
     {
         public List<string> AccCategories { get; set; }
