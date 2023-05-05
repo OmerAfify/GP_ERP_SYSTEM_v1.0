@@ -28,7 +28,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             try
             {
                 var Templates = await _unitOfWork.FmsStatementTemplate.GetAllAsync();
-                List<ViewFmsTemplateDTO> TemplatesDTO = new List<ViewFmsTemplateDTO>();
+                List<ViewFmsTemplateListDTO> TemplatesDTO = new List<ViewFmsTemplateListDTO>();
                 foreach (var Template in Templates)
                 {
                     IEnumerable<TbFmsTemplateAccount> TemplateAccounts = await _unitOfWork.FmsTemplateAccount.FindRangeAsync(o => o.TempId == Template.TempId);
@@ -37,7 +37,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                     {
                         TemplateAccountIds.Add(TemplateAccount.AccId);
                     }
-                    ViewFmsTemplateDTO viewFmsTemplateDTO = new ViewFmsTemplateDTO()
+                    ViewFmsTemplateListDTO viewFmsTemplateDTO = new ViewFmsTemplateListDTO()
                     {
                         Accounts = TemplateAccountIds,
                         TempId = Template.TempId,
@@ -60,16 +60,24 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             try
             {
                 var Template = await _unitOfWork.FmsStatementTemplate.GetByIdAsync(id);
+                var tempAccounts = (await _unitOfWork.FmsTemplateAccount.FindRangeAsync(o => o.TempId == id)).
+                    Select(p => p.AccId).ToList();
+                List<FmsAccountDTO> accounts = new List<FmsAccountDTO>();
+                foreach(var accountId in tempAccounts)
+                {
+                    var account = _mapper.Map<FmsAccountDTO>(await _unitOfWork.FmsAccount.GetByIdAsync(accountId));
+                    accounts.Add(account);
+                }
+
                 ViewFmsTemplateDTO tempWithAccounts = new ViewFmsTemplateDTO()
                 {
-                    TempId = id, TempName = Template.TempName, TempDate = Template.TempDate, Accounts = new List<int> { }
+                    TempId = id,
+                    TempName = Template.TempName,
+                    TempDate = Template.TempDate,
+                    Accounts = accounts
                 };
-                 var accounts = await _unitOfWork.FmsTemplateAccount.FindRangeAsync(o => o.TempId == id);
-                foreach (var account in accounts)
-                {
-                    tempWithAccounts.Accounts.Add(account.AccId);
-                }
                 return Ok(tempWithAccounts);
+
             }
             catch (Exception ex)
             {

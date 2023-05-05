@@ -38,6 +38,11 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
         public int CatId { get; set; }
     }
 
+    public class ViewFmsCategoryDTO
+    {
+        public FmsCategoryDTO Category { get; set; }
+    }
+
     public class FmsAccCatDTO
     {
         public int AccId { get; set; }

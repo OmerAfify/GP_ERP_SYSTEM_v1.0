@@ -41,7 +41,9 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             try
             {
                 var Category = await _unitOfWork.FmsCategory.GetByIdAsync(id);
-                return Ok(_mapper.Map<FmsCategoryDTO>(Category));
+                FmsCategoryDTO category = _mapper.Map<FmsCategoryDTO>(Category);
+                ViewFmsCategoryDTO result = new ViewFmsCategoryDTO() {  Category = category };
+                return Ok(result);
             }
             catch (Exception ex)
             {

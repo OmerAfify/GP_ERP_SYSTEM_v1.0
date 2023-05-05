@@ -38,12 +38,21 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
         public DateTime? TempDate { get; set; }
     }
 
+  
     public class ViewFmsTemplateDTO : FmsTemplateDTO
+    {
+
+        public int TempId { get; set; }
+        public List<FmsAccountDTO> Accounts { get; set; }
+    }
+
+    public class ViewFmsTemplateListDTO : FmsTemplateDTO
     {
 
         public int TempId { get; set; }
         public List<int> Accounts { get; set; }
     }
+
     public class FmsTemplateAccountDTO
     {
         public int AccId { get; set; }
