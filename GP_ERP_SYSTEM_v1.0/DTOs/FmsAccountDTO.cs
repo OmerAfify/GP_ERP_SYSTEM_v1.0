@@ -38,9 +38,9 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
         public int CatId { get; set; }
     }
 
-    public class ViewFmsCategoryDTO
+    public class ViewFmsCategoryDTO : FmsCategoryDTO
     {
-        public FmsCategoryDTO Category { get; set; }
+        public List<string> catAccounts { get; set; }
     }
 
     public class FmsAccCatDTO

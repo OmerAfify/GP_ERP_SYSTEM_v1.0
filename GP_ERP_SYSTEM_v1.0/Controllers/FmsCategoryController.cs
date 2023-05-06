@@ -41,9 +41,19 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             try
             {
                 var Category = await _unitOfWork.FmsCategory.GetByIdAsync(id);
-                FmsCategoryDTO category = _mapper.Map<FmsCategoryDTO>(Category);
-                ViewFmsCategoryDTO result = new ViewFmsCategoryDTO() {  Category = category };
-                return Ok(result);
+                var catAccObjs = await _unitOfWork.FmsAccCat.FindRangeAsync(o => o.CatId == id);
+                var accounts = await _unitOfWork.FmsAccount.GetAllAsync();
+                List<string> catAccsStr = (from p in catAccObjs join e in accounts 
+                                           on p.AccId equals e.AccId select e.AccName).ToList();
+                ViewFmsCategoryDTO viewFmsCategoryDTO = new ViewFmsCategoryDTO
+                {
+                    catAccounts = catAccsStr,
+                    CatDescription = Category.CatDescription,
+                    CatId = Category.CatId,
+                    CatName = Category.CatName
+
+                };
+                return Ok(viewFmsCategoryDTO);
             }
             catch (Exception ex)
             {
