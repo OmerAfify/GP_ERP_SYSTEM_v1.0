@@ -4,7 +4,9 @@
     [AccBalance]   DECIMAL (18, 2) NULL,
     [AccDebit]     DECIMAL (18, 2) NULL,
     [AccCredit]    DECIMAL (18, 2) NULL,
-    [IncreaseMode] INT             NULL,
+    [IncreaseMode] INT             DEFAULT ((0)) NOT NULL,
     PRIMARY KEY CLUSTERED ([AccID] ASC)
 );
+
+
 

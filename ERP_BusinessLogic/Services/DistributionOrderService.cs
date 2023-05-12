@@ -20,7 +20,7 @@ namespace ERP_BusinessLogic.Services
 
         }
 
-        public async Task<TbDistributionOrder> CreateDistributionOrder(int DistributorId, decimal ShippingCost,
+        public async Task<TbDistributionOrder> CreateDistributionOrder(int DistributorId, 
              List<OrderedFinishedProductParameters> orderedProducts)
         {
 
@@ -36,8 +36,8 @@ namespace ERP_BusinessLogic.Services
             var totalQty = orderDetailsList.Sum(q => q.Qty);
             var subtotal = orderDetailsList.Sum(q => q.Price);
 
-            var order = new TbDistributionOrder(DistributorId, totalQty, subtotal + ShippingCost,
-                                                ShippingCost, subtotal, DateTime.UtcNow.AddDays(3), 1, orderDetailsList);
+            var order = new TbDistributionOrder(DistributorId, totalQty, subtotal,
+                                                subtotal, DateTime.UtcNow.AddDays(3), 1, orderDetailsList);
 
 
             _unitOfWork.Distribution.InsertAsync(order);

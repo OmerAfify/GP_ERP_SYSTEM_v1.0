@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Domains.Interfaces.IUnitOfWork;
@@ -11,6 +13,7 @@ using GP_ERP_SYSTEM_v1._0.Errors;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace GP_ERP_SYSTEM_v1._0
 {
@@ -22,12 +25,15 @@ namespace GP_ERP_SYSTEM_v1._0
         private readonly ISupplierOrderService _orderService;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly HttpClient _httpClient;
 
-        public OrderSupplierController(ISupplierOrderService orderService, IUnitOfWork unitOfWork, IMapper mapper)
+        public OrderSupplierController(ISupplierOrderService orderService, IUnitOfWork unitOfWork,
+            IMapper mapper, HttpClient httpClient)
         {
              _unitOfWork = unitOfWork;
              _mapper = mapper;
              _orderService = orderService;
+            _httpClient = httpClient;
         }
 
         [HttpPost]
@@ -57,7 +63,43 @@ namespace GP_ERP_SYSTEM_v1._0
                 if (result == null)
                     return StatusCode(500, new ErrorApiResponse(500) { Message = "Error Occured While Creating your Order" });
 
-             
+
+                /*Create JE*/
+
+                var supplierJE = new AddFmsJeDTO()
+                {
+                    Jename = "Supplier Order from Supplier ID = " + result.SupplierId,
+                    Jedescription = "An Order from Supplier whose ID is " + result.SupplierId +
+                      " with total cash of  $" + result.TotalPrice + " and total quantity of " + result.TotalQty,
+                    Jeaccount1 = 5,
+                    Jeaccount2 = 3,
+                    Jecredit = result.TotalPrice,
+                    Jedebit = result.TotalPrice,
+                    Jedate = result.OrderingDate,
+                };
+
+                var shippingCostJE = new AddFmsJeDTO()
+                {
+                    Jename = "ShippingCost of Supplier Order from Supplier ID = " + result.SupplierId,
+                    Jedescription = "Cost of Shiping Order from Supplier To the Inventory.",
+                    Jeaccount1 = 2,
+                    Jeaccount2 = 3,
+                    Jecredit = result.ShippingCost,
+                    Jedebit = result.ShippingCost,
+                    Jedate = result.OrderingDate,
+                };
+
+                var createJE = await _httpClient.PostAsync("https://localhost:44393/api/AddNewFmsJournalEntry",
+                   new StringContent(JsonConvert.SerializeObject(supplierJE), Encoding.UTF8, "application/json"));
+
+                var createJE2 = await _httpClient.PostAsync("https://localhost:44393/api/AddNewFmsJournalEntry",
+               new StringContent(JsonConvert.SerializeObject(shippingCostJE), Encoding.UTF8, "application/json"));
+
+                // Check if the response was successfull
+                if (!createJE.IsSuccessStatusCode && !createJE2.IsSuccessStatusCode)
+                    return BadRequest();
+
+
                 return Ok(result);
             
             }catch(Exception ex)

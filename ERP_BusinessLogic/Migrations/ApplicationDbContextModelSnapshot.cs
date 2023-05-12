@@ -200,9 +200,6 @@ namespace ERP_BusinessLogic.Migrations
                         .HasColumnType("datetime")
                         .HasColumnName("orderingDate");
 
-                    b.Property<decimal>("ShippingCost")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<decimal>("SubTotal")
                         .HasColumnType("decimal(18,2)");
 
@@ -471,7 +468,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.Property<string>("AccName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("IncreaseMode")
+                    b.Property<int>("IncreaseMode")
                         .HasColumnType("int");
 
                     b.HasKey("AccId")
