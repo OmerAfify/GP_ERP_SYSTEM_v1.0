@@ -300,3 +300,13 @@ D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYS
 D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\ref\GP_ERP_SYSTEM_v1.0.dll
 D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.pdb
 D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.genruntimeconfig.cache
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.csproj.AssemblyReference.cache
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.GeneratedMSBuildEditorConfig.editorconfig
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.AssemblyInfoInputs.cache
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.AssemblyInfo.cs
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.csproj.CoreCompileInputs.cache
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.MvcApplicationPartsAssemblyInfo.cs
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.MvcApplicationPartsAssemblyInfo.cache
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.dll
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\ref\GP_ERP_SYSTEM_v1.0.dll
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0\obj\Debug\net5.0\GP_ERP_SYSTEM_v1.0.pdb
