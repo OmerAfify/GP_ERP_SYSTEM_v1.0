@@ -10,8 +10,7 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
     public class DistributionOrderDTO
     {
         public int DistributorId { get; set; }
-        public decimal ShippingCost { get; set; }
-     
+      
     }
 
     public class CreateDistributionOrderDTO : DistributionOrderDTO

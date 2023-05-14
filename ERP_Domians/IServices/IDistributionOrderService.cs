@@ -10,7 +10,7 @@ namespace ERP_Domians.IServices
 {
     public interface IDistributionOrderService
     {
-     public Task<TbDistributionOrder> CreateDistributionOrder(int DistributorId, decimal ShippingCost,
+     public Task<TbDistributionOrder> CreateDistributionOrder(int DistributorId,
                                                                 List<OrderedFinishedProductParameters> orderedProducts );
 
     }

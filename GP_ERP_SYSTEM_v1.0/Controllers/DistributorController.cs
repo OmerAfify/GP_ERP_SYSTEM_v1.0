@@ -11,23 +11,28 @@ using GP_ERP_SYSTEM_v1._0.DTOs;
 using GP_ERP_SYSTEM_v1._0.Errors;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+using System.Net.Http;
+using System.Text;
+using Newtonsoft.Json;
 
 namespace GP_ERP_SYSTEM_v1._0.Controllers
 {
     [Route("api/[action]")]
     [ApiController]
-
     [Authorize(Roles = "Admin,SCM")]
+
     public class DistributorController : ControllerBase
     {
 
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IDistributionOrderService _distributionOrderService;
+        private readonly HttpClient _httpClient;
     
-        public DistributorController(IUnitOfWork unitOfWork, IMapper mapper, IDistributionOrderService distributionOrderService)
+        public DistributorController(IUnitOfWork unitOfWork, IMapper mapper,
+            HttpClient httpClient, IDistributionOrderService distributionOrderService)
         {
+            _httpClient = httpClient;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _distributionOrderService = distributionOrderService;
@@ -184,10 +189,33 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
 
                 var order = await _distributionOrderService.CreateDistributionOrder(createDistibutionOrder.DistributorId,
-                    createDistibutionOrder.ShippingCost, createDistibutionOrder.ProductsOrdered);
+                 createDistibutionOrder.ProductsOrdered);
+
 
                 if (order == null)
                     return StatusCode(500, "An uexpected error occured while creating your order. please try again later");
+                
+                /*Create JE*/
+
+                var JE = new AddFmsJeDTO()
+                {
+                    Jename = "Distribution Order from Distributor ID = " + order.DistributorId,
+                    Jedescription = "Distribution Order from Distributor " + order.DistributorId + 
+                      " with total cash of  $" + order.TotalPrice + " and total quantity of " + order.TotalQty,
+                    Jeaccount1 = 3,
+                    Jeaccount2 = 4,
+                    Jecredit = order.TotalPrice,
+                    Jedebit = order.TotalPrice,
+                    Jedate = order.OrderingDate,
+               
+                };
+
+                var createJE = await _httpClient.PostAsync("https://localhost:44393/api/AddNewFmsJournalEntry",
+                   new StringContent(JsonConvert.SerializeObject(JE), Encoding.UTF8, "application/json"));
+
+                // Check if the response was successfull
+                if (!createJE.IsSuccessStatusCode)
+                    return BadRequest();
 
 
                 return Ok(_mapper.Map<ReturnedDistributionOrderDTO>(order) );

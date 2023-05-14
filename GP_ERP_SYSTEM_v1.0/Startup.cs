@@ -84,7 +84,7 @@ namespace GP_ERP_SYSTEM_v1._0
             services.AddAuthorization();
 
 
-
+            services.AddHttpClient();
 
 
 

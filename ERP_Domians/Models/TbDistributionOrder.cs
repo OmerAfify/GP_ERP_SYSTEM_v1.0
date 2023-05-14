@@ -12,12 +12,11 @@ namespace ERP_Domians.Models
 
         }
 
-        public TbDistributionOrder(int distributorId, int totalQty, decimal totalPrice, decimal shippingCost, decimal subtotal,
+        public TbDistributionOrder(int distributorId, int totalQty, decimal totalPrice, decimal subtotal,
             DateTime expectedArrivalDate, int orderStatusId, IReadOnlyList<TbDistributionOrderDetail> distributionOrderDetails)
         {
             DistributorId = distributorId;
             TotalQty = totalQty;
-            ShippingCost = shippingCost;
             SubTotal = subtotal;
             TotalPrice = totalPrice;
             ExpectedArrivalDate = expectedArrivalDate;
@@ -33,8 +32,7 @@ namespace ERP_Domians.Models
 
         public int TotalQty { get; set; }
 
-        public decimal ShippingCost { get; set; }
-        public decimal SubTotal { get; set; }
+          public decimal SubTotal { get; set; }
         public decimal TotalPrice { get; set; }
         
         public DateTime OrderingDate  { get; set; } = DateTime.UtcNow;
