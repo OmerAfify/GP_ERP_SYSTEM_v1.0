@@ -70,3 +70,21 @@ D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYS
 D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ref\ERP_BusinessLogic.dll
 D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.pdb
 D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.genruntimeconfig.cache
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_BusinessLogic.deps.json
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_BusinessLogic.runtimeconfig.json
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_BusinessLogic.runtimeconfig.dev.json
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_BusinessLogic.dll
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ref\ERP_BusinessLogic.dll
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_BusinessLogic.pdb
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_Domians.dll
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\bin\Debug\net5.0\ERP_Domians.pdb
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.csproj.AssemblyReference.cache
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.AssemblyInfoInputs.cache
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.AssemblyInfo.cs
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.csproj.CoreCompileInputs.cache
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.csproj.CopyComplete
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.dll
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ref\ERP_BusinessLogic.dll
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.pdb
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_BusinessLogic\obj\Debug\net5.0\ERP_BusinessLogic.genruntimeconfig.cache
