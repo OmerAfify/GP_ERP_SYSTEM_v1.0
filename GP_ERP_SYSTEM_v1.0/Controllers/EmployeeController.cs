@@ -40,7 +40,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         {
             try
             {
-                var Employees = await _unitOfWork.Employee.GetAllAsync(new List<string>() {"HRManger"});
+                var Employees = await _unitOfWork.Employee.GetAllAsync(new List<string>() { "Hrmanager" });
 
                 return Ok(_mapper.Map<List<EmployeeDetailsDTO>>(Employees));
             }
@@ -58,7 +58,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 
             try
             {
-                var EmployeeId = await _unitOfWork.Employee.FindAsync(P => P.EmployeeId == id , new List<string>() { "HRManger" });
+                var EmployeeId = await _unitOfWork.Employee.FindAsync(P => P.EmployeeId == id , new List<string>() { "Hrmanager" });
                 if (EmployeeId == null)
                     return BadRequest(new ErrorApiResponse(404, "Employee Not Found."));
 
