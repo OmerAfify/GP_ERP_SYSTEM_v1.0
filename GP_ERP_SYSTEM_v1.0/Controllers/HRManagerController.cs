@@ -15,7 +15,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 {
     [Route("api/[action]")]
     [ApiController]
-    
+    [Authorize(Roles = "Admin,HRMS")]
     public class HRManagerController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -27,7 +27,6 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             _mapper = mapper;
         }
         [HttpGet]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllHRMangers()
         {
             try
@@ -41,7 +40,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
         }
         [HttpGet("{id}")]
-        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> GetHRManagerByID(int id)
         {
             try
@@ -57,7 +56,6 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
         }
         [HttpPost]
-        [Authorize(Roles = "Admin,HRMS")]
         public async Task<IActionResult> AddNewHRManager([FromBody] AddHRManagerDTO hRManager)
         {
             if (!ModelState.IsValid)
@@ -77,7 +75,6 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin,HRMS")]
         public async Task<IActionResult> UpdateHRManager(int id, [FromBody] AddHRManagerDTO hRManager)
         {
             if (!ModelState.IsValid)
@@ -106,7 +103,6 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
         }
         [HttpDelete]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleletHRManagerById(int id)
         {
             if (!ModelState.IsValid)

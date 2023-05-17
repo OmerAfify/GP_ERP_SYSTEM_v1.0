@@ -20,7 +20,7 @@ namespace ERP_Domians.Models
         public int? HoursWorked { get; set; }
         public string PhotoFileName { get; set; }
         public DateTime? DateOfJoining { get; set; }
-        public int? HrmanagerId { get; set; }
+        public int HrmanagerId { get; set; }
         public DateTime? AttendenceTime { get; set; }
         public DateTime? Holidays { get; set; }
         public decimal? EmployeeSalary { get; set; }

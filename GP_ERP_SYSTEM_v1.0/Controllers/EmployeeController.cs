@@ -15,7 +15,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 {
     [Route("api/[action]")]
     [ApiController]
-    [Authorize(Roles = "Admin,HRMS")]
+   // [Authorize(Roles = "Admin,HRMS")]
     public class EmployeeController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -26,11 +26,11 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        private bool ValidateHRManagerId(int hrid)
+        private bool ValidateHRManagerId(int HRID)
         {
             var HRManagerIdsList = _unitOfWork.HRManager.GetAllAsync().Result.Select(Hr => Hr.Hrid);
 
-            return HRManagerIdsList.Contains(hrid);
+            return HRManagerIdsList.Contains(HRID);
 
         }
 
@@ -78,8 +78,8 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (!this.ValidateHRManagerId(Employee.HRId))
-                return BadRequest(new ErrorApiResponse(400, "Invalid HRManager Id is Sent."));
+            if (!this.ValidateHRManagerId(Employee.HrmanagerId))
+                return BadRequest(new ErrorApiResponse(400, "Invalid HR Manager Id is Sent."));
 
             try
             {
@@ -101,7 +101,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                 return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
 
 
-            if (!this.ValidateHRManagerId(Employee.HRId))
+            if (!this.ValidateHRManagerId(Employee.HrmanagerId))
                 return BadRequest(new ErrorApiResponse(400, "Invalid HRManagerId is sent."));
             try
             {
