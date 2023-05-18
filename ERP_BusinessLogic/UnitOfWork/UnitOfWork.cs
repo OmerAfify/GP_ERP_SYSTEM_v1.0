@@ -47,6 +47,7 @@ namespace BusinessLogic.UnitOfWork
         public IGenericRepository<TbEmployeeDetail> Employee { get; private set; }
         public IGenericRepository<TbHrmanagerDetail> HRManager { get; private set; }
         public ITrainningEmployeeRepository TrainningEmployee { get; private set; }
+        public IGenericRepository<TbEmployeeTaskDetail> EmployeeTask { get; private set; }
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
@@ -82,6 +83,7 @@ namespace BusinessLogic.UnitOfWork
             Employee = new GenericRepository<TbEmployeeDetail>(_context);
             HRManager = new GenericRepository<TbHrmanagerDetail>(_context);
             TrainningEmployee = new EmployeeTrainninRepository(_context);
+            EmployeeTask = new GenericRepository<TbEmployeeTaskDetail>(_context);
         }
 
         public void Dispose()

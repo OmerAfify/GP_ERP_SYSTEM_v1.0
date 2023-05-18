@@ -39,6 +39,7 @@ namespace Domains.Interfaces.IUnitOfWork
         IGenericRepository<TbEmployeeDetail> Employee { get; }
         IGenericRepository<TbHrmanagerDetail> HRManager { get; }
         ITrainningEmployeeRepository TrainningEmployee { get; }
+        IGenericRepository<TbEmployeeTaskDetail> EmployeeTask { get; }
         public Task<int> Save();
     }
 }
