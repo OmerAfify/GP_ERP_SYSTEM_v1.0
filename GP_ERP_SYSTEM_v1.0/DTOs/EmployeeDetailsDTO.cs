@@ -6,10 +6,10 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
 
     public class AddEmployeeDTO
     {
-        [Required(ErrorMessage = "Employee Name is Required")]
+        [Required(ErrorMessage = "Please Enter Employee Name")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Minimum Characters is 3")]
         public string EmployeeFullName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please Enter TaxWithholding")]
         public decimal? TaxWithholding { get; set; }
         [Required]
         [Range(0,int.MaxValue,ErrorMessage ="You should input number for hours")]
