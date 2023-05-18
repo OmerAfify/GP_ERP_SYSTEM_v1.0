@@ -140,13 +140,14 @@ namespace GP_ERP_SYSTEM_v1._0
             }
 
 
-            app.UseCors("CorsPolicy");
+
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             //app.UseStatusCodePagesWithReExecute("/errors/{0}");
+            app.UseCors("CorsPolicy");
 
             app.UseAuthentication();
             app.UseAuthorization();
