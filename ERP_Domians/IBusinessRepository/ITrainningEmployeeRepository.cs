@@ -11,7 +11,7 @@ namespace ERP_Domians.IBusinessRepository
     public interface ITrainningEmployeeRepository : IGenericRepository<TbEmployeeTrainning>
     {
         public Task<IEnumerable<TbEmployeeTrainning>> GetAllEmployeeTrainningWithEmployeeeAndHRManager();
-        public Task<TbEmployeeTrainning> GetEmployeeTrainningWithEmployeeeAndHRManager(int id);
 
+        public Task<TbEmployeeTrainning> GetEmployeeTrainningWithEmployeeAndHRMangerById(int id);
     }
 }

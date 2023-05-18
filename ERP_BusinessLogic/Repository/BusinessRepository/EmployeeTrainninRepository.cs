@@ -25,14 +25,10 @@ namespace ERP_BusinessLogic.Repository.BusinessRepository
             return await _context.Set<TbEmployeeTrainning>().Include(e => e.Employee).ThenInclude(hr => hr.Hrmanager).ToListAsync();
         }
 
-
-
-        public async Task<TbEmployeeTrainning> GetEmployeeTrainningWithEmployeeeAndHRManager(int id)
+        public  async Task<TbEmployeeTrainning> GetEmployeeTrainningWithEmployeeAndHRMangerById(int id)
         {
-            return  await _context.Set<TbEmployeeTrainning>().Where(T => T.TrainnningId == id).Include(e => e.Employee).ThenInclude(hr => hr.Hrmanager).FirstOrDefaultAsync();
+            return await _context.Set<TbEmployeeTrainning>().Where(t => t.TrainnningId == id).Include(e => e.Employee).ThenInclude(hr => hr.Hrmanager).FirstOrDefaultAsync();
         }
-
-
     }
 
 

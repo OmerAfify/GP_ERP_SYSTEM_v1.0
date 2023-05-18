@@ -26,6 +26,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
+
         [HttpGet]
         public async Task<ActionResult> GetAllTrainingEmployee()
         {
@@ -40,16 +41,17 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult> GetEmployeeTraining(int id)
+        public async Task<ActionResult> GetEmployeeTrainingById(int id)
         {
             if (id <= 0)
                 return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
             try
             {
-                var training = await _unitOfWork.TrainningEmployee.GetEmployeeTrainningWithEmployeeeAndHRManager(id);
+                var training = await _unitOfWork.TrainningEmployee.GetEmployeeTrainningWithEmployeeAndHRMangerById( id );
                 if (training == null)
-                    return NotFound(new ErrorApiResponse(404, "Inventory Product is not Found"));
-                return Ok(_mapper.Map<List<EmployeeTrainningDTO>>(training));
+                    return NotFound(new ErrorApiResponse(404, "Employee Training is not Found"));
+               var trainingDto = _mapper.Map<EmployeeTrainningDTO>(training);
+               return Ok(new List<EmployeeTrainningDTO> { trainingDto });
 
             }
             catch (Exception ex)
@@ -58,28 +60,22 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
         }
   [HttpPost]
-  public async Task<IActionResult> CreateNewEmployeeTrainnig([FromBody] EmployeeTrainningDTO employeeTrainning)
+  public async Task<IActionResult> CreateNewEmployeeTrainnig([FromBody] AddEmployeeTrainningDTO employeeTrainning)
   {
       if (!ModelState.IsValid)
       {
           return BadRequest(ModelState);
       }
-      try
+            try
       {
-                var Employees = await _unitOfWork.Employee.GetAllAsync();
-                foreach(var employee in Employees)
-                {
-                    if(employee.HoursWorked <= 1 )
-                    {
-                        _unitOfWork.TrainningEmployee.InsertAsync(_mapper.Map<TbEmployeeTrainning>(employeeTrainning));
-                        
-                    }
-                    await _unitOfWork.Save();
 
-                }
+               _unitOfWork.TrainningEmployee.InsertAsync(_mapper.Map<TbEmployeeTrainning>(employeeTrainning));
+                await _unitOfWork.Save();
+                return NoContent();
+
+       }
          
-          return NoContent();
-      }
+ 
       catch (Exception ex)
       {
           return StatusCode(500, "Internal Server Error" + ex.Message);
@@ -97,7 +93,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             {
           var EmployeeTrainnigToUpdate = await _unitOfWork.TrainningEmployee.GetByIdAsync(id);
           if (EmployeeTrainnigToUpdate == null)
-              return NotFound(new ErrorApiResponse(404,"Invalid Trainning's Id Is Submitted"));
+              return NotFound(new ErrorApiResponse(404,"Invalid Employee Trainning's Id Is Submitted"));
 
           _mapper.Map(employeeTrainning, EmployeeTrainnigToUpdate);
 

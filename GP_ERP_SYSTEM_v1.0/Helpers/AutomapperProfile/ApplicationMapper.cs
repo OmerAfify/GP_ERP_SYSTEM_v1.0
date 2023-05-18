@@ -134,8 +134,9 @@ namespace GP_ERP_SYSTEM_v1._0.Helpers.AutomapperProfile
 
             CreateMap<TbEmployeeTrainning, AddEmployeeTrainningDTO>().ReverseMap();
             CreateMap<TbEmployeeTrainning, EmployeeTrainningDTO>()
-            .ForMember(dest => dest.EmployeeId, opt => opt.MapFrom(src => src.Employee.EmployeeId))
-            .ForMember(dest => dest.HrmangerId, opt => opt.MapFrom(src => src.Hrmanger.Hrid)).ReverseMap();
+            .ForMember(dest => dest.HRName, opt => opt.MapFrom(src => src.Employee.Hrmanager.HrfullName))
+            .ForMember(dest => dest.EmployeeFullName, opt => opt.MapFrom(src => src.Employee.EmployeeFullName));
+            
 
 
 
