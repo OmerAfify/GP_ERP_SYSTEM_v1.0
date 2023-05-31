@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using BusinesssLogic.Repository.GenericRepository;
 using Domains.Interfaces.IGenericRepository;
@@ -84,6 +85,7 @@ namespace BusinessLogic.UnitOfWork
             HRManager = new GenericRepository<TbHrmanagerDetail>(_context);
             TrainningEmployee = new EmployeeTrainninRepository(_context);
             EmployeeTask = new GenericRepository<TbEmployeeTaskDetail>(_context);
+
         }
 
         public void Dispose()

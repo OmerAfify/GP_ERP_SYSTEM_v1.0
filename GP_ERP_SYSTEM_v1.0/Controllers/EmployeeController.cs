@@ -78,7 +78,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (!this.ValidateHRManagerId(Employee.HrmanagerId))
+            if (!this.ValidateHRManagerId(Employee.Hrid))
                 return BadRequest(new ErrorApiResponse(400, "Invalid HR Manager Id is Sent."));
 
             try
@@ -101,7 +101,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                 return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
 
 
-            if (!this.ValidateHRManagerId(Employee.HrmanagerId))
+            if (!this.ValidateHRManagerId(Employee.Hrid))
                 return BadRequest(new ErrorApiResponse(400, "Invalid HRManagerId is sent."));
             try
             {
