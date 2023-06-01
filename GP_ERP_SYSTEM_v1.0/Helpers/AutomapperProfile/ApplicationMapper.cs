@@ -130,7 +130,7 @@ namespace GP_ERP_SYSTEM_v1._0.Helpers.AutomapperProfile
 
             CreateMap<TbEmployeeDetail, EmployeeDetailsDTO>()
                 .ForMember(dest => dest.HRName, opt => opt.MapFrom(src => src.Hrmanager.HrfullName))
-                .ForMember(dest => dest.Hrid, opt => opt.MapFrom(src => src.HrmanagerId)).ReverseMap(); 
+                .ForMember(dest => dest.Hrid, opt => opt.MapFrom(src => src.HrmanagerId)).ReverseMap();
 
             CreateMap<TbHrmanagerDetail, AddHRManagerDTO>().ReverseMap();
             CreateMap<TbHrmanagerDetail, HRManagerDTO>().ForMember(dest => dest.Hrid, opt => opt.MapFrom(src => src.Hrid)).ReverseMap();
