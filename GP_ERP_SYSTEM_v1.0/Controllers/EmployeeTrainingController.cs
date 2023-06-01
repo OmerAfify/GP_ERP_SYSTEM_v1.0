@@ -23,20 +23,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        private bool ValidateHRManagerId(int HRID)
-        {
-            var HRManagerIdsList = _unitOfWork.HRManager.GetAllAsync().Result.Select(Hr => Hr.Hrid);
 
-            return HRManagerIdsList.Contains(HRID);
-
-        }
-        private bool ValidateEmployeeId(int Employeeid)
-        {
-            var HRManagerIdsList = _unitOfWork.Employee.GetAllAsync().Result.Select(Hr => Hr.EmployeeId);
-
-            return HRManagerIdsList.Contains(Employeeid);
-
-        }
         [HttpGet]
         public async Task<ActionResult> GetAllTrainingEmployee()
         {
@@ -78,10 +65,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             {
                 return BadRequest(ModelState);
             }
-            if (!this.ValidateHRManagerId(Trainning.Hrid))
-                return BadRequest(new ErrorApiResponse(400, "Invalid HR Manager Id is Sent."));
-            if (!this.ValidateEmployeeId(Trainning.EmployeeId))
-                return BadRequest(new ErrorApiResponse(400, "Invalid Employee Id is Sent."));
+           
             try
             {
                 _unitOfWork.TrainningEmployee.InsertAsync(_mapper.Map<TbEmployeeTrainning>(Trainning));
