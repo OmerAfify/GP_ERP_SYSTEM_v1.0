@@ -12,6 +12,6 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
       
     public class HRManagerDTO: AddHRManagerDTO
     {
-        public string hrid { get; set; }
+        public int Hrid { get; set; }
     }
 }
