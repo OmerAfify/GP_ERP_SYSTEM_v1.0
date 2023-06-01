@@ -126,16 +126,26 @@ namespace GP_ERP_SYSTEM_v1._0.Helpers.AutomapperProfile
 
 
             //HRMS
-            CreateMap<TbEmployeeDetail, AddEmployeeDTO>().ReverseMap();
-            CreateMap<TbEmployeeDetail, EmployeeDetailsDTO>().ForMember(dest => dest.HRName, opt => opt.MapFrom(src => src.Hrmanager.HrfullName));
+            CreateMap<TbEmployeeDetail, AddEmployeeDTO>().ForMember(dest => dest.Hrid, opt => opt.MapFrom(src => src.HrmanagerId)).ReverseMap();
+
+            CreateMap<TbEmployeeDetail, EmployeeDetailsDTO>()
+                .ForMember(dest => dest.HRName, opt => opt.MapFrom(src => src.Hrmanager.HrfullName))
+                .ForMember(dest => dest.Hrid, opt => opt.MapFrom(src => src.HrmanagerId)).ReverseMap();
 
             CreateMap<TbHrmanagerDetail, AddHRManagerDTO>().ReverseMap();
-            CreateMap<TbHrmanagerDetail, HRManagerDTO>().ReverseMap();
+            CreateMap<TbHrmanagerDetail, HRManagerDTO>().ForMember(dest => dest.Hrid, opt => opt.MapFrom(src => src.Hrid)).ReverseMap();
 
-            CreateMap<TbEmployeeTrainning, AddEmployeeTrainningDTO>().ReverseMap();
+            CreateMap<TbEmployeeTrainning, AddEmployeeTrainningDTO>().ForMember(dest => dest.Hrid, opt => opt.MapFrom(src => src.HrmangerId)).ReverseMap();
             CreateMap<TbEmployeeTrainning, EmployeeTrainningDTO>()
-            .ForMember(dest => dest.EmployeeId, opt => opt.MapFrom(src => src.Employee.EmployeeId))
-            .ForMember(dest => dest.HrmangerId, opt => opt.MapFrom(src => src.Hrmanger.Hrid)).ReverseMap();
+                         
+                .ForMember(dest => dest.Hrid, opt => opt.MapFrom(src => src.HrmangerId))
+            .ForMember(dest => dest.HRName, opt => opt.MapFrom(src => src.Hrmanger.HrfullName))
+            .ForMember(dest => dest.EmployeeFullName, opt => opt.MapFrom(src => src.Employee.EmployeeFullName));
+            CreateMap<TbEmployeeTaskDetail, AddEmployeeTaskDTO>().ReverseMap();
+            CreateMap<TbEmployeeTaskDetail, EmployeeTaskDTO>()
+                .ForMember(dest => dest.EmployeeFullName, opt => opt.MapFrom(src => src.Emplyee.EmployeeFullName))
+                .ForMember(dest => dest.BounsHours, opt => opt.MapFrom(src => src.Emplyee.HoursWorked > 24 ? src.Emplyee.HoursWorked - 24 : 0)).ReverseMap();
+
 
 
 

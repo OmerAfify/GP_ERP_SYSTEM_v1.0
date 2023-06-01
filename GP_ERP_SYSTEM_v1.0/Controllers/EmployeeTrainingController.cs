@@ -3,68 +3,72 @@ using Domains.Interfaces.IUnitOfWork;
 using ERP_Domians.Models;
 using GP_ERP_SYSTEM_v1._0.DTOs;
 using GP_ERP_SYSTEM_v1._0.Errors;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace GP_ERP_SYSTEM_v1._0.Controllers
 {
     [Route("api/[action]")]
     [ApiController]
-    [Authorize(Roles = "Admin,HR")]
-    public class HRManagerController : ControllerBase
+    public class EmployeeTrainingController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-
-        public HRManagerController(IUnitOfWork unitOfWork, IMapper mapper)
+        public EmployeeTrainingController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
+
         [HttpGet]
-        public async Task<IActionResult> GetAllHRMangers()
+        public async Task<ActionResult> GetAllTrainingEmployee()
         {
             try
             {
-                var HRManagers = await _unitOfWork.HRManager.GetAllAsync();
-                return Ok(_mapper.Map<List<HRManagerDTO>>(HRManagers));
+                var Trainning = await _unitOfWork.TrainningEmployee.GetAllAsync(new List<string>() { "Hrmanger", "Employee" });
+
+                return Ok(_mapper.Map<List<EmployeeTrainningDTO>>(Trainning));
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error" + ex.Message);
+                return StatusCode(500, "Internal Server Error." + ex.Message);
             }
         }
         [HttpGet("{id}")]
-
-        public async Task<IActionResult> GetHRManagerByID(int id)
+        public async Task<ActionResult> GetEmployeeTrainingById(int id)
         {
+            if (id <= 0)
+                return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
+
             try
             {
-                var HRManagerId = await _unitOfWork.HRManager.GetByIdAsync(id);
-                if (HRManagerId == null)
-                    return NotFound(new ErrorApiResponse(404, "HR Manager Id is not found."));
-                return Ok(_mapper.Map<AddHRManagerDTO>(HRManagerId));
+                var TrainningId = await _unitOfWork.TrainningEmployee.FindAsync(P => P.TrainnningId == id, new List<string>() { "Hrmanger", "Employee" });
+                if (TrainningId == null)
+                    return BadRequest(new ErrorApiResponse(404, "Trainning Not Found."));
+
+                return Ok(_mapper.Map<EmployeeTrainningDTO>(TrainningId));
             }
             catch (Exception ex)
             {
                 return StatusCode(500, "Internal Server Error" + ex.Message);
             }
         }
+
         [HttpPost]
-        public async Task<IActionResult> AddNewHRManager([FromBody] AddHRManagerDTO hRManager)
+        public async Task<IActionResult> CreateTrainning([FromBody] AddEmployeeTrainningDTO Trainning)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+           
             try
             {
-                _unitOfWork.HRManager.InsertAsync(_mapper.Map<TbHrmanagerDetail>(hRManager));
+                _unitOfWork.TrainningEmployee.InsertAsync(_mapper.Map<TbEmployeeTrainning>(Trainning));
                 await _unitOfWork.Save();
                 return NoContent();
             }
@@ -75,23 +79,22 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateHRManager(int id, [FromBody] AddHRManagerDTO hRManager)
+        public async Task<IActionResult> UpdateTrainnig(int id, [FromBody] AddEmployeeTrainningDTO employeeTrainning)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
             if (id <= 0)
                 return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
+
             try
             {
-                var hRManagerIdToUpdate = await _unitOfWork.HRManager.GetByIdAsync(id);
-                if (hRManagerIdToUpdate == null)
-                    return BadRequest(new ErrorApiResponse(400,"Invalid HRManager's Id Is Submitted"));
+                var EmployeeTrainnigToUpdate = await _unitOfWork.TrainningEmployee.GetByIdAsync(id);
+                if (EmployeeTrainnigToUpdate == null)
+                    return NotFound(new ErrorApiResponse(404, "Invalid Employee Trainning's Id Is Submitted"));
 
-                _mapper.Map(hRManager, hRManagerIdToUpdate);
+                _mapper.Map(employeeTrainning, EmployeeTrainnigToUpdate);
 
-                _unitOfWork.HRManager.Update(hRManagerIdToUpdate);
+                _unitOfWork.TrainningEmployee.Update(EmployeeTrainnigToUpdate);
 
                 await _unitOfWork.Save();
 
@@ -103,25 +106,19 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
         }
         [HttpDelete]
-        public async Task<IActionResult> DeleletHRManagerById(int id)
+        public async Task<IActionResult> DeleletEmployeeTrainningById(int id)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
             if (id <= 0)
                 return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
             try
             {
-                var HRIdToDelete = await _unitOfWork.HRManager.GetByIdAsync(id);
-
-                if (HRIdToDelete == null)
-                    return BadRequest("Invalid Employee's Id Is Submitted");
-
-                _unitOfWork.HRManager.Delete(HRIdToDelete);
-
+                var EmployeeTrainningIdToDelete = await _unitOfWork.TrainningEmployee.GetByIdAsync(id);
+                if (EmployeeTrainningIdToDelete == null)
+                    return NotFound(new ErrorApiResponse(404, "Invalid Trainning's Id Is Submitted"));
+                _unitOfWork.TrainningEmployee.Delete(EmployeeTrainningIdToDelete);
                 await _unitOfWork.Save();
-
                 return NoContent();
             }
             catch (Exception ex)
@@ -129,7 +126,5 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                 return StatusCode(500, "Internal Server Error" + ex.Message);
             }
         }
-
-    } 
-
+    }
 }

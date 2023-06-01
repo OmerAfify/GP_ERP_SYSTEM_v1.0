@@ -10,59 +10,56 @@ using System;
 using GP_ERP_SYSTEM_v1._0.Errors;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
-
 namespace GP_ERP_SYSTEM_v1._0.Controllers
 {
     [Route("api/[action]")]
     [ApiController]
     [Authorize(Roles = "Admin,HR")]
-    public class EmployeeController : ControllerBase
+    public class EmployeeTaskController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-
-        public EmployeeController(IUnitOfWork unitOfWork, IMapper mapper)
+        public EmployeeTaskController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        private bool ValidateHR(int HRID)
+        private bool ValidateEmployeeId(int employeeId)
         {
-            var HRManagerIdsList = _unitOfWork.HRManager.GetAllAsync().Result.Select(Hr => Hr.Hrid);
+            var employeeIdsList = _unitOfWork.Employee.GetAllAsync().Result?.Select(e => e.EmployeeId);
 
-            return HRManagerIdsList.Contains(HRID);
+            if (employeeIdsList == null)
+                return false;
 
+            return employeeIdsList.Contains(employeeId);
         }
-
-
         [HttpGet]
-        public async Task<IActionResult> GetAllEmployee()
+        public async Task<IActionResult> GetAllEmployeeTasks()
         {
             try
             {
-                var Employees = await _unitOfWork.Employee.GetAllAsync(new List<string>() { "Hrmanager" });
+                var EmployeesTask = await _unitOfWork.EmployeeTask.GetAllAsync(new List<string>() { "Emplyee" });
 
-                return Ok(_mapper.Map<List<EmployeeDetailsDTO>>(Employees));
+                return Ok(_mapper.Map<List<EmployeeTaskDTO>>(EmployeesTask));
             }
             catch (Exception ex)
             {
                 return StatusCode(500, "Internal Server Error." + ex.Message);
             }
         }
-
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetEmployeeById(int id)
+        public async Task<IActionResult> GetEmployeeTasksById(int id)
         {
             if (id <= 0)
                 return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
 
             try
             {
-                var EmployeeId = await _unitOfWork.Employee.FindAsync(P => P.EmployeeId == id , new List<string>() { "Hrmanager" });
-                if (EmployeeId == null)
-                    return BadRequest(new ErrorApiResponse(404, "Employee Not Found."));
+                var EmployeeTaskId = await _unitOfWork.EmployeeTask.FindAsync(P => P.TaskId == id, new List<string>() { "Emplyee" });
+                if (EmployeeTaskId == null)
+                    return BadRequest(new ErrorApiResponse(404, "Employee's Task Not Found."));
 
-                return Ok(_mapper.Map<EmployeeDetailsDTO>(EmployeeId));
+                return Ok(_mapper.Map<EmployeeTaskDTO>(EmployeeTaskId));
             }
             catch (Exception ex)
             {
@@ -70,20 +67,17 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddNewEmployee([FromBody] AddEmployeeDTO Employee)
+       [HttpPost]
+        public async Task<IActionResult> AddNewTaskForEmployee([FromBody] AddEmployeeTaskDTO Task)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (!this.ValidateHR(Employee.Hrid))
-                return BadRequest(new ErrorApiResponse(400, "Invalid HR Manager Id is Sent."));
-
             try
             {
-                _unitOfWork.Employee.InsertAsync(_mapper.Map<TbEmployeeDetail>(Employee));
+                _unitOfWork.EmployeeTask.InsertAsync(_mapper.Map<TbEmployeeTaskDetail>(Task));
                 await _unitOfWork.Save();
 
                 return NoContent();
@@ -95,28 +89,24 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateEmployee(int id, [FromBody] AddEmployeeDTO Employee)
+        public async Task<IActionResult> UpdateEmployeeTask(int id, [FromBody] AddEmployeeTaskDTO Task)
         {
             if (id <= 0)
                 return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
 
 
-            if (!this.ValidateHR(Employee.Hrid))
-                return BadRequest(new ErrorApiResponse(400, "Invalid HRManagerId is sent."));
+            if (!this.ValidateEmployeeId(Task.EmplyeeId))
+                return BadRequest(new ErrorApiResponse(400, "Invalid Employee's is sent."));
             try
             {
-                var employeeIdToUpdate = await _unitOfWork.Employee.GetByIdAsync(id);
+                var taskIdToUpdate = await _unitOfWork.EmployeeTask.GetByIdAsync(id);
 
-                if (employeeIdToUpdate == null)
-                    return BadRequest("Invalid Employee's Id Is Submitted");
-                if (employeeIdToUpdate.HoursWorked >= 24)
-                {
-                    employeeIdToUpdate.EmployeeSalary += 10;
-                }
+                if (taskIdToUpdate == null)
+                    return BadRequest("Invalid Employee's Task Id Is Submitted");
 
-                _mapper.Map(Employee, employeeIdToUpdate);
+                _mapper.Map(Task, taskIdToUpdate);
 
-                _unitOfWork.Employee.Update(employeeIdToUpdate);
+                _unitOfWork.EmployeeTask.Update(taskIdToUpdate);
 
                 await _unitOfWork.Save();
 
@@ -129,7 +119,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
         }
         [HttpDelete]
-        public async Task<IActionResult> DeleletEmployeeById(int id)
+        public async Task<IActionResult> DeleletEmployeeTaskById(int id)
         {
             if (id < 1)
             {
@@ -137,12 +127,12 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             try
             {
-                var EmployeeIdToDelete = await _unitOfWork.Employee.GetByIdAsync(id);
+                var EmployeeTaskIdToDelete = await _unitOfWork.EmployeeTask.GetByIdAsync(id);
 
-                if (EmployeeIdToDelete == null)
+                if (EmployeeTaskIdToDelete == null)
                     return BadRequest("Invalid Employee's Id Is Submitted");
 
-                _unitOfWork.Employee.Delete(EmployeeIdToDelete);
+                _unitOfWork.EmployeeTask.Delete(EmployeeTaskIdToDelete);
 
                 await _unitOfWork.Save();
 
@@ -153,7 +143,6 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                 return StatusCode(500, "Internal Server Error" + ex.Message);
             }
         }
-
-
+        
     }
 }

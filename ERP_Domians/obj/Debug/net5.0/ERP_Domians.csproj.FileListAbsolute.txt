@@ -58,3 +58,15 @@ E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.csp
 E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.dll
 E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ref\ERP_Domians.dll
 E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\ERP_Domians\obj\Debug\net5.0\ERP_Domians.pdb
+C:\Users\Mennatuallah\Desktop\GP_ERP_SYSTEM_v1.0-main\ERP_Domians\bin\Debug\net5.0\ERP_Domians.deps.json
+C:\Users\Mennatuallah\Desktop\GP_ERP_SYSTEM_v1.0-main\ERP_Domians\bin\Debug\net5.0\ERP_Domians.dll
+C:\Users\Mennatuallah\Desktop\GP_ERP_SYSTEM_v1.0-main\ERP_Domians\bin\Debug\net5.0\ref\ERP_Domians.dll
+C:\Users\Mennatuallah\Desktop\GP_ERP_SYSTEM_v1.0-main\ERP_Domians\bin\Debug\net5.0\ERP_Domians.pdb
+C:\Users\Mennatuallah\Desktop\GP_ERP_SYSTEM_v1.0-main\ERP_Domians\obj\Debug\net5.0\ERP_Domians.csproj.AssemblyReference.cache
+C:\Users\Mennatuallah\Desktop\GP_ERP_SYSTEM_v1.0-main\ERP_Domians\obj\Debug\net5.0\ERP_Domians.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mennatuallah\Desktop\GP_ERP_SYSTEM_v1.0-main\ERP_Domians\obj\Debug\net5.0\ERP_Domians.AssemblyInfoInputs.cache
+C:\Users\Mennatuallah\Desktop\GP_ERP_SYSTEM_v1.0-main\ERP_Domians\obj\Debug\net5.0\ERP_Domians.AssemblyInfo.cs
+C:\Users\Mennatuallah\Desktop\GP_ERP_SYSTEM_v1.0-main\ERP_Domians\obj\Debug\net5.0\ERP_Domians.csproj.CoreCompileInputs.cache
+C:\Users\Mennatuallah\Desktop\GP_ERP_SYSTEM_v1.0-main\ERP_Domians\obj\Debug\net5.0\ERP_Domians.dll
+C:\Users\Mennatuallah\Desktop\GP_ERP_SYSTEM_v1.0-main\ERP_Domians\obj\Debug\net5.0\ref\ERP_Domians.dll
+C:\Users\Mennatuallah\Desktop\GP_ERP_SYSTEM_v1.0-main\ERP_Domians\obj\Debug\net5.0\ERP_Domians.pdb
