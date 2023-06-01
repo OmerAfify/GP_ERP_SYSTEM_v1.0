@@ -12,7 +12,7 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
         [Required]
         public int Hrid { get; set; }
     }
-    public class EmployeeTrainningDTO: AddEmployeeTrainningDTO
+    public class EmployeeTrainningDTO : AddEmployeeTrainningDTO
     {
         public int TrainnningId { get; set; }
         public string HRName { get; set; }

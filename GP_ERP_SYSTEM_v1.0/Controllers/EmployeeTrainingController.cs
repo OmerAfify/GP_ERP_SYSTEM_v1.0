@@ -78,7 +78,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             {
                 return BadRequest(ModelState);
             }
-            if (!this.ValidateHRManagerId(Trainning.HrmangerId))
+            if (!this.ValidateHRManagerId(Trainning.Hrid))
                 return BadRequest(new ErrorApiResponse(400, "Invalid HR Manager Id is Sent."));
             if (!this.ValidateEmployeeId(Trainning.EmployeeId))
                 return BadRequest(new ErrorApiResponse(400, "Invalid Employee Id is Sent."));
