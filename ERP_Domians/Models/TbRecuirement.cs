@@ -17,8 +17,8 @@ namespace ERP_Domians.Models
         public string RecuirementPosition { get; set; }
         public string RecuirementDescription { get; set; }
         public DateTime? RecuirementDate { get; set; }
-        public int? EmployeeId { get; set; }
-        public int? HrmanagerId { get; set; }
+        public int EmployeeId { get; set; }
+        public int HrmanagerId { get; set; }
 
         public virtual TbEmployeeDetail Employee { get; set; }
         public virtual TbHrmanagerDetail Hrmanager { get; set; }

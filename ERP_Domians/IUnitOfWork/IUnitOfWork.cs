@@ -37,10 +37,15 @@ namespace Domains.Interfaces.IUnitOfWork
 
         //HRMS
         IGenericRepository<TbEmployeeDetail> Employee { get; }
-        IGenericRepository<TbHrmanagerDetail> HRManager { get; }
-
+  
+        IGenericRepository<TbHrmanagerDetail> Hrmanager { get; }
         IGenericRepository<TbEmployeeTrainning> TrainningEmployee { get; }
         IGenericRepository<TbEmployeeTaskDetail> EmployeeTask { get; }
+        IGenericRepository<TbRecuirement> Recuiremnet { get; }
+        IGenericRepository<TbInterviewDetail> Interview { get; }
+        
+        //CRM
+        IGenericRepository<TbCustomer> Customer { get; }
         public Task<int> Save();
     }
 }

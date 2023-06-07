@@ -28,7 +28,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         }
         private bool ValidateHR(int HRID)
         {
-            var HRManagerIdsList = _unitOfWork.HRManager.GetAllAsync().Result.Select(Hr => Hr.Hrid);
+            var HRManagerIdsList = _unitOfWork.Hrmanager.GetAllAsync().Result.Select(Hr => Hr.Hrid);
 
             return HRManagerIdsList.Contains(HRID);
 

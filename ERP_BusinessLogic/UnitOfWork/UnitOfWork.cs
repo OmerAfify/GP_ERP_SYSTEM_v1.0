@@ -46,9 +46,17 @@ namespace BusinessLogic.UnitOfWork
 
         //HRMS
         public IGenericRepository<TbEmployeeDetail> Employee { get; private set; }
-        public IGenericRepository<TbHrmanagerDetail> HRManager { get; private set; }
         public IGenericRepository<TbEmployeeTrainning> TrainningEmployee { get; private set; }
         public IGenericRepository<TbEmployeeTaskDetail> EmployeeTask { get; private set; }
+        public IGenericRepository<TbInterviewDetail> Interview { get; private set; }
+        public IGenericRepository<TbRecuirement> Recuiremnet { get; private set; }
+        public IGenericRepository<TbHrmanagerDetail> Hrmanager { get; private set; }
+
+        //CRM
+        public IGenericRepository<TbCustomer> Customer { get; private set; }
+
+  
+
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
@@ -82,9 +90,14 @@ namespace BusinessLogic.UnitOfWork
 
             //HRMS
             Employee = new GenericRepository<TbEmployeeDetail>(_context);
-            HRManager = new GenericRepository<TbHrmanagerDetail>(_context);
             TrainningEmployee = new GenericRepository<TbEmployeeTrainning>(_context);
             EmployeeTask = new GenericRepository<TbEmployeeTaskDetail>(_context);
+            Recuiremnet = new GenericRepository<TbRecuirement>(_context);
+            Interview = new GenericRepository<TbInterviewDetail>(_context);
+            Hrmanager = new GenericRepository<TbHrmanagerDetail>(_context);
+
+            //CRM 
+            Customer = new GenericRepository<TbCustomer>(_context);
 
         }
 
