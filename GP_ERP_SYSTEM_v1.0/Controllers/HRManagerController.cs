@@ -31,7 +31,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         {
             try
             {
-                var HRManagers = await _unitOfWork.HRManager.GetAllAsync();
+                var HRManagers = await _unitOfWork.Hrmanager.GetAllAsync();
                 return Ok(_mapper.Map<List<HRManagerDTO>>(HRManagers));
             }
             catch (Exception ex)
@@ -45,7 +45,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         {
             try
             {
-                var HRManagerId = await _unitOfWork.HRManager.GetByIdAsync(id);
+                var HRManagerId = await _unitOfWork.Hrmanager.GetByIdAsync(id);
                 if (HRManagerId == null)
                     return NotFound(new ErrorApiResponse(404, "HR Manager Id is not found."));
                 return Ok(_mapper.Map<AddHRManagerDTO>(HRManagerId));
@@ -64,7 +64,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             try
             {
-                _unitOfWork.HRManager.InsertAsync(_mapper.Map<TbHrmanagerDetail>(hRManager));
+                _unitOfWork.Hrmanager.InsertAsync(_mapper.Map<TbHrmanagerDetail>(hRManager));
                 await _unitOfWork.Save();
                 return NoContent();
             }
@@ -85,13 +85,13 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                 return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
             try
             {
-                var hRManagerIdToUpdate = await _unitOfWork.HRManager.GetByIdAsync(id);
+                var hRManagerIdToUpdate = await _unitOfWork.Hrmanager.GetByIdAsync(id);
                 if (hRManagerIdToUpdate == null)
                     return BadRequest(new ErrorApiResponse(400,"Invalid HRManager's Id Is Submitted"));
 
                 _mapper.Map(hRManager, hRManagerIdToUpdate);
 
-                _unitOfWork.HRManager.Update(hRManagerIdToUpdate);
+                _unitOfWork.Hrmanager.Update(hRManagerIdToUpdate);
 
                 await _unitOfWork.Save();
 
@@ -113,12 +113,12 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                 return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
             try
             {
-                var HRIdToDelete = await _unitOfWork.HRManager.GetByIdAsync(id);
+                var HRIdToDelete = await _unitOfWork.Hrmanager.GetByIdAsync(id);
 
                 if (HRIdToDelete == null)
                     return BadRequest("Invalid Employee's Id Is Submitted");
 
-                _unitOfWork.HRManager.Delete(HRIdToDelete);
+                _unitOfWork.Hrmanager.Delete(HRIdToDelete);
 
                 await _unitOfWork.Save();
 
