@@ -14,3 +14,9 @@ D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYS
 D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0_DbProjectCompare\obj\Debug\GP_ERP_SYSTEM_v1.0_DbProjectCompare.sqlproj.AssemblyReference.cache
 D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0_DbProjectCompare\obj\Debug\GP_ERP_SYSTEM_v1.0_DbProjectCompare.dll
 D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0_DbProjectCompare\obj\Debug\GP_ERP_SYSTEM_v1.0_DbProjectCompare.pdb
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0_DbProjectCompare\bin\Debug\GP_ERP_SYSTEM_v1.0_DbProjectCompare.dacpac
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0_DbProjectCompare\bin\Debug\GP_ERP_SYSTEM_v1.0_DbProjectCompare.dll
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0_DbProjectCompare\bin\Debug\GP_ERP_SYSTEM_v1.0_DbProjectCompare.pdb
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0_DbProjectCompare\obj\Debug\GP_ERP_SYSTEM_v1.0_DbProjectCompare.sqlproj.AssemblyReference.cache
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0_DbProjectCompare\obj\Debug\GP_ERP_SYSTEM_v1.0_DbProjectCompare.dll
+E:\GP_BACKEND_V3\GP_ERP_SYSTEM_v1.0\GP_ERP_SYSTEM_v1.0_DbProjectCompare\obj\Debug\GP_ERP_SYSTEM_v1.0_DbProjectCompare.pdb

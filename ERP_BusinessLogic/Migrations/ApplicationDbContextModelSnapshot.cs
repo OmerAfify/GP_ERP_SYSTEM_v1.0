@@ -151,7 +151,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal?>("Age")
+                    b.Property<decimal>("Age")
                         .HasColumnType("decimal(18,0)");
 
                     b.Property<string>("Email")
@@ -164,10 +164,10 @@ namespace ERP_BusinessLogic.Migrations
                     b.Property<byte[]>("Image")
                         .HasColumnType("image");
 
-                    b.Property<decimal?>("Phone")
-                        .HasColumnType("decimal(18,0)");
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("Sex")
+                    b.Property<bool>("Sex")
                         .HasColumnType("bit");
 
                     b.HasKey("CustomerId")
@@ -320,7 +320,7 @@ namespace ERP_BusinessLogic.Migrations
                     b.Property<int?>("HoursWorked")
                         .HasColumnType("int");
 
-                    b.Property<int?>("HrmanagerId")
+                    b.Property<int>("HrmanagerId")
                         .HasColumnType("int")
                         .HasColumnName("HRManagerId");
 
@@ -373,10 +373,10 @@ namespace ERP_BusinessLogic.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("EmployeeId")
+                    b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("HrmangerId")
+                    b.Property<int>("HrmangerId")
                         .HasColumnType("int")
                         .HasColumnName("HRMangerId");
 
@@ -655,10 +655,10 @@ namespace ERP_BusinessLogic.Migrations
                     b.Property<DateTime?>("InterviewDate")
                         .HasColumnType("datetime");
 
-                    b.Property<bool?>("InterviewResult")
+                    b.Property<bool>("InterviewResult")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("RecuriementId")
+                    b.Property<int>("RecuriementId")
                         .HasColumnType("int");
 
                     b.HasKey("InterviewId");
@@ -932,10 +932,10 @@ namespace ERP_BusinessLogic.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("EmployeeId")
+                    b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("HrmanagerId")
+                    b.Property<int>("HrmanagerId")
                         .HasColumnType("int")
                         .HasColumnName("HRManagerId");
 
@@ -1054,10 +1054,10 @@ namespace ERP_BusinessLogic.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CustomerId")
+                    b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("QuestionId")
+                    b.Property<int>("QuestionId")
                         .HasColumnType("int");
 
                     b.Property<string>("SurveyDesc")
@@ -1083,7 +1083,7 @@ namespace ERP_BusinessLogic.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CustomerId")
+                    b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("TaskDate")
@@ -1110,7 +1110,7 @@ namespace ERP_BusinessLogic.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CustomerId")
+                    b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
                     b.Property<string>("ToDoListDesc")
@@ -1344,7 +1344,9 @@ namespace ERP_BusinessLogic.Migrations
                     b.HasOne("ERP_Domians.Models.TbHrmanagerDetail", "Hrmanager")
                         .WithMany("TbEmployeeDetails")
                         .HasForeignKey("HrmanagerId")
-                        .HasConstraintName("FK_TB_EmployeeDetails_TB_HRManagerDetails");
+                        .HasConstraintName("FK_TB_EmployeeDetails_TB_HRManagerDetails")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Hrmanager");
                 });
@@ -1364,12 +1366,16 @@ namespace ERP_BusinessLogic.Migrations
                     b.HasOne("ERP_Domians.Models.TbEmployeeDetail", "Employee")
                         .WithMany("TbEmployeeTrainnings")
                         .HasForeignKey("EmployeeId")
-                        .HasConstraintName("FK_TB_EmployeeTrainning_TB_EmployeeDetails");
+                        .HasConstraintName("FK_TB_EmployeeTrainning_TB_EmployeeDetails")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ERP_Domians.Models.TbHrmanagerDetail", "Hrmanger")
                         .WithMany("TbEmployeeTrainnings")
                         .HasForeignKey("HrmangerId")
-                        .HasConstraintName("FK_TB_EmployeeTrainning_TB_HRManagerDetails");
+                        .HasConstraintName("FK_TB_EmployeeTrainning_TB_HRManagerDetails")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Employee");
 
@@ -1459,7 +1465,9 @@ namespace ERP_BusinessLogic.Migrations
                     b.HasOne("ERP_Domians.Models.TbRecuirement", "Recuriement")
                         .WithMany("TbInterviewDetails")
                         .HasForeignKey("RecuriementId")
-                        .HasConstraintName("FK_TB_InterviewDetails_TB_Recuirement");
+                        .HasConstraintName("FK_TB_InterviewDetails_TB_Recuirement")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Recuriement");
                 });
@@ -1586,12 +1594,16 @@ namespace ERP_BusinessLogic.Migrations
                     b.HasOne("ERP_Domians.Models.TbEmployeeDetail", "Employee")
                         .WithMany("TbRecuirements")
                         .HasForeignKey("EmployeeId")
-                        .HasConstraintName("FK_TB_Recuirement_TB_EmployeeDetails");
+                        .HasConstraintName("FK_TB_Recuirement_TB_EmployeeDetails")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ERP_Domians.Models.TbHrmanagerDetail", "Hrmanager")
                         .WithMany("TbRecuirements")
                         .HasForeignKey("HrmanagerId")
-                        .HasConstraintName("FK_TB_Recuirement_TB_HRManagerDetails");
+                        .HasConstraintName("FK_TB_Recuirement_TB_HRManagerDetails")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Employee");
 
@@ -1624,12 +1636,16 @@ namespace ERP_BusinessLogic.Migrations
                     b.HasOne("ERP_Domians.Models.TbCustomer", "Customer")
                         .WithMany("TbSurveys")
                         .HasForeignKey("CustomerId")
-                        .HasConstraintName("FK__TB_Survey__Custo__48CFD27E");
+                        .HasConstraintName("FK__TB_Survey__Custo__48CFD27E")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ERP_Domians.Models.TbQuestion", "Question")
                         .WithMany("TbSurveys")
                         .HasForeignKey("QuestionId")
-                        .HasConstraintName("FK__TB_Survey__Quest__49C3F6B7");
+                        .HasConstraintName("FK__TB_Survey__Quest__49C3F6B7")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Customer");
 
@@ -1641,7 +1657,9 @@ namespace ERP_BusinessLogic.Migrations
                     b.HasOne("ERP_Domians.Models.TbCustomer", "Customer")
                         .WithMany("TbTasks")
                         .HasForeignKey("CustomerId")
-                        .HasConstraintName("FK_TB_Task_TB_Customer");
+                        .HasConstraintName("FK_TB_Task_TB_Customer")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Customer");
                 });
@@ -1651,7 +1669,9 @@ namespace ERP_BusinessLogic.Migrations
                     b.HasOne("ERP_Domians.Models.TbCustomer", "Customer")
                         .WithMany("TbToDoLists")
                         .HasForeignKey("CustomerId")
-                        .HasConstraintName("FK__TB_ToDoLi__Custo__45F365D3");
+                        .HasConstraintName("FK__TB_ToDoLi__Custo__45F365D3")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Customer");
                 });
