@@ -156,6 +156,17 @@ namespace GP_ERP_SYSTEM_v1._0.Helpers.AutomapperProfile
             CreateMap<TbCustomer, AddCustomerDTO>().ReverseMap();
             CreateMap<TbCustomer, CustomerDTO>().ReverseMap();
 
+            CreateMap<TbTask, AddTaskDTO>().ReverseMap();
+            CreateMap<TbTask, TaskDTO>()
+            .ForMember(dest => dest.CustomerFullName, opt => opt.MapFrom(src => src.Customer.FullName))
+            .ForMember(dest => dest.CustomerPhone, opt => opt.MapFrom(src => src.Customer.Phone))
+            .ForMember(dest => dest.CustomerAge, opt => opt.MapFrom(src => src.Customer.Age));
+
+            CreateMap<TbToDoList, AddToDoListDTO>().ReverseMap();
+            CreateMap<TbToDoList, ToDoListDTO>()
+            .ForMember(dest => dest.CustomerFullName, opt => opt.MapFrom(src => src.Customer.FullName))
+            .ForMember(dest => dest.CustomerPhone, opt => opt.MapFrom(src => src.Customer.Phone));
+
         }
     }
 }

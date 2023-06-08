@@ -19,5 +19,7 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
     public class ToDoListDTO : AddToDoListDTO
     {
         public int ToDoListId { get; set; }
+        public string CustomerFullName { get; set; }
+        public string CustomerPhone { get; set; }
     }
 }

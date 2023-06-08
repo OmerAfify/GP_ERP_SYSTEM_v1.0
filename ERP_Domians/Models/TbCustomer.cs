@@ -17,7 +17,7 @@ namespace ERP_Domians.Models
         public int CustomerId { get; set; }
         public string FullName { get; set; }
         public string Email { get; set; }
-        public decimal Phone { get; set; }
+        public string Phone { get; set; }
         public string Address { get; set; }
         public bool Sex { get; set; }
         public decimal Age { get; set; }

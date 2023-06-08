@@ -55,7 +55,9 @@ namespace BusinessLogic.UnitOfWork
         //CRM
         public IGenericRepository<TbCustomer> Customer { get; private set; }
 
-  
+        public IGenericRepository<TbTask> Task { get; private set; }
+
+        public IGenericRepository<TbToDoList> ToDoList { get; private set; }
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -98,6 +100,8 @@ namespace BusinessLogic.UnitOfWork
 
             //CRM 
             Customer = new GenericRepository<TbCustomer>(_context);
+            Task = new GenericRepository<TbTask>(_context);
+            ToDoList = new GenericRepository<TbToDoList>(_context);
 
         }
 

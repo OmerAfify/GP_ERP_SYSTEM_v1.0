@@ -46,6 +46,8 @@ namespace Domains.Interfaces.IUnitOfWork
         
         //CRM
         IGenericRepository<TbCustomer> Customer { get; }
+        IGenericRepository<TbTask> Task { get; }
+        IGenericRepository<TbToDoList> ToDoList { get; }
         public Task<int> Save();
     }
 }

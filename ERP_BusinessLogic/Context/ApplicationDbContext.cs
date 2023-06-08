@@ -451,7 +451,7 @@ namespace ERP_BusinessLogic.Context
 
                 entity.Property(e => e.Image).HasColumnType("image");
 
-                entity.Property(e => e.Phone).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.Phone).HasColumnType("nvarchar(max)");
             });
        
             modelBuilder.Entity<TbEmployeeDetail>(entity =>
