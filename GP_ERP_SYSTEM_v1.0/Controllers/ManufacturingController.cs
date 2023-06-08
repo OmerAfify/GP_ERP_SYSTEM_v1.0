@@ -17,7 +17,7 @@ namespace GP_ERP_SYSTEM_v1._0
     [Route("api/[action]")]
     [ApiController]
 
-    [Authorize(Roles = "Admin,SCM")]
+   // [Authorize(Roles = "Admin,SCM")]
     public class ManufacturingController : ControllerBase
     {
         private readonly IManufacturingOrderService _manufacturingService;
