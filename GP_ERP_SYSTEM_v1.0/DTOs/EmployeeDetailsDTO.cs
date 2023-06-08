@@ -21,7 +21,7 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
         [Required]
         public DateTime? Holidays { get; set; }
         [Required]
-        public decimal? EmployeeSalary { get; set; }
+        public decimal EmployeeSalary { get; set; }
         [Required(ErrorMessage = "Please Enter HR Manager Id")]
         public int Hrid { get; set; }
     }

@@ -6,33 +6,32 @@ using GP_ERP_SYSTEM_v1._0.Errors;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace GP_ERP_SYSTEM_v1._0.Controllers
 {
     [Route("api/[action]")]
     [ApiController]
-    [Authorize(Roles = "Admin,HR")]
-    public class HRManagerController : ControllerBase
+    //[Authorize(Roles = "Admin,bi")]
+    public class CustomerController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-
-        public HRManagerController(IUnitOfWork unitOfWork, IMapper mapper)
+        public CustomerController(IUnitOfWork unitOfWork,IMapper mapper )
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
         [HttpGet]
-        public async Task<IActionResult> GetAllHRMangers()
+        public async Task<IActionResult> GetAllCustomers()
         {
             try
             {
-                var HRManagers = await _unitOfWork.Hrmanager.GetAllAsync();
-                return Ok(_mapper.Map<List<HRManagerDTO>>(HRManagers));
+                var Customers = await _unitOfWork.Customer.GetAllAsync();
+                return Ok(_mapper.Map<List<CustomerDTO>>(Customers));
             }
             catch (Exception ex)
             {
@@ -41,14 +40,14 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         }
         [HttpGet("{id}")]
 
-        public async Task<IActionResult> GetHRManagerByID(int id)
+        public async Task<IActionResult> GetCutomerrByID(int id)
         {
             try
             {
-                var HRManagerId = await _unitOfWork.Hrmanager.GetByIdAsync(id);
-                if (HRManagerId == null)
-                    return NotFound(new ErrorApiResponse(404, "HR Manager Id is not found."));
-                return Ok(_mapper.Map<AddHRManagerDTO>(HRManagerId));
+                var CustomerId = await _unitOfWork.Customer.GetByIdAsync(id);
+                if (CustomerId == null)
+                    return NotFound(new ErrorApiResponse(404, "Customer Id is not found."));
+                return Ok(_mapper.Map<AddCustomerDTO>(CustomerId));
             }
             catch (Exception ex)
             {
@@ -56,7 +55,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> AddNewHRManager([FromBody] AddHRManagerDTO hRManager)
+        public async Task<IActionResult> AddCustomerProfile([FromBody] AddCustomerDTO Customer)
         {
             if (!ModelState.IsValid)
             {
@@ -64,7 +63,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
             try
             {
-                _unitOfWork.Hrmanager.InsertAsync(_mapper.Map<TbHrmanagerDetail>(hRManager));
+                _unitOfWork.Customer.InsertAsync(_mapper.Map<TbCustomer>(Customer));
                 await _unitOfWork.Save();
                 return NoContent();
             }
@@ -75,7 +74,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateHRManager(int id, [FromBody] AddHRManagerDTO hRManager)
+        public async Task<IActionResult> EditCustomerProfile(int id, [FromBody] AddCustomerDTO Customer)
         {
             if (!ModelState.IsValid)
             {
@@ -85,13 +84,13 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                 return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
             try
             {
-                var hRManagerIdToUpdate = await _unitOfWork.Hrmanager.GetByIdAsync(id);
-                if (hRManagerIdToUpdate == null)
-                    return BadRequest(new ErrorApiResponse(400,"Invalid HRManager's Id Is Submitted"));
+                var customerIdToUpdate = await _unitOfWork.Customer.GetByIdAsync(id);
+                if (customerIdToUpdate == null)
+                    return BadRequest(new ErrorApiResponse(400, "Invalid Customer's Id Is Submitted"));
 
-                _mapper.Map(hRManager, hRManagerIdToUpdate);
+                _mapper.Map(Customer, (TbCustomer)customerIdToUpdate);
 
-                _unitOfWork.Hrmanager.Update(hRManagerIdToUpdate);
+                _unitOfWork.Customer.Update(customerIdToUpdate);
 
                 await _unitOfWork.Save();
 
@@ -103,7 +102,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
         }
         [HttpDelete]
-        public async Task<IActionResult> DeleletHRManagerById(int id)
+        public async Task<IActionResult> DeleletCustomerById(int id)
         {
             if (!ModelState.IsValid)
             {
@@ -113,12 +112,12 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                 return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Id can't be 0 or less." } });
             try
             {
-                var HRIdToDelete = await _unitOfWork.Hrmanager.GetByIdAsync(id);
+                var CustomemrIdToDelete = await _unitOfWork.Customer.GetByIdAsync(id);
 
-                if (HRIdToDelete == null)
-                    return BadRequest("Invalid Employee's Id Is Submitted");
+                if (CustomemrIdToDelete == null)
+                    return BadRequest("Invalid Customer's Id Is Submitted");
 
-                _unitOfWork.Hrmanager.Delete(HRIdToDelete);
+                _unitOfWork.Customer.Delete(CustomemrIdToDelete);
 
                 await _unitOfWork.Save();
 
@@ -130,6 +129,5 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
             }
         }
 
-    } 
-
+    }
 }

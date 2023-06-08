@@ -15,12 +15,11 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
         [Required]
         public DateTime? RecuirementDate { get; set; }
         [Required]
-        public int? EmployeeId { get; set; }
-        [Required]
-        public int? HrmanagerId { get; set; }
+        public int Hrid { get; set; }
     }
     public class RecuirementDTO :AddRecuirementDTO
     {
         public int RecuirementId { get; set; }
+        public int EmployeeId { get; set; }
     }
 }
