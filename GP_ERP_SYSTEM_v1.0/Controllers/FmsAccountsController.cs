@@ -13,6 +13,8 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 {
     [Route("api/[action]")]
     [ApiController]
+
+    //  [Authorize(Roles = "Admin,FM")]
     public class FmsAccountsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;

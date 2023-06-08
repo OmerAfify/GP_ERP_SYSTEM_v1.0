@@ -34,54 +34,51 @@ namespace CoffeeCorner.Controllers
 
 
 
-        //[HttpPost]
-        //public async Task<ActionResult<UserDTO>> Register([FromBody] RegisterDTO registerUserDTO)
-        //{
+        [HttpPost]
+        public async Task<ActionResult<UserDTO>> Register([FromBody] RegisterDTO registerUserDTO)
+        {
 
-        //    if (!ModelState.IsValid)
-        //        return BadRequest();
+            if (!ModelState.IsValid)
+                return BadRequest();
 
-        //    try
-        //    {
-
-        //        if (CheckIfEmailExistsAsync(registerUserDTO.Email).Result.Value)
-        //            return BadRequest(new ErrorValidationResponse() { Errors = new List<string> { "Email already exists." } });
+            try
+            {
 
 
-        //        var user = new ApplicationUser()
-        //        {
+                var user = new ApplicationUser()
+                {
 
-        //            Email = registerUserDTO.Email,
-        //            UserName = registerUserDTO.Email,
-        //            FirstName = registerUserDTO.FirstName,
-        //            LastName = registerUserDTO.LasttName
-        //        };
+                    Email = registerUserDTO.Email,
+                    UserName = registerUserDTO.Email,
+                    FirstName = registerUserDTO.FirstName,
+                    LastName = registerUserDTO.LasttName
+                };
 
-        //        var result = await _userManager.CreateAsync(user, registerUserDTO.Password);
+                var result = await _userManager.CreateAsync(user, registerUserDTO.Password);
 
-        //        if (result.Succeeded)
-        //        {
-        //            return new UserDTO()
-        //            {
-        //                Email = user.Email,
-        //                Name = user.FirstName,
-        //                Token = _tokenService.CreateToken(user)
-        //            };
+                if (result.Succeeded)
+                {
+                    return new UserDTO()
+                    {
+                        Email = user.Email,
+                        Name = user.FirstName,
+                        Token = _tokenService.CreateToken(user)
+                    };
 
-        //        }
-        //        else
-        //            return BadRequest();
+                }
+                else
+                    return BadRequest();
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ErrorExceptionResponse(500, null, ex.Message));
 
-        //    }
+            }
 
-        //}
+        }
 
-     
+
         [HttpPost]
         public async Task<ActionResult<UserDTO>> Login([FromBody] LoginDTO loginUserDTO)
         {
