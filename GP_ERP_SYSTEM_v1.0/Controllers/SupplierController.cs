@@ -15,7 +15,7 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
 {
     [Route("api/[action]")]
     [ApiController]
-    [Authorize(Roles = "Admin,SCM")]
+   // [Authorize(Roles = "Admin,SCM")]
     public class SupplierController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;

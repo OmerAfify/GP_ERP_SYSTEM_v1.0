@@ -19,5 +19,8 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
     public class TaskDTO :AddTaskDTO
     {
         public int TaskId { get; set; }
+        public string CustomerFullName { get; set; }
+        public string CustomerPhone { get; set; }
+        public decimal CustomerAge { get; set; }
     }
 }
