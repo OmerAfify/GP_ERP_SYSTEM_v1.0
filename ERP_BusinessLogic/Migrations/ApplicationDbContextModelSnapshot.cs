@@ -167,8 +167,8 @@ namespace ERP_BusinessLogic.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Sex")
-                        .HasColumnType("bit");
+                    b.Property<string>("Sex")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CustomerId")
                         .HasName("PK__TB_Custo__A4AE64D85267C97A");
