@@ -19,7 +19,7 @@ namespace ERP_Domians.Models
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
-        public bool Sex { get; set; }
+        public string Sex { get; set; } 
         public decimal Age { get; set; }
         public byte[] Image { get; set; }
 
@@ -27,4 +27,5 @@ namespace ERP_Domians.Models
         public virtual ICollection<TbTask> TbTasks { get; set; }
         public virtual ICollection<TbToDoList> TbToDoLists { get; set; }
     }
+
 }

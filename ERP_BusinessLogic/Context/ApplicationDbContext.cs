@@ -452,6 +452,7 @@ namespace ERP_BusinessLogic.Context
                 entity.Property(e => e.Image).HasColumnType("image");
 
                 entity.Property(e => e.Phone).HasColumnType("nvarchar(max)");
+                entity.Property(e => e.Sex).HasColumnType("nvarchar(max)");
             });
        
             modelBuilder.Entity<TbEmployeeDetail>(entity =>
@@ -776,7 +777,11 @@ namespace ERP_BusinessLogic.Context
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.TbTasks)
                     .HasForeignKey(d => d.CustomerId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_TB_Task_TB_Customer");
+                    
+
+                   
             });
 
             modelBuilder.Entity<TbToDoList>(entity =>
@@ -789,6 +794,7 @@ namespace ERP_BusinessLogic.Context
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.TbToDoLists)
                     .HasForeignKey(d => d.CustomerId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK__TB_ToDoLi__Custo__45F365D3");
             });
 
