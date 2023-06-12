@@ -71,8 +71,8 @@ namespace GP_ERP_SYSTEM_v1._0
                     Jename = "Supplier Order from Supplier ID = " + result.SupplierId,
                     Jedescription = "An Order from Supplier whose ID is " + result.SupplierId +
                       " with total cash of  $" + result.TotalPrice + " and total quantity of " + result.TotalQty,
-                    Jeaccount1 = 5,
-                    Jeaccount2 = 3,
+                    Jeaccount1 = 3,
+                    Jeaccount2 = 1,
                     Jecredit = result.TotalPrice,
                     Jedebit = result.TotalPrice,
                     Jedate = result.OrderingDate,
@@ -82,8 +82,8 @@ namespace GP_ERP_SYSTEM_v1._0
                 {
                     Jename = "ShippingCost of Supplier Order from Supplier ID = " + result.SupplierId,
                     Jedescription = "Cost of Shiping Order from Supplier To the Inventory.",
-                    Jeaccount1 = 2,
-                    Jeaccount2 = 3,
+                    Jeaccount1 = 3,
+                    Jeaccount2 = 1,
                     Jecredit = result.ShippingCost,
                     Jedebit = result.ShippingCost,
                     Jedate = result.OrderingDate,

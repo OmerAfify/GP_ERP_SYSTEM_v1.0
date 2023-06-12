@@ -202,8 +202,8 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                     Jename = "Distribution Order from Distributor ID = " + order.DistributorId,
                     Jedescription = "Distribution Order from Distributor " + order.DistributorId + 
                       " with total cash of  $" + order.TotalPrice + " and total quantity of " + order.TotalQty,
-                    Jeaccount1 = 3,
-                    Jeaccount2 = 4,
+                    Jeaccount1 = 1,
+                    Jeaccount2 = 3,
                     Jecredit = order.TotalPrice,
                     Jedebit = order.TotalPrice,
                     Jedate = order.OrderingDate,
