@@ -632,13 +632,29 @@ namespace ERP_BusinessLogic.Migrations
                         .HasColumnName("HRId")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("Age")
+                        .HasColumnType("int")
+                        .HasColumnName("Age");
+
+                    b.Property<string>("Gender")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Gender");
+
+                    b.Property<string>("Hremail")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("HREmail");
+
                     b.Property<string>("HrfullName")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("HRFullName");
 
-                    b.Property<string>("Hrpassword")
+                    b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)")
-                        .HasColumnName("HRPassword");
+                        .HasColumnName("Phone");
+
+                    b.Property<decimal>("Salary")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("Salary");
 
                     b.HasKey("Hrid");
 
@@ -1356,7 +1372,8 @@ namespace ERP_BusinessLogic.Migrations
                     b.HasOne("ERP_Domians.Models.TbEmployeeDetail", "Emplyee")
                         .WithMany("TbEmployeeTaskDetails")
                         .HasForeignKey("EmplyeeId")
-                        .HasConstraintName("FK_TB_EmployeeTaskDetails_TB_EmployeeDetails");
+                        .HasConstraintName("FK_TB_EmployeeTaskDetails_TB_EmployeeDetails")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Emplyee");
                 });

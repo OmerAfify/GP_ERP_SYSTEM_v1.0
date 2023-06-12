@@ -494,6 +494,7 @@ namespace ERP_BusinessLogic.Context
                 entity.HasOne(d => d.Emplyee)
                     .WithMany(p => p.TbEmployeeTaskDetails)
                     .HasForeignKey(d => d.EmplyeeId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_TB_EmployeeTaskDetails_TB_EmployeeDetails");
             });
 
@@ -508,11 +509,13 @@ namespace ERP_BusinessLogic.Context
                 entity.HasOne(d => d.Employee)
                     .WithMany(p => p.TbEmployeeTrainnings)
                     .HasForeignKey(d => d.EmployeeId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_TB_EmployeeTrainning_TB_EmployeeDetails");
 
                 entity.HasOne(d => d.Hrmanger)
                     .WithMany(p => p.TbEmployeeTrainnings)
                     .HasForeignKey(d => d.HrmangerId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_TB_EmployeeTrainning_TB_HRManagerDetails");
             });
 
@@ -686,7 +689,11 @@ namespace ERP_BusinessLogic.Context
 
                 entity.Property(e => e.HrfullName).HasColumnName("HRFullName");
 
-                entity.Property(e => e.Hrpassword).HasColumnName("HRPassword");
+                entity.Property(e => e.Hremail).HasColumnName("HREmail");
+                entity.Property(e => e.Age).HasColumnName("Age");
+                entity.Property(e => e.Gender).HasColumnName("Gender");
+                entity.Property(e => e.Salary).HasColumnName("Salary");
+                entity.Property(e => e.Phone).HasColumnName("Phone");
             });
 
             modelBuilder.Entity<TbInterviewDetail>(entity =>
