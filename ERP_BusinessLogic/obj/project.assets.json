@@ -6301,19 +6301,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\zakaw\\.nuget\\packages\\": {}
+    "C:\\Users\\Mennatuallah\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj",
+      "projectUniqueName": "E:\\GP_BACKEND_V3\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj",
       "projectName": "ERP_BusinessLogic",
-      "projectPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj",
-      "packagesPath": "C:\\Users\\zakaw\\.nuget\\packages\\",
-      "outputPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\obj\\",
+      "projectPath": "E:\\GP_BACKEND_V3\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\ERP_BusinessLogic.csproj",
+      "packagesPath": "C:\\Users\\Mennatuallah\\.nuget\\packages\\",
+      "outputPath": "E:\\GP_BACKEND_V3\\GP_ERP_SYSTEM_v1.0\\ERP_BusinessLogic\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\zakaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mennatuallah\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6327,8 +6331,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj": {
-              "projectPath": "D:\\6-Programming and courses\\My Local Projects Repository\\ASP.net MVC\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj"
+            "E:\\GP_BACKEND_V3\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj": {
+              "projectPath": "E:\\GP_BACKEND_V3\\GP_ERP_SYSTEM_v1.0\\ERP_Domians\\ERP_Domians.csproj"
             }
           }
         }

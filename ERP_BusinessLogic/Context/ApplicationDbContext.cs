@@ -451,7 +451,8 @@ namespace ERP_BusinessLogic.Context
 
                 entity.Property(e => e.Image).HasColumnType("image");
 
-                entity.Property(e => e.Phone).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.Phone).HasColumnType("nvarchar(max)");
+                entity.Property(e => e.Sex).HasColumnType("nvarchar(max)");
             });
        
             modelBuilder.Entity<TbEmployeeDetail>(entity =>
@@ -493,6 +494,7 @@ namespace ERP_BusinessLogic.Context
                 entity.HasOne(d => d.Emplyee)
                     .WithMany(p => p.TbEmployeeTaskDetails)
                     .HasForeignKey(d => d.EmplyeeId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_TB_EmployeeTaskDetails_TB_EmployeeDetails");
             });
 
@@ -507,11 +509,13 @@ namespace ERP_BusinessLogic.Context
                 entity.HasOne(d => d.Employee)
                     .WithMany(p => p.TbEmployeeTrainnings)
                     .HasForeignKey(d => d.EmployeeId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_TB_EmployeeTrainning_TB_EmployeeDetails");
 
                 entity.HasOne(d => d.Hrmanger)
                     .WithMany(p => p.TbEmployeeTrainnings)
                     .HasForeignKey(d => d.HrmangerId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_TB_EmployeeTrainning_TB_HRManagerDetails");
             });
 
@@ -685,7 +689,11 @@ namespace ERP_BusinessLogic.Context
 
                 entity.Property(e => e.HrfullName).HasColumnName("HRFullName");
 
-                entity.Property(e => e.Hrpassword).HasColumnName("HRPassword");
+                entity.Property(e => e.Hremail).HasColumnName("HREmail");
+                entity.Property(e => e.Age).HasColumnName("Age");
+                entity.Property(e => e.Gender).HasColumnName("Gender");
+                entity.Property(e => e.Salary).HasColumnName("Salary");
+                entity.Property(e => e.Phone).HasColumnName("Phone");
             });
 
             modelBuilder.Entity<TbInterviewDetail>(entity =>
@@ -776,7 +784,11 @@ namespace ERP_BusinessLogic.Context
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.TbTasks)
                     .HasForeignKey(d => d.CustomerId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_TB_Task_TB_Customer");
+                    
+
+                   
             });
 
             modelBuilder.Entity<TbToDoList>(entity =>
@@ -789,6 +801,7 @@ namespace ERP_BusinessLogic.Context
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.TbToDoLists)
                     .HasForeignKey(d => d.CustomerId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK__TB_ToDoLi__Custo__45F365D3");
             });
 

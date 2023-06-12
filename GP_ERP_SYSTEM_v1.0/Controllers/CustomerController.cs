@@ -88,10 +88,9 @@ namespace GP_ERP_SYSTEM_v1._0.Controllers
                 if (customerIdToUpdate == null)
                     return BadRequest(new ErrorApiResponse(400, "Invalid Customer's Id Is Submitted"));
 
-                _mapper.Map(Customer, (TbCustomer)customerIdToUpdate);
+                _mapper.Map(Customer, customerIdToUpdate);
 
                 _unitOfWork.Customer.Update(customerIdToUpdate);
-
                 await _unitOfWork.Save();
 
                 return NoContent();

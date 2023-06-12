@@ -14,13 +14,15 @@ namespace GP_ERP_SYSTEM_v1._0.DTOs
         [Required]
         public string Email { get; set; }
         [Required]
-        public decimal Phone { get; set; }
+        public string Phone { get; set; }
         public string Address { get; set; }
-        public bool Sex { get; set; }
+        [Required]
+        public string Sex { get; set; } // Enum field
         [Required]
         public decimal Age { get; set; }
        // public byte[] Image { get; set; }
     }
+
     public class CustomerDTO :AddCustomerDTO
     {
         public int CustomerId { get; set; }
